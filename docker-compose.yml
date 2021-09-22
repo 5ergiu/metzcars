@@ -5,11 +5,9 @@ services:
         image: mysql:8.0
         restart: unless-stopped
         environment:
-            MYSQL_USER: 'admin'
-            MYSQL_PASSWORD: 'admin'
-            MYSQL_ROOT_PASSWORD: 'admin'
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         volumes:
-            - metzcars_mysqldata:/var/lib/mysql
+            - ./.docker/storage/mysql:/var/lib/mysql
 
     app:
         build: .
@@ -35,6 +33,10 @@ services:
             - "80:80"
             - "443:443"
 
-volumes:
-    metzcars_mysqldata:
-        external: true
+    portainer:
+        image: portainer/portainer-ce
+        volumes:
+            - ./.docker/storage/portainer:/data
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - "9000:9000"
