@@ -34,6 +34,4 @@ RUN set -xe; \
 # Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
 
-# www-data own files
-RUN chown www-data:www-data -R /var/www
-# TODO: RUN php artisan opcache:clear # clear cache
+# TODO: RUN php artisan opcache:clear & whatever build commands would be necessary(php artisan key:generate, composer install --no-interaction)

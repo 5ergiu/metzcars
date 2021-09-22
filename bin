@@ -1,0 +1,12 @@
+#!/bin/bash
+function toast {
+    COLOR='\033[1;36m'
+    NC='\033[0m' # No Color
+
+    echo -e "${COLOR}\r\n>>> $1 ${NC}"
+}
+
+set -e
+clear
+
+docker-compose exec app "$@"

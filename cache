@@ -1,0 +1,19 @@
+#!/bin/bash
+function toast {
+    COLOR='\033[1;36m'
+    NC='\033[0m' # No Color
+
+    echo -e "${COLOR}\r\n>>> $1 ${NC}"
+}
+
+set -e
+start=$(date +%s)
+clear
+
+toast 'Clearing cache'
+docker-compose exec app php artisan config:clear
+docker-compose exec app php artisan route:clear
+docker-compose exec app php artisan view:clear
+
+end=$(date +%s)
+toast "Execution Time: $((end-start)) seconds. 🍻"
