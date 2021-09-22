@@ -1,2 +1,4 @@
 *
+!local-metzcars.crt
+!local-metzcars.key
 !.gitignore
