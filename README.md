@@ -27,10 +27,11 @@ installed on your system, and then clone this repository.
 
 ### Configuration
 
-1. Copy .env file `cp .env.example .env` and setup env variables
-2. Run `docker-compose up -d`
+1. Update hosts - add `127.0.0.1 metzcars.local`
+2. Copy .env file `cp .env.example .env` and setup env variables
+3. Run `docker-compose up -d`
 
-***That's it!***
+***That's it!*** The website is up and running: https://metzcars.local
 
 ### Scripts
 

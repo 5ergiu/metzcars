@@ -34,4 +34,15 @@ RUN set -xe; \
 # Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
 
-# TODO: RUN php artisan opcache:clear & whatever build commands would be necessary(php artisan key:generate, composer install --no-interaction)
+# Install dependencies
+RUN composer install --no-interaction
+
+# Finish composer
+RUN composer dump-autoload --optimize --classmap-authoritative
+
+# Update Laravel key
+RUN php artisan key:generate
+
+# Clear cache
+RUN php artisan opcache:clear && php artisan cache:clear
+
