@@ -11,7 +11,7 @@ services:
         volumes:
             - metzcars_mysqldata:/var/lib/mysql
 
-    php:
+    app:
         build: .
         restart: unless-stopped
         volumes:

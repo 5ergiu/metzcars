@@ -34,5 +34,6 @@ RUN set -xe; \
 # Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
 
-# www-data owns files
+# www-data own files
+RUN chown www-data:www-data -R /var/www
 # TODO: RUN php artisan opcache:clear # clear cache
