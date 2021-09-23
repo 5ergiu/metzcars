@@ -4,7 +4,7 @@ ARG PHP_EXTENSIONS="gd pdo_mysql bcmath ctype fileinfo opcache"
 
 WORKDIR /var/www
 
-RUN apk add --no-cache --update nodejs npm
+RUN apk add --no-cache --update nodejs yarn
 
 RUN set -xe; \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
@@ -33,5 +33,4 @@ RUN set -xe; \
       apk del .build-deps && \
       rm -rf /tmp/*
 
-# Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
