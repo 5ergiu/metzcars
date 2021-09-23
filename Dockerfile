@@ -33,15 +33,5 @@ RUN set -xe; \
       apk del .build-deps && \
       rm -rf /tmp/*
 
-# Copy codebase
-COPY . .
-
 # Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
-
-# Install dependencies
-RUN composer install --no-interaction
-RUN npm install && npm run prod
-
-# Update Laravel key
-RUN php artisan key:generate
