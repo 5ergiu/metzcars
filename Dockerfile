@@ -4,6 +4,8 @@ ARG PHP_EXTENSIONS="gd pdo_mysql bcmath ctype fileinfo opcache"
 
 WORKDIR /var/www
 
+RUN apk add --no-cache --update nodejs npm
+
 RUN set -xe; \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
         # build tools
@@ -31,18 +33,15 @@ RUN set -xe; \
       apk del .build-deps && \
       rm -rf /tmp/*
 
+# Copy codebase
+COPY . .
+
 # Get composer
 COPY --from=composer /usr/bin/composer /usr/bin/
 
 # Install dependencies
 RUN composer install --no-interaction
-
-# Finish composer
-RUN composer dump-autoload --optimize --classmap-authoritative
+RUN npm install && npm run prod
 
 # Update Laravel key
 RUN php artisan key:generate
-
-# Clear cache
-RUN php artisan opcache:clear && php artisan cache:clear
-
