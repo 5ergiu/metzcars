@@ -1,0 +1,172 @@
+@import "vars";
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(../fonts/SourceSansPro/SourceSansPro-Regular.ttf) format('truetype');
+  font-display: swap; // Ensure text remains visible during webfont load
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(../fonts/SourceSansPro/SourceSansPro-Bold.ttf) format('truetype');
+  font-display: swap; // Ensure text remains visible during webfont load
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(../fonts/SourceSansPro/SourceSansPro-Light.ttf) format('truetype');
+  font-display: swap; // Ensure text remains visible during webfont load
+  font-weight: 300;
+  font-style: normal;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global styles
+|--------------------------------------------------------------------------
+|
+| BEM methodology(https://en.bem.info/methodology/quick-start/#block) conventions need to be followed:
+|
+| - WHEN TO USE BLOCKS:
+|   These basically encapsulate a standalone entity that is meaningful on its own.
+|   While blocks can be nested and interact with each other, semantically
+|   they remain equal; there is no precedence or hierarchy.
+|   Holistic entities without DOM representation
+|   (such as controllers or models) can be blocks as well.
+|
+| - WHEN TO USE ELEMENTS:
+|   These are parts of a block and have no standalone meaning.
+|   Any element is semantically tied to its block.
+|
+| - WHEN TO USE MODIFIERS:
+|   Flags on blocks or elements. Use them to change appearance, behavior or state.
+|
+| - GRANDCHILDREN ELEMENTS:
+|   Just use another underscore, example:
+|   <article className='article'>
+|     <div className='article__title>
+|       <div className='article__title_text>
+|       ...
+|       </div>
+|     </div>
+|   </article>
+|
+*/
+
+:root {
+  font: {
+    family: 'SourceSansPro', sans-serif;
+  }
+}
+
+body, html {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $dark;
+  color: $text;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: $dark;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $bg;
+    border-radius: 1rem;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline:none !important;
+}
+
+p, h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+  color: $blue;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+button {
+  cursor: pointer;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.muted {
+  font: {
+    size: 0.8rem;
+    weight: bold;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  &--loading {
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+    opacity: 0;
+    &--active {
+      cursor: wait;
+      opacity: 1;
+    }
+  }
+}
+
+// Media queries
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { }
+
+// Landscape view
+@media (min-height: 500px) { }
