@@ -19,17 +19,22 @@
             background-repeat: no-repeat;
             background-position: center;
             padding: 6rem 0;
-            -webkit-filter: blur(3px); //change the value according to what suits the best
-            -moz-filter: blur(3px); //change the value according to what suits the best
-            -o-filter: blur(3px); //change the value according to what suits the best
-            -ms-filter: blur(3px); //change the value according to what suits the best
-            filter: blur(3px); //change the value according to what suits the best
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
         }
         &_txt {
-            padding: 1rem;
+            padding: 3rem;
         }
     }
 }
+
+#content {
+    padding-top: 4rem;
+}
+
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -37,12 +42,31 @@
         background: transparent;
     }
 
+    #content {
+        padding-top: 0; // overwriting
+        margin-top: -5rem;
+    }
+
     .home {
-        margin-top: -9rem;
-        padding-top: 0;
         &__bg {
             &_txt {
                 max-width: 800px;
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    #content {
+        margin-top: -8rem;
+    }
+
+
+    .home {
+        &__bg {
+            &_txt {
+                padding: 5rem 1rem 0 1rem;
             }
         }
     }

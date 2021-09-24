@@ -262,7 +262,7 @@ button {
 
 #content {
     flex: 1 0 auto;
-    padding-top: 4rem;
+    padding-top: 6rem; // compensating for the fixed header
 }
 
 footer {
@@ -374,7 +374,7 @@ footer {
         > button {
             background: none;
             border: none;
-            padding: 0 1rem 0 0;
+            padding: 0;
         }
         img {
             width: 60px;
@@ -400,6 +400,9 @@ footer {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+    #content {
+        padding-top: 0;
+    }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -422,8 +425,7 @@ footer {
 @media (min-height: 500px) {
 }
 
-// Styles applied to different pages
+// Styles applied to partials
 @import "../views/partials/header";
 @import "../views/partials/nav";
 @import "../views/partials/footer";
-@import "../views/home/home";

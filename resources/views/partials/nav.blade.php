@@ -5,25 +5,25 @@
             <img class="d-md-none navbar-brand--small" src="{{ asset('logo_small.png') }}" alt="Metz Cars" />
         </a>
         <ul class="navbar-nav flex-row flex-grow-1 justify-content-around justify-content-sm-center justify-content-md-start">
-            <li class="p-1">
+            <li>
                 <a class="navbar__link {{ request()->is('/') ? 'navbar__link--active' : null }}" aria-current="page" href="{{ route('app.home') }}">
                     <i class="fas fa-home"></i>
                     <span class="navbar__link_label">{{ __('labels.home') }}</span>
                 </a>
             </li>
-            <li class="p-1">
+            <li>
                 <a class="navbar__link {{ request()->segment(1) === 'stock' ? 'navbar__link--active' : null }}" href="{{ route('app.stock') }}">
                     <i class="fas fa-warehouse"></i>
                     <span class="navbar__link_label">{{ __('labels.stock') }}</span>
                 </a>
             </li>
-            <li class="p-1">
+            <li>
                 <a class="navbar__link" href="#">
                     <i class="fas fa-briefcase"></i>
                     <span class="navbar__link_label">{{ __('labels.portfolio') }}</span>
                 </a>
             </li>
-            <li class="p-1">
+            <li>
                 <a class="navbar__link" href="#">
                     <i class="far fa-envelope"></i>
                     <span class="navbar__link_label">{{ __('labels.contact') }}</span>

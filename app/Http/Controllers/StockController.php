@@ -11,6 +11,6 @@ class StockController extends Controller
      */
     public function index(): View
     {
-        return view('stock.index');
+        return view('stock.stock');
     }
 }
