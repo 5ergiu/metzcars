@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 # Public routes
 Route::middleware(['locale'])->group(function() {
-    Route::get('/',              [Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/locale/{code}', [Controllers\LocaleController::class, 'handleLocaleChange'])->name('locale');
+    Route::get('/',              [Controllers\HomeController::class, 'index'])->name('app.home');
+    Route::get('/stock',         [Controllers\StockController::class, 'index'])->name('app.stock');
+    Route::get('/locale/{code}', [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
 });
