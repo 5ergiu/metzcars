@@ -1,0 +1,429 @@
+@import "deps";
+@import "vars";
+
+@font-face {
+    font-family: "Nunito";
+    src: url(../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url(../fonts/Nunito/Nunito-Bold.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url(../fonts/Nunito/Nunito-Light.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Byom";
+    src: url(../fonts/Byom/Byom-Regular.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Byom";
+    src: url(../fonts/Byom/Byom-Bold.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Byom";
+    src: url(../fonts/Byom/Byom-Light.ttf) format('truetype');
+    font-display: swap; // Ensure text remains visible during webfont load
+    font-weight: 300;
+    font-style: normal;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity:0;
+        -webkit-transform: translatex(-100px);
+        -moz-transform: translatex(-100px);
+        -o-transform: translatex(-100px);
+        transform: translatex(-100px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatex(0);
+        -moz-transform: translatex(0);
+        -o-transform: translatex(0);
+        transform: translatex(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    -webkit-animation-name: slideIn;
+    -moz-animation-name: slideIn;
+    -o-animation-name: slideIn;
+    animation-name: slideIn;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.1s;
+    -moz-animation-duration: 0.1s;
+    -o-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.fade-in-left {
+    -webkit-animation-name: fadeInLeft;
+    -moz-animation-name: fadeInLeft;
+    -o-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global styles
+|--------------------------------------------------------------------------
+|
+| BEM methodology(https://en.bem.info/methodology/quick-start/#block) conventions need to be followed:
+|
+| - WHEN TO USE BLOCKS:
+|   These basically encapsulate a standalone entity that is meaningful on its own.
+|   While blocks can be nested and interact with each other, semantically
+|   they remain equal; there is no precedence or hierarchy.
+|   Holistic entities without DOM representation
+|   (such as controllers or models) can be blocks as well.
+|
+| - WHEN TO USE ELEMENTS:
+|   These are parts of a block and have no standalone meaning.
+|   Any element is semantically tied to its block.
+|
+| - WHEN TO USE MODIFIERS:
+|   Flags on blocks or elements. Use them to change appearance, behavior or state.
+|
+| - GRANDCHILDREN ELEMENTS:
+|   Just use another underscore, example:
+|   <article className='article'>
+|     <div className='article__title>
+|       <div className='article__title_text>
+|       ...
+|       </div>
+|     </div>
+|   </article>
+|
+*/
+
+body, html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $dark;
+    color: $text;
+    font: {
+        family: 'Nunito', sans-serif;
+    }
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $blue;
+        border-radius: 1rem;
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+p, h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+a {
+    cursor: pointer;
+    color: $blue;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+button {
+    cursor: pointer;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.muted {
+    font: {
+        size: 0.8rem;
+        weight: bold;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+
+    &--loading {
+        background: rgba(0, 0, 0, 0.5);
+        -webkit-filter: blur(2px);
+        -moz-filter: blur(2px);
+        -o-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(2px);
+        opacity: 0;
+
+        &--active {
+            cursor: wait;
+            opacity: 1;
+        }
+    }
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+// Fix footer to the bottom
+#container {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    flex: 1 0 auto;
+    padding-top: 4rem;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+// Buttons
+.button {
+    background-color: $blue;
+    color: #fff;
+    outline: none;
+    padding: 0.55rem 0.75rem;
+    margin: 5px;
+    border: none;
+    border-radius: 0.2rem;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+    font: {
+        family: "Nunito", sans-serif;
+        size: 0.9rem;
+        weight: 600;
+    }
+    transition: background-color 0.4s, color 0.4s;
+    &:hover {
+        background-color: #187DE4;
+    }
+    svg {
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    &--icon {
+        svg {
+            margin-right: 0;
+        }
+    }
+    &--secondary {
+        background-color: #E4E6EF;
+        color: #3F4254;
+        &:hover {
+            background-color: #d7dae7;
+        }
+    }
+    &--success {
+        background-color: #1BC5BD;
+        &:hover {
+            background-color: #0BB7AF;
+        }
+    }
+    &--info {
+        background-color: #8950FC;
+        &:hover {
+            background-color: #7337EE;
+        }
+    }
+    &--warning {
+        background-color: #FFA800;
+        &:hover {
+            background-color: #EE9D01;
+        }
+    }
+    &--danger {
+        background-color: #F64E60;
+        &:hover {
+            background-color: #EE2D41;
+        }
+    }
+    &--transparent {
+        background-color: rgba(54, 153, 255, 0.1);
+        color: #3699FF;
+        &:hover {
+            background-color: #3699FF;
+            color: #fff;
+        }
+        &--secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            &:hover {
+                color: #3F4254;
+                background-color: #fff;
+            }
+        }
+        &--success {
+            background-color: rgba(27, 197, 189, 0.1);
+            color: #1BC5BD;
+            &:hover {
+                background-color: #1BC5BD;
+                color: #fff;
+            }
+        }
+        &--warning {
+            background-color: rgba(255, 168, 0, 0.1);
+            color: #FFA800;
+            &:hover {
+                background-color: #FFA800;
+                color: #fff;
+            }
+        }
+        &--danger {
+            background-color: rgba(246, 78, 96, 0.1);
+            color: #F64E60;
+            &:hover {
+                background-color: #F64E60;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.dropdown {
+    &--locale {
+        > button {
+            background: none;
+            border: none;
+            padding: 0 1rem 0 0;
+        }
+        img {
+            width: 60px;
+            height: auto;
+        }
+        .dropdown-menu {
+            left: unset;
+            right: 1rem;
+            background: none;
+            min-width: unset;
+        }
+        .dropdown-item {
+            cursor: pointer;
+            user-select: none;
+            &:hover {}
+            background: none;
+            padding: 0;
+        }
+    }
+}
+
+// Media queries
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}
+
+// Landscape view
+@media (min-height: 500px) {
+}
+
+// Styles applied to different pages
+@import "../views/partials/header";
+@import "../views/partials/nav";
+@import "../views/partials/footer";
+@import "../views/home/home";

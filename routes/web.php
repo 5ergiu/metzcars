@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+# Public routes
+Route::middleware(['locale'])->group(function() {
+    Route::get('/',              [Controllers\HomeController::class, 'index'])->name('app.home');
+    Route::get('/stock',         [Controllers\StockController::class, 'index'])->name('app.stock');
+    Route::get('/locale/{code}', [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
 });
