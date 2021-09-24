@@ -229,6 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // Services aliases
+        'LocaleService' => App\Services\LocaleService::class,
     ],
 
 ];

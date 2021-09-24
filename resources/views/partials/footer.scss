@@ -1,0 +1,10 @@
+footer {
+    padding-bottom: 5rem;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    footer {
+        padding-bottom: 0;
+    }
+}

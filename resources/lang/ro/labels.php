@@ -11,6 +11,9 @@ return [
     | to a specific model.
     |
     */
-
-    'leasingAndRent' => 'Leasing & Rent',
+    'home'           => 'Acasă',
+    'leasingAndRent' => 'Leasing & Închirieri',
+    'stock'          => 'Stoc',
+    'portfolio'      => 'Portfoliu',
+    'contact'        => 'Contact',
 ];

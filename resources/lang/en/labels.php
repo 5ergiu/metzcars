@@ -12,5 +12,9 @@ return [
     |
     */
 
-    'leasingAndRent' => 'Leasing & Închirieri',
+    'home'           => 'Home',
+    'leasingAndRent' => 'Leasing & Rent',
+    'stock'          => 'Stock',
+    'portfolio'      => 'Portfolio',
+    'contact'        => 'Contact',
 ];

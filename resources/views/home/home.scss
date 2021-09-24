@@ -1,0 +1,49 @@
+@import "../../sass/vars";
+
+.home {
+    &__bg {
+        position: relative;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(to bottom, transparent, $dark),  url('../../images/home.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 6rem 0;
+            -webkit-filter: blur(3px); //change the value according to what suits the best
+            -moz-filter: blur(3px); //change the value according to what suits the best
+            -o-filter: blur(3px); //change the value according to what suits the best
+            -ms-filter: blur(3px); //change the value according to what suits the best
+            filter: blur(3px); //change the value according to what suits the best
+        }
+        &_txt {
+            padding: 1rem;
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .navbar {
+        background: transparent;
+    }
+
+    .home {
+        margin-top: -9rem;
+        padding-top: 0;
+        &__bg {
+            &_txt {
+                max-width: 800px;
+            }
+        }
+    }
+}
