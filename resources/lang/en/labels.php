@@ -12,9 +12,12 @@ return [
     |
     */
 
+    'contact'        => 'Contact',
+    'getInTouch'     => 'Get in touch',
     'home'           => 'Home',
     'leasingAndRent' => 'Leasing & Rent',
-    'stock'          => 'Stock',
     'portfolio'      => 'Portfolio',
-    'contact'        => 'Contact',
+    'privacy'        => 'Privacy policy',
+    'stock'          => 'Stock',
+    'terms'          => 'Terms and conditions'
 ];

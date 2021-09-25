@@ -1,4 +1,4 @@
-<header>
+<header class="main-header">
     <a href="{{ route('app.home') }}">
         <img src="{{ asset('logo_small.png') }}" alt="Metz Cars" />
     </a>
