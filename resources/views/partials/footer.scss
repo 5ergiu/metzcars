@@ -3,10 +3,6 @@
 .main-footer {
     margin-top: 1rem;
     padding-bottom: 6rem;
-    > div {
-        white-space: nowrap;
-
-    }
     a {
         font: {
             weight: bold;
@@ -17,6 +13,7 @@
         }
     }
     &__contact {
+        white-space: nowrap;
         margin-bottom: 1rem;
         img {
             width: 100px;
@@ -24,15 +21,27 @@
         }
     }
     &__links {
+        white-space: nowrap;
         margin-bottom: 1rem;
         span {
             vertical-align: text-bottom;
         }
     }
     &__social {
+        white-space: nowrap;
         a {
             margin-left: 1rem;
             font-size: 2.5rem;
+        }
+    }
+
+    .legal-modal {
+        .modal {
+            &-header {
+                -webkit-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+                -moz-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+                box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+            }
         }
     }
 }

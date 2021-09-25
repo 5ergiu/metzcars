@@ -18,6 +18,8 @@ return [
     'leasingAndRent' => 'Leasing & Rent',
     'portfolio'      => 'Portfolio',
     'privacy'        => 'Privacy policy',
+    'rightsReserved' => 'All rights reserved',
+    'send'           => 'Send',
     'stock'          => 'Stock',
     'terms'          => 'Terms and conditions'
 ];

@@ -1,0 +1,25 @@
+.contact {
+    height: 100%;
+    form {
+        max-width: 600px;
+        margin: 0 auto 3rem;
+    }
+    &__map {
+        > div {
+            height: 40%;
+        }
+        height: 0;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        border-radius: 1rem;
+        margin-top: auto;
+        iframe {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
