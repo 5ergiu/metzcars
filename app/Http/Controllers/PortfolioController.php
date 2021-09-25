@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 
-class ContactController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * @return View
      */
     public function index(): View
     {
-        return view('contact.index');
+        return view('portfolio.portfolio');
     }
 }

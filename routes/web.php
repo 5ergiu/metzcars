@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-# Public routes
 Route::middleware(['locale'])->group(function() {
     Route::get('/',                     [Controllers\HomeController::class, 'index'])->name('app.home');
     Route::get('/stock',                [Controllers\StockController::class, 'index'])->name('app.stock');
     Route::get('/locale/{code}',        [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
-    Route::get('/terms-and-conditions', [Controllers\LegalController::class, 'terms'])->name('app.legal.terms');
-    Route::get('/privacy-policy',       [Controllers\LegalController::class, 'privacy'])->name('app.legal.privacy');
-    Route::get('/contact',              [Controllers\ContactController::class, 'index'])->name('app.contact');
+    Route::get('/portfolio',            [Controllers\PortfolioController::class, 'index'])->name('app.portfolio');
+
+    // Contacts
+    Route::get('/contact',              [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
+    Route::post('/contact',             [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
 });
