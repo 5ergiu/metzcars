@@ -35,6 +35,16 @@
     padding-top: 4rem;
 }
 
+// Landscape view
+@media (max-height: 500px) {
+    .home {
+        &__bg {
+            &_txt {
+                display: none;
+            }
+        }
+    }
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -61,7 +71,6 @@
     #content {
         margin-top: -8rem;
     }
-
 
     .home {
         &__bg {
