@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li>
-                <a class="navbar__link {{ request()->segment(1) === 'contact' ? 'navbar__link--active' : null }}" href="{{ route('app.contact.create') }}">
+                <a class="navbar__link {{ request()->segment(1) === 'contact' ? 'navbar__link--active' : null }}" href="{{ route('app.contacts.create') }}">
                     <i class="far fa-envelope"></i>
                     <span class="navbar__link_label">{{ __('labels.contact') }}</span>
                 </a>

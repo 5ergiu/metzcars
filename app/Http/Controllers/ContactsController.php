@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ContactStoreRequest;
-use App\Services\ContactService;
+use App\Http\Requests\ContactsStoreRequest;
+use App\Services\ContactsService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class ContactController extends Controller
+class ContactsController extends Controller
 {
     public function __construct(
-        private ContactService $contactService
+        private ContactsService $contactService
     ) {}
 
     /**
@@ -18,14 +18,14 @@ class ContactController extends Controller
      */
     public function create(): View
     {
-        return view('contact.contact');
+        return view('contacts.create');
     }
 
     /**
-     * @param ContactStoreRequest $request
+     * @param ContactsStoreRequest $request
      * @return RedirectResponse
      */
-    public function store(ContactStoreRequest $request): RedirectResponse
+    public function store(ContactsStoreRequest $request): RedirectResponse
     {
         return $this->contactService->handleStore($request);
     }

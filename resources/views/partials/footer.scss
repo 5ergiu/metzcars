@@ -52,6 +52,18 @@
         background: $bg;
         border-top-left-radius: 1.5rem;
         border-top-right-radius: 1.5rem;
-        padding: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .main-footer {
+        &__contact {
+            margin-bottom: 0;
+        }
+        &__links {
+            margin-bottom: 0;
+        }
     }
 }

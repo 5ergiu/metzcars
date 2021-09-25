@@ -20,7 +20,7 @@ Route::middleware(['locale'])->group(function() {
     Route::get('/locale/{code}',        [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
     Route::get('/portfolio',            [Controllers\PortfolioController::class, 'index'])->name('app.portfolio');
 
-    // Contact
-    Route::get('/contact',              [Controllers\ContactController::class, 'create'])->name('app.contact.create');
-    Route::post('/contact',             [Controllers\ContactController::class, 'index'])->name('app.contact.store');
+    // Contacts
+    Route::get('/contact',              [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
+    Route::post('/contact',             [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
 });
