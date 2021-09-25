@@ -18,13 +18,13 @@
                 </a>
             </li>
             <li>
-                <a class="navbar__link" href="#">
+                <a class="navbar__link {{ request()->segment(1) === 'portfolio' ? 'navbar__link--active' : null }}" href="{{ route('app.portfolio') }}">
                     <i class="fas fa-briefcase"></i>
                     <span class="navbar__link_label">{{ __('labels.portfolio') }}</span>
                 </a>
             </li>
             <li>
-                <a class="navbar__link" href="#">
+                <a class="navbar__link {{ request()->segment(1) === 'contact' ? 'navbar__link--active' : null }}" href="{{ route('app.contacts.create') }}">
                     <i class="far fa-envelope"></i>
                     <span class="navbar__link_label">{{ __('labels.contact') }}</span>
                 </a>

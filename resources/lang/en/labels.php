@@ -12,12 +12,15 @@ return [
     |
     */
 
-    'contact'        => 'Contact',
-    'getInTouch'     => 'Get in touch',
-    'home'           => 'Home',
-    'leasingAndRent' => 'Leasing & Rent',
-    'portfolio'      => 'Portfolio',
-    'privacy'        => 'Privacy policy',
-    'stock'          => 'Stock',
-    'terms'          => 'Terms and conditions'
+    "contact"        => "Contact",
+    "genericError"   => "Something went wrong, please try again.",
+    "getInTouch"     => "Get in touch",
+    "home"           => "Home",
+    "leasingAndRent" => "Leasing & Rent",
+    "portfolio"      => "Portfolio",
+    "privacy"        => "Privacy policy",
+    "rightsReserved" => "All rights reserved",
+    "send"           => "Send",
+    "stock"          => "Stock",
+    "terms"          => "Terms and conditions"
 ];

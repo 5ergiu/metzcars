@@ -330,7 +330,7 @@ footer {
     }
     &--transparent {
         background-color: rgba(54, 153, 255, 0.1);
-        color: #3699FF;
+        color: $blue;
         &:hover {
             background-color: #3699FF;
             color: #fff;
@@ -369,6 +369,12 @@ footer {
     }
 }
 
+.required-field:after {
+    content: " *";
+    color: red;
+}
+
+// Dropdowns
 .dropdown {
     &--locale {
         > button {
@@ -391,6 +397,27 @@ footer {
             &:hover {}
             background: none;
             padding: 0;
+        }
+    }
+}
+
+// Modals
+.modal {
+    &-content {
+        background: $bg;
+    }
+    &-body {
+        &::-webkit-scrollbar {
+            width: 0.8rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $bg;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $blue;
+            border-radius: 1rem;
         }
     }
 }

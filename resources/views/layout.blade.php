@@ -34,9 +34,7 @@
             <div id="content">
                 @yield('content')
             </div>
-            <div class="wrapper">
-                @include('partials.footer')
-            </div>
+            @include('partials.footer')
         </div>
         <script defer src="{{ asset('bundle/js/app.js') }}"></script>
     </body>
