@@ -12,10 +12,7 @@
                     office@metzcars.com
                 </a>
                 <p class="muted mt-auto">
-                    {{ config('app.name') }} S.R.L
-                    &copy;
-                    {{ __('labels.rightsReserved') }} -
-                    {{ date('Y') }}
+                    {{ config('app.name') }} S.R.L &copy; {{ date('Y') }}
                 </p>
             </div>
         </div>

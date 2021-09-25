@@ -19,7 +19,6 @@ return [
     "leasingAndRent" => "Leasing & Închirieri",
     "portfolio"      => "Portfoliu",
     "privacy"        => "Politica de confidențialitate",
-    "rightsReserved" => "Toate drepturile rezervate",
     "send"           => "Trimite",
     "stock"          => "Stoc",
     "terms"          => "Termeni și condiții"
