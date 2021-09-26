@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('title') {{ __('labels.contact') }} @endsection
 
@@ -49,7 +49,9 @@
             </form>
         </div>
         <div class="contact__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10851.038518945876!2d27.577520900197104!3d47.162561956068444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb79c6f212ff%3A0x978b132df6b21796!2zQ2VudHJ1LCBJYciZaQ!5e0!3m2!1sen!2sro!4v1632580257602!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10851.038518945876!2d27.577520900197104!3d47.162561956068444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb79c6f212ff%3A0x978b132df6b21796!2zQ2VudHJ1LCBJYciZaQ!5e0!3m2!1sen!2sro!4v1632580257602!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 @endsection

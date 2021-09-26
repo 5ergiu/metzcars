@@ -16,11 +16,13 @@
         }
     }
     &__map {
-        height: 0;
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 26.25%;
-        border-radius: 1rem;
+        div {
+            height: 0;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 26.25%;
+            border-radius: 1rem;
+        }
         iframe {
             height: 100%;
             width: 100%;

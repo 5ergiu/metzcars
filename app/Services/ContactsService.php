@@ -25,7 +25,7 @@ class ContactsService
                 ->with('success', __('contacts.thankYouMessage'))
             ;
         } catch (Throwable $e) {
-            Log::error($e->getMessage(), ['class' => __CLASS__, 'method' => __FUNCTION__]);
+            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
         }
 
         return redirect()
