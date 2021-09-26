@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('main')
 
 @section('title') {{ __('labels.contact') }} @endsection
 
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-12">
                     <label for="contactMessage" class="form-label required-field">{{ __('contacts.message') }}</label>
-                    <textarea class="form-control @error('contact.message') is-invalid @enderror" name="contact[message]" id="contactMessage" rows="3" required>{{ old('contact.message') }}</textarea>
+                    <textarea class="form-control @error('contact.message') is-invalid @enderror" name="contact[message]" id="contactMessage" rows="3" maxlength="255" required>{{ old('contact.message') }}</textarea>
                     @error('contact.message') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12 text-center">

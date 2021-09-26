@@ -1,17 +1,19 @@
-@extends('layouts.secondary')
-
-
-@section('header')
-    <h1 class="text-warning text-center m-3">
-        <i class="fas fa-exclamation-triangle text-warning"></i> Oops!
-    </h1>
-    <h6 class="text-center">Something went wrong.<br/>We will work on fixing that right away.</h6>
-@endsection
+@extends('main')
 
 @section('content')
-    @if(!empty($error))
-        <p>Message: {{ $error->getMessage() }}</p>
-        <p>File: {{ $error->getFile() }}</p>
-        <p>Line: {{ $error->getLine() }}</p>
-    @endif
+    <section class="wrapper h-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="text-center">
+            <h1 class="text-warning m-3">
+                <i class="fas fa-exclamation-triangle text-warning"></i> Oops!
+            </h1>
+            <h6>Something went wrong.<br/>We will work on fixing that right away.</h6>
+        </div>
+        @if(!empty($error))
+            <div class="text-start">
+                <p>Message: {{ $error->getMessage() }}</p>
+                <p>File: {{ $error->getFile() }}</p>
+                <p>Line: {{ $error->getLine() }}</p>
+            </div>
+        @endif
+    </section>
 @endsection

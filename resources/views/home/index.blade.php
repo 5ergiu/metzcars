@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('main')
 
 @section('title') {{ __('labels.leasingAndRent') }} @endsection
 

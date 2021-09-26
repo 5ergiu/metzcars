@@ -21,6 +21,7 @@ Route::middleware(['locale'])->group(function() {
     Route::get('/portfolio',            [Controllers\PortfolioController::class, 'index'])->name('app.portfolio');
 
     // Contacts
-    Route::get('/contact',              [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
+    Route::get('/contact',              [Controllers\ContactsController::class, 'index'])->name('app.contacts.index');
+    Route::get('/contact/create',       [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
     Route::post('/contact',             [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
 });

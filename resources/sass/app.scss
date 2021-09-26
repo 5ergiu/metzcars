@@ -246,22 +246,6 @@ button {
     }
 }
 
-.content-secondary {
-    &__bg {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        background-image: linear-gradient(to bottom, transparent, $dark),  url('../images/home.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        filter: blur(2px);
-    }
-}
-
 .wrapper {
     width: 100%;
     max-width: 1400px;
@@ -297,7 +281,7 @@ footer {
     box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
     font: {
         family: "Nunito", sans-serif;
-        size: 0.9rem;
+        size: 1rem;
         weight: 600;
     }
     transition: background-color 0.4s, color 0.4s;
@@ -435,6 +419,14 @@ footer {
             background: $blue;
             border-radius: 1rem;
         }
+    }
+}
+
+// Auth
+.auth {
+    max-width: 400px;
+    .card {
+        background-color: unset;
     }
 }
 

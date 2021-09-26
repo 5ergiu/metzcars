@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\ContactsStoreRequest;
 use App\Models\Contact;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -11,6 +12,14 @@ use Throwable;
 
 class ContactsService
 {
+    /**
+     * @return Contact[]|Collection
+     */
+    public function getContacts(): Collection|array
+    {
+        return Contact::all();
+    }
+
     /**
      * @param ContactsStoreRequest $request
      * @return RedirectResponse

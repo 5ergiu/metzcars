@@ -25,7 +25,7 @@ class ContactsStoreRequest extends FormRequest
             'contact.name'    => 'required|max:255',
             'contact.email'   => 'required|email:rfc|max:255',
             'contact.phone'   => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:15',
-            'contact.message' => 'required|max:1000',
+            'contact.message' => 'required|max:255',
         ];
     }
 
@@ -46,7 +46,7 @@ class ContactsStoreRequest extends FormRequest
             'contact.phone.min'        => __('validation.min.string', ['attribute' => __('contacts.phone'), 'min' => 10]),
             'contact.phone.regex'      => __('validation.regex', ['attribute' => __('contacts.phone')]),
             'contact.message.required' => __('validation.required', ['attribute' => __('contacts.message')]),
-            'contact.message.max'      => __('validation.max.string', ['attribute' => __('contacts.message'), 'max' => 1000]),
+            'contact.message.max'      => __('validation.max.string', ['attribute' => __('contacts.message'), 'max' => 255]),
         ];
     }
 }
