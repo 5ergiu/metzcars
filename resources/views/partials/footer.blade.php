@@ -1,6 +1,6 @@
 <div class="wrapper">
     <footer class="main-footer d-flex flex-wrap justify-content-between align-items-center">
-        <div class="main-footer__contact d-flex">
+        <div class="main-footer__contact d-flex flex-grow-1 justify-content-center flex-sm-grow-0">
             <img src="{{ asset('logo_small.png') }}" alt="" />
             <div class="d-flex flex-column my-1">
                 <a href="tel:+40 726 205 206">
