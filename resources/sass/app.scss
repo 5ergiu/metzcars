@@ -468,6 +468,6 @@ footer {
 }
 
 // Styles applied to partials
-@import "../views/partials/header";
-@import "../views/partials/nav";
-@import "../views/partials/footer";
+@import "../views/partials/header/header";
+@import "../views/partials/nav/nav";
+@import "../views/partials/footer/footer";

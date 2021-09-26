@@ -7,7 +7,7 @@ use App\Exceptions\HaltException;
 class AutovitService
 {
     const ENDPOINT   = 'https://ssl.autovit.ro/api/open';
-    const CATEGORIES = '/categories';
+    const ADVERTS    = '/adverts';
 
     private RestService $rest;
 
@@ -19,19 +19,10 @@ class AutovitService
     /**
      * @throws HaltException
      */
-    public function getCategories(): array
+    public function getAdverts(): array
     {
-        $response = $this->rest->get(self::ENDPOINT . self::CATEGORIES);
+        $response = $this->rest->get(self::ENDPOINT . self::ADVERTS);
 
         dd(json_decode($response->getBody()->getContents(), true));
-    }
-
-    /**
-     * @param int|null $category
-     * @return string
-     */
-    private function buildGetCategoriesUrl(int $category = null): string
-    {
-        return self::ENDPOINT . self::CATEGORIES . ($category ? "/$category" : null);
     }
 }

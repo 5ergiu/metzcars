@@ -29,12 +29,12 @@
 </head>
 <body>
     <div id="container">
-        @include('partials.header')
-        @include('partials.nav')
+        @include('partials.header.header')
+        @include('partials..nav.nav')
         <div id="content">
             @yield('content')
         </div>
-        @include('partials.footer')
+        @include('partials.footer.footer')
     </div>
     <script defer src="{{ asset('bundle/js/app.js') }}"></script>
     @stack('scripts')

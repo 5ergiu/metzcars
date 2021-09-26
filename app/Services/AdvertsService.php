@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class CarsService
+class AdvertsService
 {
 
 }
