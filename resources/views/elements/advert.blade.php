@@ -10,7 +10,7 @@
             <div class="col-12 col-md-9">
                 <div class="d-flex flex-column p-4 h-100">
                     <div class="d-flex align-items-center mb-3">
-                        <a href="{{ $advert['url'] }}" class="advert__title">{{ $advert['title'] }}</a>
+                        <a href="{{ $advert['url'] }}" target="_blank" class="advert__title">{{ $advert['title'] }}</a>
                         <div class="advert__price">
                             <p class="">{{ $advert['params']['price']['1'] }} €</p>
                             <small class="text-muted fw-bold">{{ __('adverts.priceNoVat') }}</small>
