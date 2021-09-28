@@ -29,8 +29,8 @@
                                 data-bs-toggle="modal"
                                 data-bs-target="#messageModal"
                                 data-bs-from="{{ __('contacts.messageFrom', ['name' => $contact->name]) }}"
-                                data-bs-phone="{{ __('contacts.phone') . ': ' . $contact->phone }}"
-                                data-bs-email="{{ __('contacts.email') . ': ' . $contact->email }}"
+                                data-bs-phone="{{ $contact->phone }}"
+                                data-bs-email="{{ $contact->email }}"
                                 data-bs-message="{{ $contact->message }}"
                             >
                                 {{ __('contacts.viewMessage') }}
@@ -49,8 +49,8 @@
                         <div class="modal-header">
                             <div class="modal-title">
                                 <h5 class="modal-title__from mb-2"></h5>
-                                <p class="modal-title__phone"></p>
-                                <p class="modal-title__email"></p>
+                                <a href="#" class="modal-title__phone d-block"></a>
+                                <a href="#" class="modal-title__email d-block" target="_top"></a>
                             </div>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -75,8 +75,10 @@
         messageModal.addEventListener('show.bs.modal', (e) => {
             let button = e.relatedTarget
             messageModal.querySelector('.modal-title__from').textContent = button.getAttribute('data-bs-from')
-            messageModal.querySelector('.modal-title__phone').textContent = button.getAttribute('data-bs-phone')
-            messageModal.querySelector('.modal-title__email').textContent = button.getAttribute('data-bs-email')
+            messageModal.querySelector('.modal-title__phone').textContent = "{{ __('contacts.phone') . ': ' }}" + button.getAttribute('data-bs-phone')
+            messageModal.querySelector('.modal-title__phone').href = 'tel:' + button.getAttribute('data-bs-phone')
+            messageModal.querySelector('.modal-title__email').textContent = "{{ __('contacts.email') . ': ' }}" + button.getAttribute('data-bs-email')
+            messageModal.querySelector('.modal-title__email').href = 'mailto:' + button.getAttribute('data-bs-email')
             messageModal.querySelector('.modal-body__message').textContent = button.getAttribute('data-bs-message')
         })
     </script>

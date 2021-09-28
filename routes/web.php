@@ -28,5 +28,5 @@ Route::middleware(['locale'])->group(function() {
 
 # Admin routes
 Route::middleware(['auth', 'locale'])->group(function() {
-    Route::get('/admin/contact', [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/contact', [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
 });
