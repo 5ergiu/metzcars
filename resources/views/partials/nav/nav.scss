@@ -3,14 +3,13 @@
 .navbar {
     background: $bg;
     z-index: 999;
+    width: 100%;
     height: 5rem;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
-    &--wrapper {
-        position: fixed;
-        bottom: 0;
-        padding: 0;
-    }
+    position: fixed;
+    bottom: 0;
+    padding: 0;
     &-brand {
         margin-right: 0;
         &--big {
@@ -40,7 +39,11 @@
             }
         }
     }
+    &.wrapper {
+        padding: 0;
+    }
 }
+
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -49,10 +52,8 @@
         border-top-left-radius: unset;
         border-top-right-radius: unset;
         background: unset;
-        &--wrapper {
-            position: relative;
-            bottom: unset;
-        }
+        position: relative;
+        bottom: unset;
         &__link {
             flex-direction: row;
             align-items: unset;
@@ -64,6 +65,9 @@
                     size: 1.2rem;
                 }
             }
+        }
+        &.wrapper {
+            padding: 0 1rem;
         }
     }
 }

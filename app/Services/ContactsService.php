@@ -4,20 +4,19 @@ namespace App\Services;
 
 use App\Http\Requests\ContactsStoreRequest;
 use App\Models\Contact;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class ContactsService
 {
     /**
-     * @return Contact[]|Collection
+     * @return LengthAwarePaginator
      */
-    public function getContacts(): Collection|array
+    public function getContacts(): LengthAwarePaginator
     {
-        return Contact::all();
+        return Contact::paginate(10);
     }
 
     /**

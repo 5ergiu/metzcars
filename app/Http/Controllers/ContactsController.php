@@ -20,7 +20,7 @@ class ContactsController extends Controller
     {
         $contacts = $this->contactService->getContacts();
 
-        return view('contacts.index', compact('contacts'));
+        return view('admin.contacts.index', compact('contacts'));
     }
 
     /**

@@ -376,7 +376,7 @@ footer {
 
 // Dropdowns
 .dropdown {
-    &--locale {
+    &--locale, &--account {
         > button {
             background: none;
             border: none;
@@ -396,6 +396,20 @@ footer {
             user-select: none;
             &:hover {}
             background: none;
+            padding: 0;
+        }
+    }
+    &--account {
+        margin-right: 0.5rem;
+        img {
+            width: 40px;
+            height: auto;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .dropdown-menu {
+            left: unset;
+            right: 0;
             padding: 0;
         }
     }
