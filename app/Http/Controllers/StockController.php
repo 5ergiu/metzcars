@@ -2,22 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\HaltException;
 use App\Models\Advert;
 use App\Services\AutovitService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class StockController extends Controller
 {
-   public function __construct(
-       private AutovitService $autovitService
-   ) { }
+    public function __construct(
+        private AutovitService $autovitService
+    ) { }
 
     /**
-     * @return View
+     * Display a listing of the resource.
+     * @param Request $request
+     * @return View|JsonResponse
+     * @throws HaltException
      */
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
-        return view('stock.index');
+        $adverts = $this->autovitService->getActiveAdverts($request->query('page'));
+
+        if ($request->ajax()) {
+            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
+        }
+
+        return view('stock.index', compact('adverts'));
     }
 
     /**

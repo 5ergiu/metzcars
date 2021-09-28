@@ -11,13 +11,13 @@
             </a>
         </li>
         <li>
-            <a class="navbar__link {{ request()->segment(1) === 'stock' ? 'navbar__link--active' : null }}" href="{{ route('app.stock') }}">
+            <a class="navbar__link {{ request()->segment(1) === 'stock' ? 'navbar__link--active' : null }}" href="{{ route('app.stock.index') }}">
                 <i class="fas fa-warehouse"></i>
                 <span class="navbar__link_label">{{ __('labels.stock') }}</span>
             </a>
         </li>
         <li>
-            <a class="navbar__link {{ request()->segment(1) === 'portfolio' ? 'navbar__link--active' : null }}" href="{{ route('app.portfolio') }}">
+            <a class="navbar__link {{ request()->segment(1) === 'portfolio' ? 'navbar__link--active' : null }}" href="{{ route('app.portfolio.index') }}">
                 <i class="fas fa-briefcase"></i>
                 <span class="navbar__link_label">{{ __('labels.portfolio') }}</span>
             </a>
