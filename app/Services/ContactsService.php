@@ -4,13 +4,21 @@ namespace App\Services;
 
 use App\Http\Requests\ContactsStoreRequest;
 use App\Models\Contact;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class ContactsService
 {
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function getContacts(): LengthAwarePaginator
+    {
+        return Contact::paginate(10);
+    }
+
     /**
      * @param ContactsStoreRequest $request
      * @return RedirectResponse
@@ -25,7 +33,7 @@ class ContactsService
                 ->with('success', __('contacts.thankYouMessage'))
             ;
         } catch (Throwable $e) {
-            Log::error($e->getMessage(), ['class' => __CLASS__, 'method' => __FUNCTION__]);
+            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
         }
 
         return redirect()

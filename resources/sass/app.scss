@@ -281,7 +281,7 @@ footer {
     box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
     font: {
         family: "Nunito", sans-serif;
-        size: 0.9rem;
+        size: 1rem;
         weight: 600;
     }
     transition: background-color 0.4s, color 0.4s;
@@ -376,7 +376,7 @@ footer {
 
 // Dropdowns
 .dropdown {
-    &--locale {
+    &--locale, &--account {
         > button {
             background: none;
             border: none;
@@ -396,6 +396,20 @@ footer {
             user-select: none;
             &:hover {}
             background: none;
+            padding: 0;
+        }
+    }
+    &--account {
+        margin-right: 0.5rem;
+        img {
+            width: 40px;
+            height: auto;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .dropdown-menu {
+            left: unset;
+            right: 0;
             padding: 0;
         }
     }
@@ -419,6 +433,14 @@ footer {
             background: $blue;
             border-radius: 1rem;
         }
+    }
+}
+
+// Auth
+.auth {
+    max-width: 400px;
+    .card {
+        background-color: unset;
     }
 }
 
@@ -452,6 +474,6 @@ footer {
 }
 
 // Styles applied to partials
-@import "../views/partials/header";
-@import "../views/partials/nav";
-@import "../views/partials/footer";
+@import "../views/partials/header/header";
+@import "../views/partials/nav/nav";
+@import "../views/partials/footer/footer";

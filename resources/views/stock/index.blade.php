@@ -1,9 +1,9 @@
-@extends('layout')
+@extends('main')
 
-@section('title') {{ __('labels.portfolio') }} @endsection
+@section('title') {{ __('labels.stock') }} @endsection
 
 @section('content')
-    <section class="portfolio wrapper">
+    <section class="stock wrapper">
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
