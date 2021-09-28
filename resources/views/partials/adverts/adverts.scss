@@ -1,0 +1,74 @@
+@import "../../../sass/vars";
+
+.advert {
+    background-color: $bg;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    &__img {
+        min-height: 200px;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom: 2px solid $text;
+        cursor: pointer;
+    }
+    &__title {
+        font: {
+            size: 1.1rem;
+            weight: bold;
+        }
+        color: #fff;
+        &:hover {
+            color: $blue;
+        }
+    }
+    &__price {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-left: 1rem;
+        p, small {
+            white-space: nowrap;
+        }
+        p {
+            color: $text;
+            font: {
+                weight: bold;
+                size: 1.2rem;
+            }
+        }
+    }
+    &__autovit {
+        width: 200px;
+        img {
+            filter: drop-shadow(0 2px 2px rgba(255, 255, 255, 0.7));
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .advert {
+        &__img {
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            border-top-right-radius: unset;
+            border-bottom: unset;
+            border-right: 2px solid $text;
+        }
+        &__title {
+            font: {
+                size: 1.5rem;
+            }
+        }
+        &__price {
+            p {
+                font: {
+                    size: 2rem;
+                }
+            }
+        }
+    }
+}
