@@ -14,6 +14,7 @@ class ContactsController extends Controller
     ) { }
 
     /**
+     * Display a listing of the resource.
      * @return View
      */
     public function index(): View
@@ -24,6 +25,7 @@ class ContactsController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
      * @return View
      */
     public function create(): View
@@ -32,6 +34,7 @@ class ContactsController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
      * @param ContactsStoreRequest $request
      * @return RedirectResponse
      */
