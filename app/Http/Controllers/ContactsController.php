@@ -11,7 +11,17 @@ class ContactsController extends Controller
 {
     public function __construct(
         private ContactsService $contactService
-    ) {}
+    ) { }
+
+    /**
+     * @return View
+     */
+    public function index(): View
+    {
+        $contacts = $this->contactService->getContacts();
+
+        return view('admin.contacts.index', compact('contacts'));
+    }
 
     /**
      * @return View
