@@ -12,7 +12,7 @@
                     <div class="d-flex align-items-center mb-3">
                         <a href="{{ $advert['url'] }}" target="_blank" class="advert__title">{{ $advert['title'] }}</a>
                         <div class="advert__price">
-                            <p class="">{{ $advert['params']['price']['1'] }} €</p>
+                            <p>{{ $advert['params']['price']['1'] }} €</p>
                             <small class="text-muted fw-bold">{{ __('adverts.priceNoVat') }}</small>
                         </div>
                     </div>
