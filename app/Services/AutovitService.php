@@ -3,17 +3,19 @@
 namespace App\Services;
 
 use App\Exceptions\HaltException;
+use App\Security\AutovitProvider;
 
 class AutovitService
 {
-    const ENDPOINT   = 'https://ssl.autovit.ro/api/open';
-    const ADVERTS    = '/adverts';
+    const ADVERTS_ENDPOINT = '/account/adverts';
 
     private RestService $rest;
+    private string $autovitToken;
 
     public function __construct()
     {
-        $this->rest = new RestService;
+        $this->autovitToken = (new AutovitProvider)->getAutovitToken();
+        $this->rest         = new RestService;
     }
 
     /**
@@ -21,8 +23,14 @@ class AutovitService
      */
     public function getAdverts(): array
     {
-        $response = $this->rest->get(self::ENDPOINT . self::ADVERTS);
+        $response = $this->rest->get(
+            config('app.autovitApiUrl') . self::ADVERTS_ENDPOINT, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $this->autovitToken,
+                ],
+            ],
+        );
 
-        dd(json_decode($response->getBody()->getContents(), true));
+        return json_decode($response->getBody()->getContents(), true);
     }
 }
