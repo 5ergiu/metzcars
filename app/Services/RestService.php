@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Exceptions\HaltException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 class RestService

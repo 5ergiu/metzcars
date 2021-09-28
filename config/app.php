@@ -234,4 +234,11 @@ return [
         'LocaleService' => App\Services\LocaleService::class,
     ],
 
+    // Autovit
+    'autovitApiUrl'       => env('AUTOVIT_API_URL'),
+    'autovitUsername'     => env('AUTOVIT_USERNAME'),
+    'autovitPassword'     => env('AUTOVIT_PASSWORD'),
+    'autovitClientId'     => env('AUTOVIT_CLIENT_ID'),
+    'autovitClientSecret' => env('AUTOVIT_CLIENT_SECRET'),
+
 ];
