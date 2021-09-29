@@ -9,15 +9,46 @@
             ></div>
             <div class="col-12 col-md-9">
                 <div class="d-flex flex-column p-4 h-100">
-                    <div class="d-flex align-items-center mb-3">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap">
                         <a href="{{ $advert['url'] }}" target="_blank" class="advert__title">{{ $advert['title'] }}</a>
-                        <div class="advert__price">
-                            <p>{{ $advert['params']['price']['1'] }} €</p>
-                            <small class="text-muted fw-bold">{{ __('adverts.priceNoVat') }}</small>
-                        </div>
+                        <p class="text-nowrap fs-2 fw-bold">{{ number_format($advert['params']['price']['1'] * 1.19) }} €</p>
+                    </div>
+                    <div class="advert__details py-4 flex-grow-1 d-flex flex-wrap flex-md-column justify-content-md-evenly">
+                        <ul class="d-flex flex-column flex-md-row">
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="far fa-calendar-alt"></i>
+                                {{ $advert['params']['year'] }}
+                            </li>
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-road"></i>
+                                {{ $advert['params']['mileage'] }} km
+                            </li>
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-globe-europe"></i>
+                                {{ $advert['params']['pollution_standard'] }}
+                            </li>
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-cog"></i>
+                                {{ $advert['params']['gearbox'] }}
+                            </li>
+                        </ul>
+                        <ul class="d-flex flex-column flex-md-row">
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-horse-head"></i>
+                                {{ $advert['params']['engine_power'] }} {{ __('adverts.hp') }}
+                            </li>
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-cube"></i>
+                                {{ $advert['params']['engine_capacity'] }} cm <sup>3</sup>
+                            </li>
+                            <li class="me-3 fs-5 text-nowrap">
+                                <i class="fas fa-gas-pump"></i>
+                                {{ $advert['params']['fuel_type'] }}
+                            </li>
+                        </ul>
                     </div>
                     <div class="d-flex align-items-end mt-auto">
-                        <p class="card-text flex-grow-1 fw-bold">
+                        <p class="flex-grow-1 fw-bold">
                             <small class="text-muted">{{ $advert['city']['ro'] }}, </small>
                             <small class="text-muted">{{ date('d M Y', strtotime($advert['created_at'])) }}</small>
                         </p>
