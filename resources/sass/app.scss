@@ -444,6 +444,35 @@ footer {
     }
 }
 
+// Other
+.tail-select {
+    width: 100%;
+    font-size: 1rem;
+    .dropdown {
+        &-search {
+            .search-input {
+                font-size: 1rem;
+            }
+        }
+        &-inner {
+            font-size: 1rem;
+            &::-webkit-scrollbar {
+                width: 0.8rem;
+            }
+            &::-webkit-scrollbar-track {
+                background: $text;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $dark;
+                border-radius: 1rem;
+            }
+            .dropdown-optgroup, .dropdown-option {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
 // Media queries
 
 // Small devices (landscape phones, 576px and up)

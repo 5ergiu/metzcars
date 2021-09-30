@@ -32,9 +32,9 @@ class ContactsController extends Controller
      */
     public function create(): View
     {
-        $brands = $this->autovitService->getAllBrands();
+        $brands = json_decode($this->autovitService->getBrands(), true)['options'];
 
-        return view('contacts.create', $brands);
+        return view('contacts.create', compact('brands'));
     }
 
     /**
@@ -44,6 +44,7 @@ class ContactsController extends Controller
      */
     public function store(ContactsStoreRequest $request): RedirectResponse
     {
+        dd($request->all());
         return $this->contactService->handleStore($request);
     }
 }

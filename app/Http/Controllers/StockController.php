@@ -19,7 +19,6 @@ class StockController extends Controller
      * Display a listing of the resource.
      * @param Request $request
      * @return View|JsonResponse
-     * @throws HaltException
      */
     public function index(Request $request): View|JsonResponse
     {

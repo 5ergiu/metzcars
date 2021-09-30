@@ -4886,6 +4886,11 @@ svgo@^2.3.0:
     csso "^4.2.0"
     stable "^0.1.8"
 
+tail.select.js@^0.5.21:
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/tail.select.js/-/tail.select.js-0.5.21.tgz#7471ebc62e5f1fc558247d01ccfef169427e2c65"
+  integrity sha512-DqdImF2ufg76BFnNKdXN4koMOMplfvPiKjLlmvFDbji/2Aozs5EQoABPtCuAYtUmnXGgp9ZcREjzfSgCXjP7uQ==
+
 tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
