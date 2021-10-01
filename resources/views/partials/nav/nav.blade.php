@@ -1,6 +1,6 @@
 <nav class="navbar wrapper">
     <a class="navbar-brand d-none d-sm-block" href="{{ route('app.home') }}">
-        <img class="d-none d-md-block navbar-brand--big" src="{{ asset('logo.png') }}"  alt="Metz Cars"/>
+        <img class="d-none d-md-block navbar-brand--big" src="{{ asset('logo_h.png') }}"  alt="Metz Cars"/>
         <img class="d-md-none navbar-brand--small" src="{{ asset('logo_small.png') }}" alt="Metz Cars" />
     </a>
     <ul class="navbar-nav flex-row flex-grow-1 justify-content-around justify-content-sm-center justify-content-md-start">

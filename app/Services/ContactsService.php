@@ -28,6 +28,8 @@ class ContactsService
         try {
             Contact::create($request->get('contact'));
 
+
+
             return redirect()
                 ->route('app.contacts.create')
                 ->with('success', __('contacts.thankYouMessage'))

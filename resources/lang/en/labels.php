@@ -12,6 +12,7 @@ return [
     |
     */
 
+    "businessHours"  => "Business hours",
     "contact"        => "Contact",
     "genericError"   => "Something went wrong, please try again.",
     "getInTouch"     => "Get in touch",
@@ -21,5 +22,5 @@ return [
     "privacy"        => "Privacy policy",
     "send"           => "Send",
     "stock"          => "Stock",
-    "terms"          => "Terms and conditions"
+    "terms"          => "Terms and conditions",
 ];

@@ -13,7 +13,7 @@
     &-brand {
         margin-right: 0;
         &--big {
-            width: 110px;
+            width: 250px;
             height: auto;
         }
         &--small {
@@ -76,6 +76,9 @@
 @media (min-width: 768px) {
     .navbar {
         height: 8rem;
+        &-brand {
+            margin-right: 1rem;
+        }
         &__link {
             font: {
                 size: 1.3rem;
