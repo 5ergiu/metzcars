@@ -6,12 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Advert extends Model
 {
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'autovit_id';
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
         'description',
         'price',
-        'vat',
         'rhd',
         'make',
         'model',
@@ -34,7 +47,6 @@ class Advert extends Model
         'color',
         'colour_type',
         'features',
-        'country_origin',
         'date_registration',
         'registered',
         'original_owner',
@@ -42,5 +54,14 @@ class Advert extends Model
         'service_record',
         'historical_vehicle',
         'tuning',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'features' => 'array',
     ];
 }

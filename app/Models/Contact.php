@@ -11,6 +11,11 @@ class Contact extends Model
         'name',
         'email',
         'phone',
+        'brand',
+        'model',
+        'gearbox',
+        'price',
+        'year',
         'message',
     ];
 }

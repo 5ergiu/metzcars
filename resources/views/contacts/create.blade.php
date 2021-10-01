@@ -16,7 +16,7 @@
                 <h3 class="text-center fw-bold">{{ __('labels.getInTouch') }}</h3>
                 <div class="col-sm-6">
                     <label for="contactBrand" class="form-label">{{ __('contacts.brand') }}</label>
-                    <select name="contact[brand]" data-placeholder="{{ __('contacts.selectBrand') }}" id="contactBrand" class="form-select select-search">
+                    <select name="contact[brand]" data-placeholder="{{ __('contacts.selectBrand') }}" id="contactBrand" class="form-select">
                         <option value="" selected disabled hidden></option>
                         @foreach($brands as $key => $brand)
                             <option value="{{ $brand['en'] }}" data-brand="{{ $key }}">
@@ -27,26 +27,26 @@
                 </div>
                 <div class="col-sm-6">
                     <label for="contactModel" class="form-label">{{ __('contacts.model') }}</label>
-                    <select name="contact[model]" data-placeholder="{{ __('contacts.selectModel') }}" id="contactModel" class="form-select select-search">
+                    <select name="contact[model]" data-placeholder="{{ __('contacts.selectModel') }}" id="contactModel" class="form-select">
                         <option value="" selected disabled>{{ __('contacts.selectBrandFirst') }}</option>
                     </select>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <label for="contactGearbox" class="form-label">{{ __('contacts.gearbox') }}</label>
-                    <select name="contact[gearbox]" data-placeholder="{{ __('contacts.selectGearbox') }}" id="contactGearbox" class="form-select select-search">
+                    <select name="contact[gearbox]" data-placeholder="{{ __('contacts.selectGearbox') }}" id="contactGearbox" class="form-select">
                         <option value="" selected disabled>{{ __('contacts.selectModelFirst') }}</option>
                     </select>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="contactPrice" class="form-label">{{ __('contacts.price') }}</label>
-                    <input type="text" id="contactPrice" class="form-control @error('contact.price') is-invalid @enderror" name="contact[price]" required
+                    <input type="text" id="contactPrice" class="form-control @error('contact.price') is-invalid @enderror" name="contact[price]"
                            value="{{ old('contact.price') }}"
                     />
                     @error('contact.price') @include('elements.errorMessage') @enderror
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="contactYear" class="form-label">{{ __('contacts.year') }}</label>
-                    <input type="text" id="contactYear" class="form-control @error('contact.year') is-invalid @enderror" name="contact[year]" required
+                    <input type="text" id="contactYear" class="form-control @error('contact.year') is-invalid @enderror" name="contact[year]"
                            value="{{ old('contact.year') }}"
                     />
                     @error('contact.year') @include('elements.errorMessage') @enderror
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-12">
                     <label for="contactMessage" class="form-label">{{ __('contacts.message') }}</label>
-                    <textarea class="form-control @error('contact.message') is-invalid @enderror" name="contact[message]" id="contactMessage" rows="3" maxlength="255" required>{{ old('contact.message') }}</textarea>
+                    <textarea class="form-control @error('contact.message') is-invalid @enderror" name="contact[message]" id="contactMessage" rows="3" maxlength="255">{{ old('contact.message') }}</textarea>
                     @error('contact.message') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12 text-center">

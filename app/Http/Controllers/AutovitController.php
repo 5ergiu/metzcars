@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Services\AutovitService;
+use App\Services\LocaleService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\App;
 
 class AutovitController extends Controller
 {
@@ -41,10 +43,26 @@ class AutovitController extends Controller
      * Get all gearboxes for a specific model.
      * @param string $brand
      * @param string $model
-     * @return string
+     * @return JsonResponse
      */
-    public function getModelGearboxes(string $brand, string $model): string
+    public function getModelGearboxes(string $brand, string $model): JsonResponse
     {
-        return $this->autovitService->getModelGearboxes($brand, $model);
+        $gearboxes = [];
+        $options   = json_decode($this->autovitService->getModelGearboxes($brand, $model),true)['options'];
+
+        foreach ($options as $key => $option) {
+            // key, value, group, selected, disabled, description, rebuild
+            $gearboxes[] = [
+                'key' => App::getLocale() === LocaleService::LOCALE_EN ? $key : $option['ro'],
+                'value' => App::getLocale() === LocaleService::LOCALE_EN ? $key : $option['ro'],
+                'group' => false,
+                'selected' => false,
+                'disabled' => false,
+                'description' => '',
+                'rebuild' => true,
+            ];
+        }
+
+        return response()->json($gearboxes);
     }
 }

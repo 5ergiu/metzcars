@@ -16,7 +16,7 @@ return [
     "selectGearbox"    => "Selectează cutia de viteze",
     "selectModel"      => "Selectează un model",
     "selectModelFirst" => "Selectează un model mai întâi",
-    "thankYouMessage"  => "Vă mulțumim pentru mesaj! Vă vom contacta cât mai curând posibil.",
+    "thankYouMessage"  => "Vă mulțumim pentru mesaj! Vă vom contacta cât de curând posibil.",
     "viewMessage"      => "Vezi mesajul",
     "year"             => "Anul fabricației",
 ];

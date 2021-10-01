@@ -44,7 +44,6 @@ class ContactsController extends Controller
      */
     public function store(ContactsStoreRequest $request): RedirectResponse
     {
-        dd($request->all());
         return $this->contactService->handleStore($request);
     }
 }

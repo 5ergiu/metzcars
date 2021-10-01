@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use App\Exceptions\HaltException;
 use App\Security\AutovitProvider;
-use Psr\Http\Message\ResponseInterface;
 
 class AutovitService
 {
@@ -53,7 +51,7 @@ class AutovitService
                 'page'  => $page ?? null,
             ],
         ];
-        $adverts = json_decode($this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT, $params)['results'], true);
+        $adverts = json_decode($this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT, $params), true)['results'];
 
         foreach ($adverts as $key => $advert) {
             if ($advert['status'] !== self::STATUS_ACTIVE) {
