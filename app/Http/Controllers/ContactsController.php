@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactsStoreRequest;
+use App\Services\AutovitService;
 use App\Services\ContactsService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -10,7 +11,8 @@ use Illuminate\View\View;
 class ContactsController extends Controller
 {
     public function __construct(
-        private ContactsService $contactService
+        private ContactsService $contactService,
+        private AutovitService $autovitService
     ) { }
 
     /**
@@ -30,7 +32,9 @@ class ContactsController extends Controller
      */
     public function create(): View
     {
-        return view('contacts.create');
+        $brands = json_decode($this->autovitService->getBrands(), true)['options'];
+
+        return view('contacts.create', compact('brands'));
     }
 
     /**

@@ -2,14 +2,23 @@
 
 namespace App\Services;
 
-use App\Exceptions\HaltException;
 use App\Security\AutovitProvider;
 
 class AutovitService
 {
+    const METHOD_GET  = 'get';
+    const METHOD_POST = 'post';
+
     const STATUS_ACTIVE = 'active';
 
-    const ADVERTS_ENDPOINT = '/account/adverts';
+    const CATEGORY_CARS = 29;
+
+    const ACCOUNT_ADVERTS_ENDPOINT = '/account/adverts/';
+    const ADVERT_ENDPOINT          = '/adverts/';
+    const CATEGORIES_ENDPOINT      = '/categories/';
+
+    const VEHICLE_BRANDS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/makes';
+    const VEHICLE_MODELS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/models';
 
     private RestService $restService;
     private string $autovitToken;
@@ -22,47 +31,110 @@ class AutovitService
 
     /**
      * Get a list of all adverts.
-     * @throws HaltException
+     * @return string
      */
-    public function getAdverts(): array
+    public function getAdverts(): string
     {
-        return json_decode(
-            $this->restService->get(
-            config('app.autovitApiUrl') . self::ADVERTS_ENDPOINT, [
-                    'headers' => [
-                        'Authorization' => 'Bearer ' . $this->autovitToken,
-                    ],
-                ],
-            )
-            ->getBody()
-            ->getContents(),
-            true
-        );
+        return $this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT);
     }
 
     /**
      * Get a list of all active adverts.
      * @param int|null $page
      * @return array
-     * @throws HaltException
      */
     public function getActiveAdverts(?int $page): array
     {
-        return json_decode(
-            $this->restService->get(
-                config('app.autovitApiUrl') . self::ADVERTS_ENDPOINT, [
-                    'headers' => [
-                        'Authorization' => 'Bearer ' . $this->autovitToken,
-                    ],
-                    'query' => [
-                        'limit' => 5,
-                        'page'  => $page ?? null,
-                    ],
-                ],
-            )
-            ->getBody()
-            ->getContents(),
-            true
-        )['results'];
+        $params = [
+            'query' => [
+                'limit' => 5,
+                'page'  => $page ?? null,
+            ],
+        ];
+        $adverts = json_decode($this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT, $params), true)['results'];
+
+        foreach ($adverts as $key => $advert) {
+            if ($advert['status'] !== self::STATUS_ACTIVE) {
+                unset($adverts[$key]);
+            }
+        }
+
+        return $adverts;
+    }
+
+    /**
+     * Get details of a specific advert using its unique id.
+     * @param int $id
+     * @return string
+     */
+    public function getAdvert(int $id): string
+    {
+        return $this->getResponse(self::ADVERT_ENDPOINT . $id);
+    }
+
+    /**
+     * Get all brands from the cars category.
+     * @return string
+     */
+    public function getBrands(): string
+    {
+        return $this->getResponse(self::VEHICLE_BRANDS_ENDPOINT);
+    }
+
+    /**
+     * Get all models for a specific brand.
+     * @param string $brand
+     * @return string
+     */
+    public function getBrandModels(string $brand): string
+    {
+        return $this->getResponse(self::VEHICLE_MODELS_ENDPOINT . "/$brand");
+    }
+
+    /**
+     * Get all gearboxes for a specific model.
+     * @param string $brand
+     * @param string $model
+     * @return string
+     */
+    public function getModelGearboxes(string $brand, string $model): string
+    {
+        return $this->getResponse($this->buildGetModelGearboxesUrl($brand, $model));
+    }
+
+    /**
+     * Build an api request and return the response back.
+     * @param string $endpoint
+     * @param array $params
+     * @param string $method
+     * @return string
+     */
+    private function getResponse(string $endpoint, array $params = [], string $method = self::METHOD_GET): string
+    {
+        $headers = [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->autovitToken,
+            ],
+        ];
+
+        $requestParams = array_merge_recursive($headers, $params);
+
+        return $this->restService->{$method}(
+            config('app.autovitApiUrl') . $endpoint,
+            $requestParams
+        )
+        ->getBody()
+        ->getContents();
+    }
+
+    /**
+     * Build the url to read gearboxes for a specific brand & model.
+     * @param string $brand
+     * @param string $model
+     * @return string
+     */
+    private function buildGetModelGearboxesUrl(string $brand, string $model): string
+    {
+        return self::VEHICLE_MODELS_ENDPOINT . "/$brand/" . 'gearboxes/' . $model;
     }
 }

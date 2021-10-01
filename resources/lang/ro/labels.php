@@ -12,14 +12,15 @@ return [
     |
     */
 
+    "businessHours"  => "Program",
     "contact"        => "Contact",
     "genericError"   => "Ceva n-a mers bine, încearcă din nou.",
     "getInTouch"     => "Intră în contact",
     "home"           => "Acasă",
     "leasingAndRent" => "Leasing & Închirieri",
-    "portfolio"      => "Portfoliu",
+    "portfolio"      => "Portofoliu",
     "privacy"        => "Politica de confidențialitate",
     "send"           => "Trimite",
     "stock"          => "Stoc",
-    "terms"          => "Termeni și condiții"
+    "terms"          => "Termeni și condiții",
 ];

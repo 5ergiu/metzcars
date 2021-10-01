@@ -4,8 +4,8 @@ namespace App\Services;
 
 use App\Exceptions\HaltException;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 class RestService
 {
@@ -26,7 +26,7 @@ class RestService
     {
         try {
             return $this->rest->get($url, $requestParams);
-        } catch (ClientException $error) {
+        } catch (Throwable $error) {
             throw new HaltException($error->getMessage());
         }
     }
@@ -41,7 +41,7 @@ class RestService
     {
         try {
             return $this->rest->post($url, $requestParams);
-        } catch (ClientException $error) {
+        } catch (Throwable $error) {
             throw new HaltException($error->getMessage());
         }
     }

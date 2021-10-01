@@ -38,12 +38,17 @@
     }
 
     .legal-modal {
-        .modal {
-            &-header {
-                -webkit-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
-                -moz-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
-                box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
-            }
+        .modal-header {
+            -webkit-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+            -moz-box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+            box-shadow: 0 7px 15px 0 rgba(0,0,0,0.75);
+        }
+        h4 {
+            display: inline-block;
+            border-bottom: 0.25rem solid $blue;
+            border-radius: 0.1rem;
+            padding: 0 0.2rem;
+            margin: 1rem 0;
         }
     }
 }
@@ -59,6 +64,11 @@
             display: block;
             span {
                 display: inline;
+            }
+        }
+        .legal-modal {
+            .modal-dialog {
+                max-width: 75%;
             }
         }
     }

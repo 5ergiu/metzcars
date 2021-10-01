@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('loader')) return
+
     let page = 2;
 
     const loader = document.getElementById('loader')

@@ -17,6 +17,7 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.42.1",
         "sass-loader": "^12.1.0",
-        "spotlight.js": "^0.7.8"
+        "spotlight.js": "^0.7.8",
+        "tail.select.js": "^0.5.21"
     }
 }

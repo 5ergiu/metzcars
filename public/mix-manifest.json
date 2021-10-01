@@ -1,7 +1,8 @@
 {
     "/bundle/js/app.js": "/bundle/js/app.js",
+    "/bundle/js/pages/contact.js": "/bundle/js/pages/contact.js",
+    "/bundle/css/app.css": "/bundle/css/app.css",
     "/bundle/css/admin/contacts.css": "/bundle/css/admin/contacts.css",
     "/bundle/css/contacts.css": "/bundle/css/contacts.css",
-    "/bundle/css/home.css": "/bundle/css/home.css",
-    "/bundle/css/app.css": "/bundle/css/app.css"
+    "/bundle/css/home.css": "/bundle/css/home.css"
 }

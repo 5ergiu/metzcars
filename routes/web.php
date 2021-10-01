@@ -34,3 +34,7 @@ Route::middleware(['locale'])->group(function() {
 Route::middleware(['auth', 'locale'])->group(function() {
     Route::get('/contact', [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
 });
+
+# Autovit routes
+Route::get('/autovit/{brand}/models',            [Controllers\AutovitController::class, 'getBrandModels']);
+Route::get('/autovit/{brand}/{model}/gearboxes', [Controllers\AutovitController::class, 'getModelGearboxes']);
