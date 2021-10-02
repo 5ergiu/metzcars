@@ -3,9 +3,15 @@
 namespace App\Services;
 
 use App\Models\Advert;
+use finfo;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AdvertsService
 {
+    const SIZE_S = '320x240';
+    const SIZE_L = '1280x800';
+
     private AutovitService $autovitService;
 
     public function __construct() {
@@ -24,6 +30,7 @@ class AdvertsService
             if (Advert::find($autovitAdvert['id'])) {
                 unset($autovitAdvert[$key]);
             } else {
+                $this->saveAdvertImages($autovitAdvert['id'], $autovitAdvert['photos']);
                 $adverts[] = $this->buildAdvert($autovitAdvert);
             }
         }
@@ -42,29 +49,30 @@ class AdvertsService
     {
         return [
             'autovit_id'         => $advert['id'],
+            'title'              => $advert['title'],
             'description'        => $advert['description'],
             'price'              => $advert['params']['price']['1'],
             'rhd'                => $advert['params']['rhd'] === '1',
-            'make'               => $advert['params']['make'],
-            'model'              => $advert['params']['model'],
-            'version'            => $advert['params']['version'],
-            'generation'         => $advert['params']['generation'],
+            'make'               => $this->formatStrings($advert['params']['make']),
+            'model'              => $this->formatStrings($advert['params']['model']),
+            'version'            => $this->formatStrings($advert['params']['version']),
+            'generation'         => $this->formatStrings($advert['params']['generation']),
             'year'               => $advert['params']['year'],
             'mileage'            => $advert['params']['mileage'],
             'vin'                => $advert['params']['vin'],
-            'fuel_type'          => $advert['params']['fuel_type'],
+            'fuel_type'          => $this->formatStrings($advert['params']['fuel_type']),
             'engine_power'       => $advert['params']['engine_power'],
             'engine_capacity'    => $advert['params']['engine_capacity'],
-            'transmission'       => $advert['params']['transmission'],
-            'gearbox'            => $advert['params']['gearbox'],
-            'pollution_standard' => $advert['params']['pollution_standard'],
+            'transmission'       => $this->formatStrings($advert['params']['transmission']),
+            'gearbox'            => $this->formatStrings($advert['params']['gearbox']),
+            'pollution_standard' => $this->formatStrings($advert['params']['pollution_standard']),
             'particle_filter'    => $advert['params']['particle_filter'],
             'urban_consumption'  => $advert['params']['urban_consumption'],
-            'body_type'          => $advert['params']['body_type'],
+            'body_type'          => $this->formatStrings($advert['params']['body_type']),
             'co2_emissions'      => $advert['params']['co2_emissions'],
             'door_count'         => $advert['params']['door_count'],
-            'color'              => $advert['params']['color'],
-            'colour_type'        => $advert['params']['colour_type'],
+            'color'              => $this->formatStrings($advert['params']['color']),
+            'color_type'         => $this->formatStrings($advert['params']['colour_type']),
             'features'           => json_encode($advert['params']['features']),
             'date_registration'  => $advert['params']['date_registration'],
             'registered'         => $advert['params']['registered'] === '1',
@@ -74,5 +82,37 @@ class AdvertsService
             'historical_vehicle' => $advert['params']['historical_vehicle'] === '1',
             'tuning'             => $advert['params']['tuning'] === '1',
         ];
+    }
+
+    /**
+     * Formats strings to be ready for database insertion.
+     * @param string $text
+     * @return string
+     */
+    private function formatStrings(string $text): string
+    {
+        return str_replace('-', ' ', Str::of($text)->ucfirst());
+    }
+
+    /**
+     * Saves advert images to public storage.
+     * @param int $advertId
+     * @param array $photos
+     */
+    private function saveAdvertImages(int $advertId, array $photos): void
+    {
+        foreach ($photos as $key => $photo) {
+            foreach ($photo as $size => $url) {
+                $buffer = file_get_contents($url);
+                $mime   = (new finfo(FILEINFO_MIME_TYPE))->buffer($buffer);
+                $ext    = substr($mime, strrpos($mime, '/') + 1);
+
+                if ($size === self::SIZE_S) {
+                    Storage::put("images/$advertId/thumbs/$key.$ext", $buffer);
+                } elseif ($size === self::SIZE_L) {
+                    Storage::put("images/$advertId/$key.$ext", $buffer);
+                }
+            }
+        }
     }
 }

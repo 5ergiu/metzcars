@@ -23,4 +23,6 @@ return [
     "send"           => "Send",
     "stock"          => "Stock",
     "terms"          => "Terms and conditions",
+    "yes"            => "Yes",
+
 ];

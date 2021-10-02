@@ -40,7 +40,7 @@ class ContactsStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'contact.brand.max'        => __('validation.max.string', ['attribute' => __('contacts.brand'), 'max' => 255]),
+            'contact.brand.max'        => __('validation.max.string', ['attribute' => __('adverts.brand'), 'max' => 255]),
             'contact.model.max'        => __('validation.max.string', ['attribute' => __('contacts.model'), 'max' => 255]),
             'contact.name.required'   => __('validation.required', ['attribute' => __('contacts.name')]),
             'contact.name.max'        => __('validation.max.string', ['attribute' => __('contacts.name'), 'max' => 255]),

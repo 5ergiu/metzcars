@@ -2,11 +2,9 @@
 
 return [
 
-    "brand"            => "Marcă",
     "email"            => "Email",
     "message"          => "Mesaj",
     "messageFrom"      => "Mesaj de la: :name",
-    "model"            => "Model",
     "name"             => "Nume",
     "phone"            => "Telefon",
     "price"            => "Preț",
@@ -16,5 +14,5 @@ return [
     "selectModelFirst" => "Selectează un model mai întâi",
     "thankYouMessage"  => "Vă mulțumim pentru mesaj! Vă vom contacta cât de curând posibil.",
     "viewMessage"      => "Vezi mesajul",
-    "year"             => "Anul fabricației",
+
 ];

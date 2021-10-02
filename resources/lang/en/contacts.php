@@ -2,11 +2,10 @@
 
 return [
 
-    "brand"            => "Brand",
+
     "email"            => "Email",
     "message"          => "Message",
     "messageFrom"      => "Message from: :name",
-    "model"            => "Model",
     "name"             => "Name",
     "phone"            => "Phone",
     "price"            => "Price",
@@ -16,5 +15,5 @@ return [
     "selectModelFirst" => "Select a model first",
     "thankYouMessage"  => "Thanks for reaching out! We'll contact you back as soon as possible.",
     "viewMessage"      => "View message",
-    "year"             => "Year",
+
 ];

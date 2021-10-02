@@ -23,6 +23,7 @@ class Advert extends Model
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
+        'title',
         'description',
         'price',
         'rhd',
@@ -45,7 +46,7 @@ class Advert extends Model
         'co2_emissions',
         'door_count',
         'color',
-        'colour_type',
+        'color_type',
         'features',
         'date_registration',
         'registered',
@@ -64,4 +65,40 @@ class Advert extends Model
     protected $casts = [
         'features' => 'array',
     ];
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getParticleFilterAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getRegisteredAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getNoAccidentAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getServiceRecordAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
 }

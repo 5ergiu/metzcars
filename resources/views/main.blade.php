@@ -36,7 +36,6 @@
         </div>
         @include('partials.footer.footer')
     </div>
-    <script type="text/javascript" src="{{ asset('vendor/js/tail.select.min.js') }}"></script>
     <script defer src="{{ asset('bundle/js/app.js') }}"></script>
     @stack('scripts')
 </body>

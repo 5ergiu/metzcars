@@ -15,7 +15,7 @@
                 @csrf
                 <h3 class="text-center fw-bold">{{ __('labels.getInTouch') }}</h3>
                 <div class="col-sm-6">
-                    <label for="contactBrand" class="form-label">{{ __('contacts.brand') }}</label>
+                    <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
                     <select name="contact[brand]" data-placeholder="{{ __('contacts.selectBrand') }}" id="contactBrand" class="form-select">
                         <option value="" selected disabled hidden></option>
                         @foreach($brands as $key => $brand)
@@ -88,9 +88,11 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/contacts.css') }}"
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css/tail.select-default.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/contacts.css') }}" />
 @endpush
 
 @push('scripts')
+    <script type="text/javascript" src="{{ asset('vendor/js/tail.select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundle/js/pages/contact.js') }}"></script>
 @endpush

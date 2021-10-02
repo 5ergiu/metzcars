@@ -16,18 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 # Public routes
 Route::middleware(['locale'])->group(function() {
-    Route::get('/',               [Controllers\HomeController::class, 'index'])->name('app.home');
-    Route::get('/locale/{code}',  [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
+    Route::get('/',                   [Controllers\HomeController::class, 'index'])->name('app.home');
+    Route::get('/locale/{code}',      [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
 
     // Contacts
-    Route::get('/contact/create', [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
-    Route::post('/contact',       [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
+    Route::get('/contact/create',     [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
+    Route::post('/contact',           [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
 
     // Stock
-    Route::get('/stock',          [Controllers\StockController::class, 'index'])->name('app.stock.index');
+    Route::get('/stock',              [Controllers\StockController::class, 'index'])->name('app.stock.index');
 
     // Portfolio
-    Route::get('/portfolio',      [Controllers\PortfolioController::class, 'index'])->name('app.portfolio.index');
+    Route::get('/portfolio',          [Controllers\PortfolioController::class, 'index'])->name('app.portfolio.index');
+    Route::get('/portfolio/{advert}', [Controllers\PortfolioController::class, 'show'])->name('app.portfolio.show');
 });
 
 # Admin routes
@@ -36,4 +37,4 @@ Route::middleware(['auth', 'locale'])->group(function() {
 });
 
 # Autovit routes
-Route::get('/autovit/{brand}/models',            [Controllers\AutovitController::class, 'getBrandModels']);
+Route::get('/autovit/{brand}/models', [Controllers\AutovitController::class, 'getBrandModels']);

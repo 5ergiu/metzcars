@@ -16,6 +16,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // extra js
 require('./components/loadMoreData')
+require('spotlight.js')
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
