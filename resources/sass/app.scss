@@ -202,16 +202,6 @@ button {
     cursor: pointer;
 }
 
-.show {
-    visibility: visible;
-    opacity: 1;
-}
-
-.hide {
-    visibility: hidden;
-    opacity: 0;
-}
-
 .muted {
     font: {
         size: 0.8rem;
@@ -369,6 +359,22 @@ footer {
     }
 }
 
+.title {
+    margin: 2rem 0 4rem 0;
+    color: #fff;
+    text-transform: uppercase;
+    font: {
+        weight: bold;
+    }
+    &--bordered {
+        display: inline-block;
+        border-bottom: 0.25rem solid #35B6FF;
+        border-radius: 0.1rem;
+        padding: 0 0.2rem;
+        margin: 1rem 0;
+    }
+}
+
 .required-field:after {
     content: " *";
     color: red;
@@ -444,14 +450,116 @@ footer {
     }
 }
 
-// Other
+// Adverts
+.advert {
+    background-color: $bg;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 19px 0 rgba(0, 0, 0, 0.75);
+    &__img {
+        min-height: 300px;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom: 2px solid $text;
+        cursor: pointer;
+    }
+    &__title {
+        font: {
+            size: 1.1rem;
+            weight: bold;
+        }
+        color: #fff;
+        &:hover {
+            color: $blue;
+        }
+        margin-right: 1rem;
+    }
+    &__autovit {
+        width: 150px;
+        img {
+            filter: drop-shadow(0 2px 2px rgba(255, 255, 255, 0.7));
+        }
+    }
+    &--portfolio {
+        &__img {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            border-bottom: 2px solid $text;
+            cursor: pointer;
+            height: 250px;
+        }
+    }
+}
+
+// Media queries
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    #content {
+        padding-top: 0;
+    }
+
+    .advert {
+        &--portfolio {
+            max-width: 400px;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .advert {
+        &__img {
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            border-top-right-radius: unset;
+            border-bottom: unset;
+            border-right: 2px solid $text;
+        }
+        &__title {
+            font: {
+                size: 1.5rem;
+            }
+        }
+        &__details {
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+        }
+        &__autovit {
+            width: 200px;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}
+
+// Landscape view
+@media (min-height: 500px) {
+}
+
+// Styles applied to partials
+@import "../views/partials/header/header";
+@import "../views/partials/nav/nav";
+@import "../views/partials/footer/footer";
+
+// Overwriting vendor css
 .tail-select {
-    width: 100%;
+    width: 100%!important;
     font-size: 1rem;
     .dropdown {
-        &.loading {
-            background-color: #000!important;
-        }
         &-search {
             .search-input {
                 font-size: 1rem;
@@ -475,38 +583,3 @@ footer {
         }
     }
 }
-
-// Media queries
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-    #content {
-        padding-top: 0;
-    }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-}
-
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-}
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
-}
-
-// Landscape view
-@media (min-height: 500px) {
-}
-
-// Styles applied to partials
-@import "../views/partials/header/header";
-@import "../views/partials/nav/nav";
-@import "../views/partials/footer/footer";
-@import "../views/partials/adverts/adverts";

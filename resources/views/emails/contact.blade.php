@@ -14,7 +14,6 @@ Hi, a new contact message has been received:
 </p>
 <p>Brand: {{ $contact->brand }}</p>
 <p>Model: {{ $contact->model }}</p>
-<p>Gearbox: {{ $contact->gearbox }}</p>
 <p>Price: {{ $contact->price }}</p>
 <p>Year: {{ $contact->year }}</p>
 <p>Message: {{ $contact->message }}</p>

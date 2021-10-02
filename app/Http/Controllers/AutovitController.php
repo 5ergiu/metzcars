@@ -38,31 +38,4 @@ class AutovitController extends Controller
 
         return response()->json($models);
     }
-
-    /**
-     * Get all gearboxes for a specific model.
-     * @param string $brand
-     * @param string $model
-     * @return JsonResponse
-     */
-    public function getModelGearboxes(string $brand, string $model): JsonResponse
-    {
-        $gearboxes = [];
-        $options   = json_decode($this->autovitService->getModelGearboxes($brand, $model),true)['options'];
-
-        foreach ($options as $key => $option) {
-            // key, value, group, selected, disabled, description, rebuild
-            $gearboxes[] = [
-                'key' => App::getLocale() === LocaleService::LOCALE_EN ? $key : $option['ro'],
-                'value' => App::getLocale() === LocaleService::LOCALE_EN ? $key : $option['ro'],
-                'group' => false,
-                'selected' => false,
-                'disabled' => false,
-                'description' => '',
-                'rebuild' => true,
-            ];
-        }
-
-        return response()->json($gearboxes);
-    }
 }

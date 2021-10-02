@@ -16,4 +16,4 @@ docker-compose exec app php artisan route:clear
 docker-compose exec app php artisan view:clear
 
 end=$(date +%s)
-toast "Execution Time: $((end-start)) seconds. 🍻"
+toast "Execution Time: $((end-start)) seconds."
