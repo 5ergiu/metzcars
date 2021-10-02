@@ -13,7 +13,6 @@ class Contact extends Model
         'phone',
         'brand',
         'model',
-        'gearbox',
         'price',
         'year',
         'message',

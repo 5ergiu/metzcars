@@ -22,6 +22,8 @@ class ContactsStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'contact.brand'   => 'max:255|nullable',
+            'contact.model'   => 'max:255|nullable',
             'contact.name'    => 'required|max:255',
             'contact.email'   => 'required|email:rfc|max:255',
             'contact.phone'   => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:15',
@@ -38,6 +40,8 @@ class ContactsStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'contact.brand.max'        => __('validation.max.string', ['attribute' => __('adverts.brand'), 'max' => 255]),
+            'contact.model.max'        => __('validation.max.string', ['attribute' => __('contacts.model'), 'max' => 255]),
             'contact.name.required'   => __('validation.required', ['attribute' => __('contacts.name')]),
             'contact.name.max'        => __('validation.max.string', ['attribute' => __('contacts.name'), 'max' => 255]),
             'contact.email.required'  => __('validation.required', ['attribute' => __('contacts.email')]),

@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     if (response.data.html == '') {
                         noMoreData.classList.remove('d-none')
                     } else {
-                        document.querySelector('.wrapper').innerHTML += response.data.html
+                        document.querySelector('.wrapper--load-more').innerHTML += response.data.html
                         noMoreData.classList.add('d-none')
                         page += 1
                     }

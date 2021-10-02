@@ -25,11 +25,11 @@
                             </li>
                             <li class="me-3 fs-5 text-nowrap">
                                 <i class="fas fa-globe-europe"></i>
-                                {{ $advert['params']['pollution_standard'] }}
+                                {{ str_replace('-', ' ', Str::of($advert['params']['pollution_standard'])->ucfirst()) }}
                             </li>
                             <li class="me-3 fs-5 text-nowrap">
                                 <i class="fas fa-cog"></i>
-                                {{ $advert['params']['gearbox'] }}
+                                {{ str_replace('-', ' ', Str::of($advert['params']['gearbox'])->ucfirst()) }}
                             </li>
                         </ul>
                         <ul class="d-flex flex-column flex-md-row">
@@ -43,7 +43,7 @@
                             </li>
                             <li class="me-3 fs-5 text-nowrap">
                                 <i class="fas fa-gas-pump"></i>
-                                {{ $advert['params']['fuel_type'] }}
+                                {{ str_replace('-', ' ', Str::of($advert['params']['fuel_type'])->ucfirst()) }}
                             </li>
                         </ul>
                     </div>

@@ -1,0 +1,35 @@
+@import "../../sass/vars";
+
+.portfolio {
+    .list-unstyled {
+        li {
+            white-space: nowrap;
+            margin-bottom: 0.5rem;
+            > span:nth-child(2) {
+                font: {
+                    weight: bold;
+                }
+            }
+        }
+    }
+    .spotlight-group {
+        img {
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            border-radius: 1rem;
+        }
+    }
+    .fa-check-circle {
+        color: $green;
+    }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .portfolio {
+        ul {
+            columns: 2;
+        }
+    }
+}

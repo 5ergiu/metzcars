@@ -23,4 +23,6 @@ return [
     "send"           => "Trimite",
     "stock"          => "Stoc",
     "terms"          => "Termeni și condiții",
+    "yes"            => "Da",
+
 ];

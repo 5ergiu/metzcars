@@ -15,6 +15,7 @@ class CreateAdvertsTable extends Migration
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->unsignedBigInteger('autovit_id')->primary();
+            $table->string('title');
             $table->text('description');
             $table->unsignedMediumInteger('price');
             $table->boolean('rhd');
@@ -37,7 +38,7 @@ class CreateAdvertsTable extends Migration
             $table->unsignedSmallInteger('co2_emissions');
             $table->unsignedSmallInteger('door_count');
             $table->string('color');
-            $table->string('colour_type');
+            $table->string('color_type');
             $table->json('features');
             $table->date('date_registration');
             $table->boolean('registered');
