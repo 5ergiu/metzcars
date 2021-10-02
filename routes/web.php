@@ -37,4 +37,3 @@ Route::middleware(['auth', 'locale'])->group(function() {
 
 # Autovit routes
 Route::get('/autovit/{brand}/models',            [Controllers\AutovitController::class, 'getBrandModels']);
-Route::get('/autovit/{brand}/{model}/gearboxes', [Controllers\AutovitController::class, 'getModelGearboxes']);

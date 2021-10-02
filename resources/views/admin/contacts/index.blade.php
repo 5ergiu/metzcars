@@ -33,7 +33,6 @@
                                 data-bs-email="{{ $contact->email }}"
                                 data-bs-brand="{{ $contact->brand }}"
                                 data-bs-model="{{ $contact->model }}"
-                                data-bs-gearbox="{{ $contact->gearbox }}"
                                 data-bs-price="{{ $contact->price }}"
                                 data-bs-year="{{ $contact->year }}"
                                 data-bs-message="{{ $contact->message }}"
@@ -62,7 +61,6 @@
                         <div class="modal-body">
                             <p class="modal-body__brand"></p>
                             <p class="modal-body__model"></p>
-                            <p class="modal-body__gearbox"></p>
                             <p class="modal-body__price"></p>
                             <p class="modal-body__year"></p>
                             <p class="modal-body__message mt-4"></p>
@@ -91,7 +89,6 @@
             messageModal.querySelector('.modal-title__email').href = 'mailto:' + button.getAttribute('data-bs-email')
             messageModal.querySelector('.modal-body__brand').textContent = "{{ __('contacts.brand') . ': ' }}" + button.getAttribute('data-bs-brand')
             messageModal.querySelector('.modal-body__model').textContent = "{{ __('contacts.model') . ': ' }}" + button.getAttribute('data-bs-model')
-            messageModal.querySelector('.modal-body__gearbox').textContent = "{{ __('contacts.gearbox') . ': ' }}" + button.getAttribute('data-bs-gearbox')
             messageModal.querySelector('.modal-body__price').textContent = "{{ __('contacts.price') . ': ' }}" + button.getAttribute('data-bs-price')
             messageModal.querySelector('.modal-body__year').textContent = "{{ __('contacts.year') . ': ' }}" + button.getAttribute('data-bs-year')
             messageModal.querySelector('.modal-body__message').textContent = button.getAttribute('data-bs-message')

@@ -21,7 +21,6 @@ class CreateContactsTable extends Migration
             $table->string('message')->nullable();
             $table->string('brand')->nullable('-');
             $table->string('model')->nullable('-');
-            $table->string('gearbox')->nullable('-');
             $table->string('price')->nullable('-');
             $table->string('year')->nullable('-');
             $table->timestamp('created_at')->useCurrent();

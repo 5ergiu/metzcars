@@ -92,17 +92,6 @@ class AutovitService
     }
 
     /**
-     * Get all gearboxes for a specific model.
-     * @param string $brand
-     * @param string $model
-     * @return string
-     */
-    public function getModelGearboxes(string $brand, string $model): string
-    {
-        return $this->getResponse($this->buildGetModelGearboxesUrl($brand, $model));
-    }
-
-    /**
      * Build an api request and return the response back.
      * @param string $endpoint
      * @param array $params
@@ -125,16 +114,5 @@ class AutovitService
         )
         ->getBody()
         ->getContents();
-    }
-
-    /**
-     * Build the url to read gearboxes for a specific brand & model.
-     * @param string $brand
-     * @param string $model
-     * @return string
-     */
-    private function buildGetModelGearboxesUrl(string $brand, string $model): string
-    {
-        return self::VEHICLE_MODELS_ENDPOINT . "/$brand/" . 'gearboxes/' . $model;
     }
 }

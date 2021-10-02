@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\HaltException;
 use App\Models\Advert;
 use App\Services\AutovitService;
 use Illuminate\Http\JsonResponse;
