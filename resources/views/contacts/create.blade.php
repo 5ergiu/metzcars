@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label for="contactModel" class="form-label">{{ __('contacts.model') }}</label>
+                    <label for="contactModel" class="form-label">{{ __('adverts.model') }}</label>
                     <select name="contact[model]" disabled data-placeholder="{{ __('contacts.selectModel') }}" id="contactModel" class="form-select">
                         <option value="" selected disabled>{{ __('contacts.selectBrandFirst') }}</option>
                     </select>
@@ -39,7 +39,7 @@
                     @error('contact.price') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-sm-6">
-                    <label for="contactYear" class="form-label">{{ __('contacts.year') }}</label>
+                    <label for="contactYear" class="form-label">{{ __('adverts.year') }}</label>
                     <input type="text" id="contactYear" class="form-control @error('contact.year') is-invalid @enderror" name="contact[year]"
                            value="{{ old('contact.year') }}"
                     />

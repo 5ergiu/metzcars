@@ -88,9 +88,9 @@
             messageModal.querySelector('.modal-title__email').textContent = "{{ __('contacts.email') . ': ' }}" + button.getAttribute('data-bs-email')
             messageModal.querySelector('.modal-title__email').href = 'mailto:' + button.getAttribute('data-bs-email')
             messageModal.querySelector('.modal-body__brand').textContent = "{{ __('adverts.brand') . ': ' }}" + button.getAttribute('data-bs-brand')
-            messageModal.querySelector('.modal-body__model').textContent = "{{ __('contacts.model') . ': ' }}" + button.getAttribute('data-bs-model')
+            messageModal.querySelector('.modal-body__model').textContent = "{{ __('adverts.model') . ': ' }}" + button.getAttribute('data-bs-model')
             messageModal.querySelector('.modal-body__price').textContent = "{{ __('contacts.price') . ': ' }}" + button.getAttribute('data-bs-price')
-            messageModal.querySelector('.modal-body__year').textContent = "{{ __('contacts.year') . ': ' }}" + button.getAttribute('data-bs-year')
+            messageModal.querySelector('.modal-body__year').textContent = "{{ __('adverts.year') . ': ' }}" + button.getAttribute('data-bs-year')
             messageModal.querySelector('.modal-body__message').textContent = button.getAttribute('data-bs-message')
         })
     </script>

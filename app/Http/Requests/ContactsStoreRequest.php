@@ -41,7 +41,7 @@ class ContactsStoreRequest extends FormRequest
     {
         return [
             'contact.brand.max'        => __('validation.max.string', ['attribute' => __('adverts.brand'), 'max' => 255]),
-            'contact.model.max'        => __('validation.max.string', ['attribute' => __('contacts.model'), 'max' => 255]),
+            'contact.model.max'        => __('validation.max.string', ['attribute' => __('adverts.model'), 'max' => 255]),
             'contact.name.required'   => __('validation.required', ['attribute' => __('contacts.name')]),
             'contact.name.max'        => __('validation.max.string', ['attribute' => __('contacts.name'), 'max' => 255]),
             'contact.email.required'  => __('validation.required', ['attribute' => __('contacts.email')]),
@@ -52,7 +52,7 @@ class ContactsStoreRequest extends FormRequest
             'contact.phone.min'       => __('validation.min.string', ['attribute' => __('contacts.phone'), 'min' => 10]),
             'contact.phone.regex'     => __('validation.regex', ['attribute' => __('contacts.phone')]),
             'contact.price.max'       => __('validation.max.string', ['attribute' => __('contacts.price'), 'max' => 15]),
-            'contact.year.max'        => __('validation.max.string', ['attribute' => __('contacts.year'), 'max' => 15]),
+            'contact.year.max'        => __('validation.max.string', ['attribute' => __('adverts.year'), 'max' => 15]),
             'contact.message.max'     => __('validation.max.string', ['attribute' => __('contacts.message'), 'max' => 255]),
         ];
     }

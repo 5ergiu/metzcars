@@ -12,14 +12,6 @@ use Throwable;
 class ContactsService
 {
     /**
-     * @return LengthAwarePaginator
-     */
-    public function getContacts(): LengthAwarePaginator
-    {
-        return Contact::paginate(10);
-    }
-
-    /**
      * @param ContactsStoreRequest $request
      * @return RedirectResponse
      */

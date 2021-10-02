@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Advert;
 use App\Services\AdvertsService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
@@ -15,19 +17,16 @@ class PortfolioController extends Controller
 
     /**
      * Display a listing of the resource.
-     * @return View
+     * @param Request $request
+     * @return View|JsonResponse
      */
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
         $adverts = Advert::paginate(10);
-//        $adverts1 = Advert::find(7045985411);
-//        $adverts2 = Advert::find(7045985411);
-//        $adverts3 = Advert::find(7045985411);
-//        $adverts4 = Advert::find(7045985411);
-//        $adverts5 = Advert::find(7045985411);
-//        $adverts6 = Advert::find(7045985411);
-//        $adverts7 = Advert::find(7045985411);
-//        $adverts = [$adverts1, $adverts2, $adverts3,$adverts4,$adverts5,$adverts6,$adverts7];
+
+        if ($request->ajax()) {
+            return response()->json(['html' => view('elements.portfolio_advert', compact('adverts'))->render()]);
+        }
 
         return view('portfolio.index', compact('adverts'));
     }

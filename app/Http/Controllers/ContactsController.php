@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactsStoreRequest;
+use App\Models\Contact;
 use App\Services\AutovitService;
 use App\Services\ContactsService;
 use Illuminate\Http\RedirectResponse;
@@ -21,7 +22,7 @@ class ContactsController extends Controller
      */
     public function index(): View
     {
-        $contacts = $this->contactService->getContacts();
+        $contacts = Contact::paginate(10);
 
         return view('admin.contacts.index', compact('contacts'));
     }
