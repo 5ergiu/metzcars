@@ -616,12 +616,14 @@ footer {
 .tail-select {
     width: 100%!important;
     font-size: 1rem;
-    // iphone/safari fix
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+    input {
+        // iphone/safari fix
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
     .dropdown {
         &-search {
             .search-input {
