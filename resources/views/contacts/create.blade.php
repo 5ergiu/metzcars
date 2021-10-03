@@ -1,5 +1,9 @@
 @extends('main')
 
+@section('meta')
+    <meta name="description" content="{{ __('home.carNotFound') . ' - ' . __('labels.getInTouch') . ' - ' . config('app.name') }}">
+@endsection
+
 @section('title') {{ __('labels.contact') }} @endsection
 
 @section('content')
