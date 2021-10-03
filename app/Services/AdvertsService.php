@@ -103,14 +103,16 @@ class AdvertsService
     {
         foreach ($photos as $key => $photo) {
             foreach ($photo as $size => $url) {
-                $buffer = file_get_contents($url);
-                $mime   = (new finfo(FILEINFO_MIME_TYPE))->buffer($buffer);
-                $ext    = substr($mime, strrpos($mime, '/') + 1);
+                if ($size === self::SIZE_S || $size === self::SIZE_L) {
+                    $buffer = file_get_contents($url);
+                    $mime   = (new finfo(FILEINFO_MIME_TYPE))->buffer($buffer);
+                    $ext    = substr($mime, strrpos($mime, '/') + 1);
 
-                if ($size === self::SIZE_S) {
-                    Storage::put("images/$advertId/thumbs/$key.$ext", $buffer);
-                } elseif ($size === self::SIZE_L) {
-                    Storage::put("images/$advertId/$key.$ext", $buffer);
+                    if ($size === self::SIZE_S) {
+                        Storage::put("images/$advertId/thumbs/$key.$ext", $buffer);
+                    } elseif ($size === self::SIZE_L) {
+                        Storage::put("images/$advertId/$key.$ext", $buffer);
+                    }
                 }
             }
         }

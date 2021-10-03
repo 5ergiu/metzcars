@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="stock wrapper wrapper--load-more">
-        @include('elements.advert', $adverts)
+        @include('elements.advertBig', $adverts)
     </section>
     @include('elements.loader')
 @endsection
