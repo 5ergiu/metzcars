@@ -1,2 +1,23 @@
 User-agent: *
-Disallow:
+Disallow: /api
+Disallow: /api/user
+Disallow: /autovit
+Disallow: /admin
+Disallow: /contact
+Disallow: /locale
+Disallow: /login
+Disallow: /opcache-api
+Disallow: /opcache-api/clear
+Disallow: /opcache-api/compile
+Disallow: /opcache-api/config
+Disallow: /opcache-api/status
+Disallow: /password/reset
+Disallow: /password/reset-sent
+Disallow: /register
+Disallow: /register/confirm
+Disallow: /register/verified
+Disallow: /register/resend
+Disallow: /sanctum/csrf-cookie
+Disallow: /terms-and-conditions
+Disallow: /user/confirm-password
+Disallow: /user/confirmed-password-status

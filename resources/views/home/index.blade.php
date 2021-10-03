@@ -1,5 +1,9 @@
 @extends('main')
 
+@section('meta')
+    <meta name="description" content="{{ __('home.importOrStock') }}">
+@endsection
+
 @section('title') {{ __('labels.leasingAndRent') }} @endsection
 
 @section('content')
