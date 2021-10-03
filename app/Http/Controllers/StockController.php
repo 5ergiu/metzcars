@@ -24,7 +24,7 @@ class StockController extends Controller
         $adverts = $this->autovitService->getActiveAdverts($request->query('page'));
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
+            return response()->json(['html' => view('elements.advertBig', compact('adverts'))->render()]);
         }
 
         return view('stock.index', compact('adverts'));

@@ -3,7 +3,7 @@
 .home {
     &__bg {
         position: relative;
-        height: 50vh;
+        height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -27,6 +27,8 @@
         }
         &_txt {
             padding: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px #000;
         }
     }
 }
@@ -63,6 +65,9 @@
                 max-width: 800px;
             }
         }
+        .title--bordered {
+            font-size: 1.3rem;
+        }
     }
 }
 
@@ -75,7 +80,7 @@
     .home {
         &__bg {
             &_txt {
-                padding: 5rem 1rem 0 1rem;
+                padding: 8rem 1rem 0 1rem;
             }
         }
     }

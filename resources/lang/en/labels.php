@@ -18,6 +18,7 @@ return [
     "getInTouch"     => "Get in touch",
     "home"           => "Home",
     "leasingAndRent" => "Leasing & Rent",
+    "moreItems"      => "View more",
     "portfolio"      => "Portfolio",
     "privacy"        => "Privacy policy",
     "send"           => "Send",

@@ -18,6 +18,7 @@ return [
     "getInTouch"     => "Intră în contact",
     "home"           => "Acasă",
     "leasingAndRent" => "Leasing & Închirieri",
+    "moreItems"      => "Vezi mai multe",
     "portfolio"      => "Portofoliu",
     "privacy"        => "Politica de confidențialitate",
     "send"           => "Trimite",

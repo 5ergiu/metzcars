@@ -1,7 +1,7 @@
 @foreach($adverts as $advert)
-    <div class="advert advert--portfolio card m-3">
+    <div class="advert advert--small card">
         <div
-            class="advert--portfolio__img"
+            class="advert--small__img"
             title="{{ $advert->title }}"
             onclick="window.open('{{ route('app.portfolio.show', $advert) }}', '_self')"
             style="background: no-repeat center url({{ asset("storage/images/$advert->autovit_id/1.jpeg") }}); background-size: cover"
