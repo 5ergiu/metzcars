@@ -1,5 +1,9 @@
 @extends('main')
 
+@section('meta')
+    <meta name="description" content="{{ $advert->title }}">
+@endsection
+
 @section('title') {{ $advert->title }} @endsection
 
 @section('content')

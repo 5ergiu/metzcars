@@ -1,5 +1,9 @@
 @extends('main')
 
+@section('meta')
+    <meta name="description" content="{{ config('app.name') . ' - ' . __('labels.portfolio') }}">
+@endsection
+
 @section('title') {{ __('labels.portfolio') }} @endsection
 
 @section('content')
