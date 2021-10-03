@@ -11,14 +11,17 @@ Contents
 * [Configuration](#configuration)
 * [Release notes](#release-notes)
 * [Scripts](#scripts)
+* [Development](#development)
 
 ### Tech stack
 
-- 🛠️ Environment: &nbsp; Docker
-- 💻 Backend: &nbsp; PHP 8 ([OPcache](https://devdojo.com/bobbyiliev/how-to-speed-up-your-laravel-application-with-php-opcache) & [JIT compiler](https://kinsta.com/blog/php-8/#jit)) | Laravel
-- 🌐 Frontend: &nbsp; Blade | Bootstrap | SASS | JavaScript ES6
-- 🛢 Database: &nbsp; MySQL 8
-- 🗄️ Server: &nbsp; Nginx 1.21
+| For | Using |
+| ----------- | -------- |
+| 🛠️ Environment | Docker |
+| 💻 Backend | PHP 8 (with [OPcache](https://devdojo.com/bobbyiliev/how-to-speed-up-your-laravel-application-with-php-opcache) & [JIT compiler](https://kinsta.com/blog/php-8/#jit)) - Laravel |
+| 🌐 Frontend | Blade - Bootstrap - SASS - JavaScript ES6 |
+| 🛢 Database | MySQL 8 |
+| 🗄️ Server | Nginx 1.21 |
 
 ### Installation
 
@@ -36,18 +39,24 @@ installed on your system, and then clone this repository.
 
 ### Scripts
 
-```
- ___  ___   ___  _ __  
-/ __|/ _ \ / _ \| '_ \ 
-\__ \ (_) | (_) | | | |
-|___/\___/ \___/|_| |_|
-```
+In the root of the project directory you can run multiple scripts to ease development:
+
+1. **./bin** : Used to run commands inside the app docker container
+2. **./cache** : Clear all laravel cache configs
 
 ### Release Notes
 
-```
- ___  ___   ___  _ __  
-/ __|/ _ \ / _ \| '_ \ 
-\__ \ (_) | (_) | | | |
-|___/\___/ \___/|_| |_|
-```
+1. Pull code from main git repo
+2. If necessary:
+   1. Run migrations *(in project root)* : **./bin php artisan migrate**
+   2. Install new dependencies *(in project root)* : **./bin composer install**
+   3. Build frontend assets *(in project root)* : **./bin yarn production**
+   4. Restart/rebuild docker images/containers
+
+### Development
+
+* Each feature/task/issue is developed on a separate branch
+* [SOLID](https://geekflare.com/php-solid-principles/)
+* [Mobile first design](https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00)
+* [BEM methodology for CSS](https://en.bem.info/methodology/)
+* Translations ordered alphabetically for ease of use
