@@ -41,13 +41,14 @@ class AutovitService
     /**
      * Get a list of all active adverts.
      * @param int|null $page
+     * @param int|null $limit
      * @return array
      */
-    public function getActiveAdverts(?int $page): array
+    public function getActiveAdverts(?int $page =null, ?int $limit = null): array
     {
         $params = [
             'query' => [
-                'limit' => 5,
+                'limit' => $limit ?? 5,
                 'page'  => $page ?? null,
             ],
         ];

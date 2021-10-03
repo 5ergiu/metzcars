@@ -14,11 +14,11 @@ Contents
 
 ### Tech stack
 
-- 💻 Backend: &nbsp; PHP 8 | Laravel
-- 🌐 Frontend: &nbsp; Blade | Bootstrap | SASS | JavaScript
+- 🛠️ Environment: &nbsp; Docker
+- 💻 Backend: &nbsp; PHP 8 ([OPcache](https://devdojo.com/bobbyiliev/how-to-speed-up-your-laravel-application-with-php-opcache) & [JIT compiler](https://kinsta.com/blog/php-8/#jit)) | Laravel
+- 🌐 Frontend: &nbsp; Blade | Bootstrap | SASS | JavaScript ES6
 - 🛢 Database: &nbsp; MySQL 8
 - 🗄️ Server: &nbsp; Nginx 1.21
-- 🛠️ Manage: &nbsp; Docker
 
 ### Installation
 
