@@ -12,8 +12,12 @@ return [
     |
     */
 
+    "addToPortfolio" => "Adaugă la portofoliu",
     "businessHours"  => "Program",
+    "carNotFound"    => "Nu ai găsit mașina pe care o căutai",
     "contact"        => "Contact",
+    "contacts"       => "Contacte",
+    "contactUs"      => "Contactează-ne",
     "genericError"   => "Ceva n-a mers bine, încearcă din nou.",
     "getInTouch"     => "Intră în contact",
     "home"           => "Acasă",

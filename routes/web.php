@@ -32,8 +32,10 @@ Route::middleware(['locale'])->group(function() {
 });
 
 # Admin routes
-Route::middleware(['auth', 'locale'])->group(function() {
-    Route::get('/contact', [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
+Route::prefix('admin')->middleware(['auth', 'locale'])->group(function() {
+    Route::get('/contact',          [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/portfolio/create', [Controllers\PortfolioController::class, 'create'])->name('admin.portfolio.create');
+    Route::post('/portfolio',       [Controllers\PortfolioController::class, 'store'])->name('admin.portfolio.store');
 });
 
 # Autovit routes

@@ -1,7 +1,7 @@
 <nav class="navbar wrapper">
     <a class="navbar-brand d-none d-sm-block" href="{{ route('app.home') }}">
-        <img class="d-none d-md-block navbar-brand--big" src="{{ asset('logo_h.png') }}"  alt="Metz Cars"/>
-        <img class="d-md-none navbar-brand--small" src="{{ asset('logo_small.png') }}" alt="Metz Cars" />
+        <img class="d-none d-md-block navbar-brand--big" src="{{ asset('logo_h.png') }}"  alt="{{ config('app.name') }}"/>
+        <img class="d-md-none navbar-brand--small" src="{{ asset('logo_small.png') }}" alt="{{ config('app.name') }}" />
     </a>
     <ul class="navbar-nav flex-row flex-grow-1 justify-content-around justify-content-sm-center justify-content-md-start">
         <li>
@@ -25,7 +25,7 @@
         <li>
             <a
                 class="navbar__link {{ request()->segment(1) === 'contact' ? 'navbar__link--active' : null }}"
-                href="{{ auth()->user() ? route('admin.contacts.index') : route('app.contacts.create') }}"
+                href="{{ route('app.contacts.create') }}"
             >
                 <i class="far fa-envelope"></i>
                 <span class="navbar__link_label">{{ __('labels.contact') }}</span>
@@ -37,8 +37,18 @@
             <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ asset('static/guest.png') }}"  alt="" />
             </button>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item">
+            <ul class="dropdown-menu py-2">
+                <li class="dropdown-item py-2 px-4">
+                    <a class="d-block text-uppercase" href="{{ route('admin.contacts.index') }}">
+                        {{ __('labels.contacts') }}
+                    </a>
+                </li>
+                <li class="dropdown-item py-2 px-4">
+                    <a class="d-block text-uppercase" href="{{ route('admin.portfolio.create') }}">
+                        {{ __('labels.addToPortfolio') }}
+                    </a>
+                </li>
+                <li class="dropdown-item text-center">
                     <form class="dropdown-item" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="button button--transparent button--transparent--success">Logout</button>

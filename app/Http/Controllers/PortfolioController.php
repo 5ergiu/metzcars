@@ -32,6 +32,15 @@ class PortfolioController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('admin.portfolio.create');
+    }
+
+    /**
      * Display the specified resource.
      * @param Advert $advert
      * @return View

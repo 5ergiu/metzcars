@@ -13,6 +13,8 @@ services:
     app:
         container_name: metzcars_app
         build: .
+        environment:
+            - PHP_OPCACHE_VALIDATE_TIMESTAMPS
         restart: unless-stopped
         volumes:
             - ./:/var/www

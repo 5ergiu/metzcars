@@ -453,7 +453,6 @@ footer {
         }
         .dropdown-menu {
             left: unset;
-            background: none;
             min-width: unset;
         }
         .dropdown-item {
@@ -462,6 +461,11 @@ footer {
             &:hover {}
             background: none;
             padding: 0;
+        }
+    }
+    &--locale {
+        .dropdown-menu {
+            background: unset;
         }
     }
     &--account {
@@ -473,6 +477,7 @@ footer {
             background: #fff;
         }
         .dropdown-menu {
+            background: $bg;
             left: unset;
             right: 0;
             padding: 0;

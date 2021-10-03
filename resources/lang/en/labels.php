@@ -12,8 +12,12 @@ return [
     |
     */
 
+    "addToPortfolio" => "Add to portfolio",
     "businessHours"  => "Business hours",
+    "carNotFound"    => "Didn't find the car you were looking for",
     "contact"        => "Contact",
+    "contacts"       => "Contacts",
+    "contactUs"      => "Contact us",
     "genericError"   => "Something went wrong, please try again.",
     "getInTouch"     => "Get in touch",
     "home"           => "Home",

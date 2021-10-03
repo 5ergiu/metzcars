@@ -55,11 +55,11 @@
             </div>
             <div class="my-5">
                 <h4 class="title text-center mb-0">
-                    {{ __('home.carNotFound') }} ?
+                    {{ __('labels.carNotFound') }} ?
                     <br />
                     <button class="button button--transparent fs-3 mt-4 p-4">
                         <a href="{{ route('app.contacts.create') }}">
-                            {{ __('home.contactUs') }}
+                            {{ __('labels.contactUs') }}
                         </a>
                     </button>
                 </h4>

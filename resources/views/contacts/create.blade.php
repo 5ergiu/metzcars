@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('meta')
-    <meta name="description" content="{{ __('home.carNotFound') . ' - ' . __('labels.getInTouch') . ' - ' . config('app.name') }}">
+    <meta name="description" content="{{ __('labels.carNotFound') . ' - ' . __('labels.getInTouch') . ' - ' . config('app.name') }}">
 @endsection
 
 @section('title') {{ __('labels.contact') }} @endsection
@@ -17,7 +17,9 @@
             @endif
             <form class="row g-3" action="{{ route('app.contacts.store') }}" method="post">
                 @csrf
-                <h3 class="text-center fw-bold">{{ __('labels.getInTouch') }}</h3>
+                <h3 class="text-center fw-bold">{{ __('labels.carNotFound') }}?</h3>
+                <br />
+                <h3 class="text-center fw-bold">{{ __('labels.contactUs') }}</h3>
                 <div class="col-sm-6">
                     <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
                     <select name="contact[brand]" data-placeholder="{{ __('contacts.selectBrand') }}" id="contactBrand" class="form-select">
@@ -36,18 +38,18 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <label for="contactPrice" class="form-label">{{ __('contacts.price') }}</label>
-                    <input type="text" id="contactPrice" class="form-control @error('contact.price') is-invalid @enderror" name="contact[price]"
-                           value="{{ old('contact.price') }}"
+                    <label for="contactMaxPrice" class="form-label">{{ __('contacts.maxPrice') }}</label>
+                    <input type="text" id="contactMaxPrice" class="form-control @error('contact.max_price') is-invalid @enderror" name="contact[max_price]"
+                           value="{{ old('contact.max_price') }}"
                     />
-                    @error('contact.price') @include('elements.errorMessage') @enderror
+                    @error('contact.max_price') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-sm-6">
-                    <label for="contactYear" class="form-label">{{ __('adverts.year') }}</label>
-                    <input type="text" id="contactYear" class="form-control @error('contact.year') is-invalid @enderror" name="contact[year]"
-                           value="{{ old('contact.year') }}"
+                    <label for="contactFromYear" class="form-label">{{ __('contacts.fromYear') }}</label>
+                    <input type="text" id="contactFromYear" class="form-control @error('contact.from_year') is-invalid @enderror" name="contact[from_year]"
+                           value="{{ old('contact.from_year') }}"
                     />
-                    @error('contact.year') @include('elements.errorMessage') @enderror
+                    @error('contact.from_year') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12">
                     <label for="contactName" class="form-label required-field">{{ __('contacts.name') }}</label>
@@ -72,7 +74,7 @@
                 </div>
                 <div class="col-12">
                     <label for="contactMessage" class="form-label">{{ __('contacts.message') }}</label>
-                    <textarea class="form-control @error('contact.message') is-invalid @enderror" name="contact[message]" id="contactMessage" rows="3" maxlength="255">{{ old('contact.message') }}</textarea>
+                    <textarea class="form-control @error('contact.message') is-invalid @enderror" placeholder="{{ __('contacts.otherOptions') }}..." name="contact[message]" id="contactMessage" rows="3" maxlength="255">{{ old('contact.message') }}</textarea>
                     @error('contact.message') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12 text-center">

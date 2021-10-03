@@ -1,6 +1,6 @@
 <header class="main-header">
     <a href="{{ route('app.home') }}">
-        <img src="{{ asset('logo_small.png') }}" alt="Metz Cars" />
+        <img src="{{ asset('logo_small.png') }}" alt="{{ config('app.name') }}" />
     </a>
     <div class="text-center flex-grow-1 flex-sm-grow-0">
         <p>{{ config('app.name') }}</p>

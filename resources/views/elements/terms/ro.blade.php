@@ -3,17 +3,17 @@
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <p> Bun venit la Metz Cars! </p>
+    <p> Bun venit la METZ CARS S.R.L.! </p>
 
-    <p> Acești termeni și condiții reprezintă regulile și reglementările pentru utilizarea site-ului web Metz Cars S.R.L, situat la
+    <p> Acești termeni și condiții reprezintă regulile și reglementările pentru utilizarea site-ului web METZ CARS S.R.L. S.R.L, situat la
         https://metzcars.com. </p>
 
-    <p> Prin accesarea acestui site web presupunem că acceptați acești termeni și condiții. Nu continuați să utilizați Metz Cars dacă
+    <p> Prin accesarea acestui site web presupunem că acceptați acești termeni și condiții. Nu continuați să utilizați METZ CARS S.R.L. dacă
         nu sunteți de acord să cu termenii și condițiile menționate pe această pagină. </p>
 
     <h4> <strong> Cookie </strong> </h4>
 
-    <p> Utilizam cookie-uri. Accesând Metz Cars, ați acceptat să utilizați cookie-uri în acord cu Metz Cars
+    <p> Utilizam cookie-uri. Accesând METZ CARS S.R.L., ați acceptat să utilizați cookie-uri în acord cu METZ CARS S.R.L.
         Politica de confidențialitate a S.R.L. </p>
 
     <p> Majoritatea site-urilor interactive folosesc cookie-uri pentru a ne permite să preluăm detaliile utilizatorului pentru fiecare vizită. Cookie-urile sunt folosite de
@@ -22,16 +22,16 @@
 
     <h4> <strong> Licență </strong> </h4>
 
-    <p> Dacă nu se specifică altfel, Metz Cars S.R.L și / sau licențiatorii săi dețin drepturile de proprietate intelectuală pentru tot
-        materialul de pe Metz Cars. Toate drepturile de proprietate intelectuală sunt rezervate. Puteți accesa acest lucru de la Metz Cars pentru
+    <p> Dacă nu se specifică altfel, METZ CARS S.R.L. S.R.L și / sau licențiatorii săi dețin drepturile de proprietate intelectuală pentru tot
+        materialul de pe METZ CARS S.R.L.. Toate drepturile de proprietate intelectuală sunt rezervate. Puteți accesa acest lucru de la METZ CARS S.R.L. pentru
         propria dvs. utilizare personală supusă restricțiilor stabilite în acești termeni și condiții. </p>
 
     <p> Nu trebuie să: </p>
     <ul>
-        <li> Reeditați materialul de la Metz Cars </li>
-        <li> Vindeți, închiriați sau sub-licențați materiale de la Metz Cars </li>
-        <li> Reproduceți sau să copiați materiale de pe Metz Cars </li>
-        <li> Redistribuiți conținutul de la Metz Cars </li>
+        <li> Reeditați materialul de la METZ CARS S.R.L. </li>
+        <li> Vindeți, închiriați sau sub-licențați materiale de la METZ CARS S.R.L. </li>
+        <li> Reproduceți sau să copiați materiale de pe METZ CARS S.R.L. </li>
+        <li> Redistribuiți conținutul de la METZ CARS S.R.L. </li>
     </ul>
 
     <h4> <strong> iFrames </strong> </h4>

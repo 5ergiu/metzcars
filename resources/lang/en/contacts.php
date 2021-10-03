@@ -2,13 +2,14 @@
 
 return [
 
-
     "email"            => "Email",
+    "fromYear"         => "From year",
     "message"          => "Message",
     "messageFrom"      => "Message from: :name",
     "name"             => "Name",
     "phone"            => "Phone",
-    "price"            => "Price",
+    "maxPrice"         => "Maximum price",
+    "otherOptions"     => "Other options, details",
     "selectBrand"      => "Select a brand",
     "selectBrandFirst" => "Select a brand first",
     "selectModel"      => "Select a model",

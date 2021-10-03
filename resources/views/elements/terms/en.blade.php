@@ -3,17 +3,17 @@
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <p>Welcome to Metz Cars!</p>
+    <p>Welcome to METZ CARS S.R.L.!</p>
 
-    <p>These terms and conditions outline the rules and regulations for the use of Metz Cars S.R.L's Website, located at
+    <p>These terms and conditions outline the rules and regulations for the use of METZ CARS S.R.L. S.R.L's Website, located at
         https://metzcars.com.</p>
 
-    <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Metz Cars if
+    <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use METZ CARS S.R.L. if
         you do not agree to take all of the terms and conditions stated on this page.</p>
 
     <h4><strong>Cookies</strong></h4>
 
-    <p>We employ the use of cookies. By accessing Metz Cars, you agreed to use cookies in agreement with the Metz Cars
+    <p>We employ the use of cookies. By accessing METZ CARS S.R.L., you agreed to use cookies in agreement with the METZ CARS S.R.L.
         S.R.L's Privacy Policy. </p>
 
     <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by
@@ -22,16 +22,16 @@
 
     <h4><strong>License</strong></h4>
 
-    <p>Unless otherwise stated, Metz Cars S.R.L and/or its licensors own the intellectual property rights for all
-        material on Metz Cars. All intellectual property rights are reserved. You may access this from Metz Cars for
+    <p>Unless otherwise stated, METZ CARS S.R.L. S.R.L and/or its licensors own the intellectual property rights for all
+        material on METZ CARS S.R.L.. All intellectual property rights are reserved. You may access this from METZ CARS S.R.L. for
         your own personal use subjected to restrictions set in these terms and conditions.</p>
 
     <p>You must not:</p>
     <ul>
-        <li>Republish material from Metz Cars</li>
-        <li>Sell, rent or sub-license material from Metz Cars</li>
-        <li>Reproduce, duplicate or copy material from Metz Cars</li>
-        <li>Redistribute content from Metz Cars</li>
+        <li>Republish material from METZ CARS S.R.L.</li>
+        <li>Sell, rent or sub-license material from METZ CARS S.R.L.</li>
+        <li>Reproduce, duplicate or copy material from METZ CARS S.R.L.</li>
+        <li>Redistribute content from METZ CARS S.R.L.</li>
     </ul>
 
     <h4><strong>iFrames</strong></h4>

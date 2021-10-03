@@ -42,7 +42,7 @@
             <a href="https://m.me/metzcars" target="_blank">
                 <i class="fab fa-facebook-messenger"></i>
             </a>
-            <a href="https://wa.me/0040726205206" target="_blank">
+            <a href="https://wa.me/+040726205206" target="_blank">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="https://ul.waze.com/ul?place=EiVTdHIuIFNvYXJlbHVpLCBIb3JwYXogNzA3MzEzLCBSb21hbmlhIi4qLAoUChIJ02lXaWX6ykARmgH_iunB-gUSFAoSCTPDChV3-spAETe4ubrA_pgz&ll=47.11043950%2C27.54954310&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank">
