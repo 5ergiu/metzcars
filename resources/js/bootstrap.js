@@ -1,9 +1,5 @@
 window._ = require('lodash');
 
-// Loading dependencies
-window.Popper = require('@popperjs/core')
-require('bootstrap')
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -14,9 +10,14 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Loading dependencies
+window.$ = window.jQuery = require('jquery')
+window.Popper = require('@popperjs/core')
+require('bootstrap')
+require('spotlight.js')
+
 // extra js
 require('./components/loadMoreData')
-require('spotlight.js')
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

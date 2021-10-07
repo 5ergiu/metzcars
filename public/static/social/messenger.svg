@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 834 842" width="834" height="842">
+	<title>facebook-messenger-seeklogo</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="-5.579" y1="841.815" x2="-5.579" y2="0.185">
+			<stop offset="0.114" stop-color="#2f6cba"  />
+			<stop offset="0.949" stop-color="#49cff5"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: url(#grd1) } 
+	</style>
+	<g id="Layer 1">
+		<path id="Bubble Shape" fill-rule="evenodd" class="shp0" d="M833.58 389.73C833.58 604.87 647.07 779.27 417 779.27C375.41 779.27 335.24 773.57 297.35 762.96L155.18 841.82L155.18 692.73C60.78 621.32 0.42 512.11 0.42 389.73C0.42 174.59 186.93 0.18 417 0.18C647.07 0.18 833.58 174.59 833.58 389.73ZM688.36 281.15L480.87 395.9L373.13 283.97L145.64 525.37L353.13 410.63L460.87 522.55L688.36 281.15Z" />
+	</g>
+</svg>

@@ -7,79 +7,108 @@
 @section('title') {{ __('labels.contact') }} @endsection
 
 @section('content')
-    <section class="contact wrapper">
-        <div class="contact__form">
+    <section class="contact container">
+        <div class="dark py-4">
+            <h3 class="text-center">
+                {{ __('labels.carNotFound') }}?
+            </h3>
+            <h5 class="text-center mb-5">
+                {{ __('labels.callUsAt') }}:
+                <a href="tel:+40 726 205 206">
+                    +40 726 205 206
+                </a>
+                <br />
+                {{ __('labels.orSendUs') }}:
+            </h5>
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
                     {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <form class="row g-3" action="{{ route('app.contacts.store') }}" method="post">
+            <form class="col-lg-7 mx-auto" action="{{ route('app.contacts.store') }}" method="post">
                 @csrf
-                <h3 class="text-center fw-bold">{{ __('labels.carNotFound') }}?</h3>
-                <br />
-                <h3 class="text-center fw-bold">{{ __('labels.contactUs') }}</h3>
-                <div class="col-sm-6">
-                    <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
-                    <select name="contact[brand]" data-placeholder="{{ __('contacts.selectBrand') }}" id="contactBrand" class="form-select">
-                        <option value="" selected disabled hidden></option>
-                        @foreach($brands as $key => $brand)
-                            <option value="{{ $brand['en'] }}" data-brand="{{ $key }}">
-                                {{ $brand['en'] }}
-                            </option>
-                        @endforeach
-                    </select>
+                <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
+                        <select name="contact[brand]" id="contactBrand" class="form-control select2">
+                            <option value="" selected>{{ __('contacts.selectBrand') }}</option>
+                            @foreach($brands as $key => $brand)
+                                <option value="{{ $brand['en'] }}" data-brand="{{ $key }}">
+                                    {{ $brand['en'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-sm-6 mb-4">
+                        <label for="contactModel" class="form-label">{{ __('adverts.model') }}</label>
+                        <select name="contact[model]" id="contactModel" class="form-select select2">
+                            <option value="" selected disabled>{{ __('contacts.selectBrandFirst') }}</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <label for="contactModel" class="form-label">{{ __('adverts.model') }}</label>
-                    <select name="contact[model]" disabled data-placeholder="{{ __('contacts.selectModel') }}" id="contactModel" class="form-select">
-                        <option value="" selected disabled>{{ __('contacts.selectBrandFirst') }}</option>
-                    </select>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-floating mb-4">
+                            <input type="text" id="contactMaxPrice" class="form-control @error('contact.max_price') is-invalid @enderror" name="contact[max_price]"
+                                   value="{{ old('contact.max_price') }}"
+                                   placeholder="{{ __('contacts.maxPrice')  }}"
+                            />
+                            <label for="contactMaxPrice">{{ __('contacts.maxPrice') }}</label>
+                            @error('contact.max_price') @include('elements.errorMessage') @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-floating mb-4">
+                            <input type="text" id="contactFromYear" class="form-control @error('contact.from_year') is-invalid @enderror" name="contact[from_year]"
+                                   value="{{ old('contact.from_year') }}"
+                                   placeholder="{{ __('contacts.fromYear') }}"
+                            />
+                            <label for="contactFromYear">{{ __('contacts.fromYear') }}</label>
+                            @error('contact.from_year') @include('elements.errorMessage') @enderror
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <label for="contactMaxPrice" class="form-label">{{ __('contacts.maxPrice') }}</label>
-                    <input type="text" id="contactMaxPrice" class="form-control @error('contact.max_price') is-invalid @enderror" name="contact[max_price]"
-                           value="{{ old('contact.max_price') }}"
-                    />
-                    @error('contact.max_price') @include('elements.errorMessage') @enderror
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <div class="form-floating mb-4">
+                            <input type="text" id="contactName" class="form-control @error('contact.name') is-invalid @enderror" name="contact[name]" required
+                                   value="{{ old('contact.name') }}"
+                                   placeholder="{{ __('contacts.name') }}"
+                            />
+                            <label for="contactName" class="form-label required-field">{{ __('contacts.name') }}</label>
+                            @error('contact.name') @include('elements.errorMessage') @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="form-floating mb-4">
+                            <input type="email" id="contactEmail" class="form-control @error('contact.email') is-invalid @enderror" name="contact[email]" required
+                                   value="{{ old('contact.email') }}"
+                                   placeholder="{{ __('contacts.email') }}"
+                            />
+                            <label for="contactEmail" class="form-label required-field">{{ __('contacts.email') }}</label>
+                            @error('contact.email') @include('elements.errorMessage') @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="form-floating mb-4">
+                            <input type="tel" id="contactPhone" class="form-control @error('contact.phone') is-invalid @enderror" name="contact[phone]" required
+                                   value="{{ old('contact.phone') }}"
+                                   placeholder="{{ __('contacts.phone') }}"
+                            />
+                            <label for="contactPhone" class="form-label required-field">{{ __('contacts.phone') }}</label>
+                            @error('contact.phone') @include('elements.errorMessage') @enderror
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <label for="contactFromYear" class="form-label">{{ __('contacts.fromYear') }}</label>
-                    <input type="text" id="contactFromYear" class="form-control @error('contact.from_year') is-invalid @enderror" name="contact[from_year]"
-                           value="{{ old('contact.from_year') }}"
-                    />
-                    @error('contact.from_year') @include('elements.errorMessage') @enderror
-                </div>
-                <div class="col-12">
-                    <label for="contactName" class="form-label required-field">{{ __('contacts.name') }}</label>
-                    <input type="text" id="contactName" class="form-control @error('contact.name') is-invalid @enderror" name="contact[name]" required
-                           value="{{ old('contact.name') }}"
-                    />
-                    @error('contact.name') @include('elements.errorMessage') @enderror
-                </div>
-                <div class="col-md-6">
-                    <label for="contactEmail" class="form-label required-field">{{ __('contacts.email') }}</label>
-                    <input type="email" id="contactEmail" class="form-control @error('contact.email') is-invalid @enderror" name="contact[email]" required
-                           value="{{ old('contact.email') }}"
-                    />
-                    @error('contact.email') @include('elements.errorMessage') @enderror
-                </div>
-                <div class="col-md-6">
-                    <label for="contactPhone" class="form-label required-field">{{ __('contacts.phone') }}</label>
-                    <input type="tel" id="contactPhone" class="form-control @error('contact.phone') is-invalid @enderror" name="contact[phone]" required
-                           value="{{ old('contact.phone') }}"
-                    />
-                    @error('contact.phone') @include('elements.errorMessage') @enderror
-                </div>
-                <div class="col-12">
-                    <label for="contactMessage" class="form-label">{{ __('contacts.message') }}</label>
-                    <textarea class="form-control @error('contact.message') is-invalid @enderror" placeholder="{{ __('contacts.otherOptions') }}..." name="contact[message]" id="contactMessage" rows="3" maxlength="255">{{ old('contact.message') }}</textarea>
+                <div class="form-floating mb-4">
+                    <textarea class="form-control @error('contact.message') is-invalid @enderror" placeholder="{{ __('contacts.otherOptions') }}..." name="contact[message]" id="contactMessage" maxlength="255" style="height: 150px">{{ old('contact.message') }}</textarea>
+                    <label for="contactMessage" class="form-label">{{ __('contacts.otherOptions') }}</label>
                     @error('contact.message') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12 text-center">
-                    <button type="submit" class="button button--transparent button--transparent--success px-4 py-3">
-                        <i class="far fa-paper-plane mr-1"></i>
+                    <button type="submit" class="btn btn-light--success">
+                        <i class="far fa-paper-plane me-1"></i>
                         {{ __('labels.send') }}
                     </button>
                 </div>
@@ -93,12 +122,7 @@
     </section>
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css/tail.select-default.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/contacts.css') }}" />
-@endpush
-
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('vendor/js/tail.select.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundle/js/pages/contact.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/select2.full.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundle/js/pages/contacts.js') }}"></script>
 @endpush

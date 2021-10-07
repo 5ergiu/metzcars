@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     if (!document.getElementById('loader')) return
 
-    let page = 2;
+    let page = 2
 
     const loader = document.getElementById('loader')
 
@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
             loadSpinner.classList.toggle('d-none')
 
             await axios.get(`?page=${page}`)
-                .then(function (response) {
+                .then(response => {
                     if (response.data.html == '') {
                         noMoreData.classList.remove('d-none')
                     } else {

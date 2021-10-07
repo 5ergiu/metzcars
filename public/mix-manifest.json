@@ -1,9 +1,6 @@
 {
     "/bundle/js/app.js": "/bundle/js/app.js",
-    "/bundle/js/pages/contact.js": "/bundle/js/pages/contact.js",
-    "/bundle/css/app.css": "/bundle/css/app.css",
-    "/bundle/css/portfolio.css": "/bundle/css/portfolio.css",
-    "/bundle/css/admin/contacts.css": "/bundle/css/admin/contacts.css",
-    "/bundle/css/contacts.css": "/bundle/css/contacts.css",
-    "/bundle/css/home.css": "/bundle/css/home.css"
+    "/bundle/js/pages/contacts.js": "/bundle/js/pages/contacts.js",
+    "/bundle/css/vendor.css": "/bundle/css/vendor.css",
+    "/bundle/css/app.css": "/bundle/css/app.css"
 }

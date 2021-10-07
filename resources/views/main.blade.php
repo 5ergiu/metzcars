@@ -26,19 +26,17 @@
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/app.css') }}">
     @stack('styles')
 </head>
-<body>
-    <div id="container">
-        @include('partials.header.header')
-        @include('partials..nav.nav')
-        <div id="content">
-            @yield('content')
-        </div>
-        @include('partials.footer.footer')
-    </div>
-    <script defer src="{{ asset('bundle/js/app.js') }}"></script>
+<body class="d-flex flex-column">
+    @include('partials.navbar')
+    <main class="flex-grow-1">
+        @yield('content')
+    </main>
+    @include('partials.footer')
+    <script src="{{ asset('bundle/js/app.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

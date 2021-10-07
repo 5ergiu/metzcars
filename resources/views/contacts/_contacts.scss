@@ -1,20 +1,6 @@
+@import "../../sass/vars";
+
 .contact {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    &__form {
-        max-width: 600px;
-        margin: 0 auto 1rem;
-        form {
-            button {
-                width: 200px;
-                font: {
-                    size: 1.2rem;
-                }
-            }
-        }
-    }
     &__map {
         div {
             height: 0;
