@@ -9,6 +9,9 @@
         size: 1.1rem;
         weight: bold;
     }
+    &:focus {
+        box-shadow: none;
+    }
     &-primary {
         background-color: $blue;
         &:hover {
@@ -125,6 +128,9 @@
         &:focus {
             background-color: $bg2;
             color: #fff;
+            outline: none;
+            border-color: $blue;
+            box-shadow: 0 0 10px $blue;
         }
     }
     &-select {
@@ -207,5 +213,14 @@
                 }
             }
         }
+    }
+}
+
+.alert {
+    &-success {
+        background-color: $green;
+        color: $bg2;
+        border-radius: 0.65rem;
+        border: none;
     }
 }

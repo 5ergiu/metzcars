@@ -8,11 +8,11 @@
 
 @section('content')
     <section class="contact container">
-        <div class="dark py-4">
+        <div class="dark col-lg-7 mx-auto py-4">
             <h3 class="text-center">
                 {{ __('labels.carNotFound') }}?
             </h3>
-            <h5 class="text-center mb-5">
+            <h5 class="text-center mb-4">
                 {{ __('labels.callUsAt') }}:
                 <a href="tel:+40 726 205 206">
                     +40 726 205 206
@@ -26,7 +26,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <form class="col-lg-7 mx-auto" action="{{ route('app.contacts.store') }}" method="post">
+            <form action="{{ route('app.contacts.store') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-sm-6 mb-4">
