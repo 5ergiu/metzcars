@@ -1,6 +1,7 @@
 @import "../../sass/vars";
 
 .intro {
+    margin-top: -5rem; // compensating for main content padding for fixed navbar
     height: 40vh;
     &__bg {
         z-index: -1;

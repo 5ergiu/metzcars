@@ -14,8 +14,17 @@ class CreateAdvertsTable extends Migration
     public function up()
     {
         Schema::create('adverts', function (Blueprint $table) {
-            $table->unsignedBigInteger('autovit_id')->primary();
+            $table->id();
+            $table->unsignedBigInteger('autovit_id')->nullable();
             $table->string('title');
+            $table->string('status');
+            $table->boolean('special_offer')->default(0);
+            $table->boolean('sold')->default(0);
+            $table->boolean('deductible_vat')->default(0);
+            $table->boolean('invoice_issued')->default(0);
+            $table->string('url');
+            $table->dateTime('added_on');
+            $table->string('city');
             $table->text('description');
             $table->unsignedMediumInteger('price');
             $table->boolean('rhd');
@@ -40,6 +49,7 @@ class CreateAdvertsTable extends Migration
             $table->string('color');
             $table->string('color_type');
             $table->json('features');
+            $table->boolean('vat');
             $table->date('date_registration');
             $table->boolean('registered');
             $table->boolean('original_owner');

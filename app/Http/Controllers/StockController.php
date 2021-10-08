@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advert;
-use App\Services\AutovitService;
+use App\Services\AdvertsService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -11,7 +11,7 @@ use Illuminate\View\View;
 class StockController extends Controller
 {
     public function __construct(
-        private AutovitService $autovitService
+        private AdvertsService $advertsService
     ) { }
 
     /**
@@ -21,10 +21,10 @@ class StockController extends Controller
      */
     public function index(Request $request): View|JsonResponse
     {
-        $adverts = $this->autovitService->getActiveAdverts($request->query('page'));
+        $adverts = $this->advertsService->getFormattedAdvertsForStock($request->query('page'));
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advertBig', compact('adverts'))->render()]);
+            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
         }
 
         return view('stock.index', compact('adverts'));

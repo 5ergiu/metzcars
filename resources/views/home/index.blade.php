@@ -52,7 +52,7 @@
 {{--                @include('elements.advertBig', ['adverts' => $stock])--}}
 {{--                <div class="d-flex justify-content-center my-5">--}}
 {{--                    <div class="link-goto">--}}
-{{--                        <a class="link-goto__anchor" href="{{ route('app.stock.index')  }}">--}}
+{{--                        <a class="link-goto__anchor" href="{{ route('stock.index')  }}">--}}
 {{--                            {{ __('labels.moreItems') }}--}}
 {{--                        </a>--}}
 {{--                        <div class="link-goto__icon">--}}
@@ -72,7 +72,7 @@
 {{--                </div>--}}
 {{--                <div class="d-flex justify-content-center my-5">--}}
 {{--                    <div class="link-goto">--}}
-{{--                        <a class="link-goto__anchor" href="{{ route('app.portfolio.index')  }}">--}}
+{{--                        <a class="link-goto__anchor" href="{{ route('portfolio.index')  }}">--}}
 {{--                            {{ __('labels.moreItems') }}--}}
 {{--                        </a>--}}
 {{--                        <div class="link-goto__icon">--}}
@@ -88,7 +88,7 @@
 {{--                    {{ __('labels.carNotFound') }} ?--}}
 {{--                    <br />--}}
 {{--                    <button class="button button--transparent fs-3 mt-4 p-4">--}}
-{{--                        <a href="{{ route('app.contacts.create') }}">--}}
+{{--                        <a href="{{ route('contacts.create') }}">--}}
 {{--                            {{ __('labels.contactUs') }}--}}
 {{--                        </a>--}}
 {{--                    </button>--}}
@@ -97,3 +97,7 @@
 {{--        </div>--}}
 
 @endsection
+
+@push('styles')
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/home.css') }}"
+@endpush

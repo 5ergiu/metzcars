@@ -4,7 +4,7 @@
             <img class="me-3 h-auto" src="{{ asset('logo_small.png') }}" alt="" width="100px" />
         </div>
         <div>
-            <p>
+            <p class="fw-bold">
                 {{ __('labels.officeHours') }}: 09 - 18
             </p>
             <a class="d-block" href="tel:+40 726 205 206">
@@ -30,7 +30,7 @@
                 {{ __('labels.privacy') }}
             </a>
             <span class="d-none d-sm-inline-block">|</span>
-            <a href="{{ route('app.contacts.create') }}">
+            <a href="{{ route('contacts.create') }}">
                 {{ __('labels.contact') }}
             </a>
         </div>

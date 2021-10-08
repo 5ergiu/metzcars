@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <form class="row g-3" action="{{ route('admin.portfolio.store') }}" method="post">
+        <form class="row g-3" action="{{ route('portfolio.store') }}" method="post">
             @csrf
 
             <div class="col-12 text-center">

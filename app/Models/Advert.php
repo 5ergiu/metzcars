@@ -6,24 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Advert extends Model
 {
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'autovit_id';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
         'title',
+        'status',
+        'special_offer',
+        'sold',
+        'deductible_vat',
+        'invoice_issued',
+        'url',
+        'added_on',
+        'city',
         'description',
         'price',
         'rhd',
@@ -48,6 +42,7 @@ class Advert extends Model
         'color',
         'color_type',
         'features',
+        'vat',
         'date_registration',
         'registered',
         'original_owner',
@@ -58,6 +53,18 @@ class Advert extends Model
     ];
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'special_offer'  => false,
+        'sold'           => false,
+        'deductible_vat' => false,
+        'invoice_issued' => false,
+    ];
+
+    /**
      * The attributes that should be cast.
      *
      * @var array
@@ -65,6 +72,51 @@ class Advert extends Model
     protected $casts = [
         'features' => 'array',
     ];
+
+    /**
+     * @param string|null $value
+     * @return bool
+     */
+    public function getSpecialOfferAttribute(?string $value): bool
+    {
+        return !($value === '' || $value === '0');
+    }
+
+    /**
+     * @param string|null $value
+     * @return bool
+     */
+    public function getSoldAttribute(?string $value): bool
+    {
+        return !($value === '' || $value === '0');
+    }
+
+    /**
+     * @param string|null $value
+     * @return bool
+     */
+    public function getDeductibleVatAttribute(?string $value): bool
+    {
+        return !($value === '' || $value === '0');
+    }
+
+    /**
+     * @param string|null $value
+     * @return bool
+     */
+    public function getInvoiceIssuedAttribute(?string $value): bool
+    {
+        return !($value === '' || $value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getRhdAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
 
     /**
      * @param string $value
@@ -88,6 +140,15 @@ class Advert extends Model
      * @param string $value
      * @return bool
      */
+    public function getOriginalOwnerAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
     public function getNoAccidentAttribute(string $value): bool
     {
         return !($value === '0');
@@ -98,6 +159,24 @@ class Advert extends Model
      * @return bool
      */
     public function getServiceRecordAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getHistoricalVehicleAttribute(string $value): bool
+    {
+        return !($value === '0');
+    }
+
+    /**
+     * @param string $value
+     * @return bool
+     */
+    public function getTuningAttribute(string $value): bool
     {
         return !($value === '0');
     }

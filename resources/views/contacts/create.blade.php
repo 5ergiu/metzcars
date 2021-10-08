@@ -13,7 +13,7 @@
                 {{ __('labels.carNotFound') }}?
             </h3>
             <h5 class="text-center mb-4">
-                {{ __('labels.callUsAt') }}:
+                {{ __('labels.callUsAt') }}
                 <a href="tel:+40 726 205 206">
                     +40 726 205 206
                 </a>
@@ -26,7 +26,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <form action="{{ route('app.contacts.store') }}" method="post">
+            <form class="needs-validation" action="{{ route('contacts.store') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-sm-6 mb-4">
@@ -107,10 +107,16 @@
                     @error('contact.message') @include('elements.errorMessage') @enderror
                 </div>
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-light--success">
-                        <i class="far fa-paper-plane me-1"></i>
-                        {{ __('labels.send') }}
-                    </button>
+                    @include('elements.buttonLoading', [
+                        'type'  => 'submit',
+                        'class' => 'btn-light btn-light--success',
+                        'icon'  => 'far fa-paper-plane me-1',
+                        'text'  => 'actions.send',
+                    ])
+{{--                    <button type="submit" class="btn btn-light--success">--}}
+{{--                        <i class="far fa-paper-plane me-1"></i>--}}
+{{--                        {{ __('actions.send') }}--}}
+{{--                    </button>--}}
                 </div>
             </form>
         </div>
@@ -121,6 +127,10 @@
         </div>
     </section>
 @endsection
+
+@push('styles')
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/contacts.css') }}"
+@endpush
 
 @push('scripts')
     <script type="text/javascript" src="{{ asset('vendor/select2.full.min.js') }}"></script>

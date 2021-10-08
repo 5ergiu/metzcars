@@ -17,12 +17,20 @@
         &:hover {
             background-color: $darkerBlue;
         }
+        &:focus {
+            background-color: $blue;
+        }
     }
     &-secondary {
-        background-color: $grey;
+        background-color: #fff;
+        color: $dark;
         &:hover {
+            background-color: #e8e8e8;
+            color: $dark;
+        }
+        &:focus {
             background-color: #fff;
-            color: #000;
+            color: $dark;
         }
     }
     &-success {
@@ -30,12 +38,19 @@
         &:hover {
             background-color: $darkerGreen;
         }
+        &:focus {
+            background-color: $green;
+        }
     }
     &-info {
         background-color: $purple;
         color: #fff;
         &:hover {
             background-color: $darkerPurple;
+            color: #fff;
+        }
+        &:focus {
+            background-color: $purple;
             color: #fff;
         }
     }
@@ -46,11 +61,18 @@
             background-color: $darkerOrange;
             color: #fff;
         }
+        &:focus {
+            background-color: $orange;
+            color: #fff;
+        }
     }
     &-danger {
         background-color: $red;
         &:hover {
             background-color: $darkerRed;
+        }
+        &:focus {
+            background-color: $red;
         }
     }
     &-light {
@@ -60,12 +82,20 @@
             background-color: $blue;
             color: #fff;
         }
+        &:focus {
+            background-color: $transBlue;
+            color: $blue;
+        }
         &--success {
             background-color: $transGreen;
             color: $green;
             &:hover {
                 background-color: $green;
                 color: #fff;
+            }
+            &:focus {
+                background-color: $transGreen;
+                color: $green;
             }
         }
         &--info {
@@ -75,6 +105,10 @@
                 background-color: $purple;
                 color: #fff;
             }
+            &:focus {
+                background-color: $transPurple;
+                color: $purple;
+            }
         }
         &--warning {
             background-color: $transOrange;
@@ -82,6 +116,10 @@
             &:hover {
                 background-color: $orange;
                 color: #fff;
+            }
+            &:focus {
+                background-color: $transOrange;
+                color: $orange;
             }
         }
         &--danger {
@@ -91,6 +129,81 @@
                 background-color: $red;
                 color: #fff;
             }
+            &:focus {
+                background-color: $transRed;
+                color: $red;
+            }
+        }
+    }
+    &-loading, &-loading-submit {
+        &__spinner {
+            display: none;
+        }
+        &--show {
+            &.btn-loading, &.btn-loading-submit {
+                background-color: $green;
+                color: #fff;
+                &:hover {
+                    background-color: $green;
+                    color: #fff;
+                }
+            }
+            .btn-loading, &.btn-loading-submit {
+                &__text {
+                    display: none;
+                }
+                &__spinner {
+                    display: inline-block;
+                }
+            }
+        }
+        span {
+            pointer-events: none;
+        }
+    }
+}
+
+.badge {
+    background-color: $blue;
+    font: {
+        size: 0.9rem;
+    }
+    margin: 0.5rem;
+    user-select: none;
+    &-secondary {
+        background-color: #fff;
+        color: #000;
+        &--light {
+            background-color: $darkerGrey;
+            color: #fff;
+        }
+    }
+    &-success {
+        background-color: $green;
+        &--light {
+            background-color: $transGreen;
+            color: $green;
+        }
+    }
+    &-warning {
+        background-color: $orange;
+        &--light {
+            background-color: $transOrange;
+            color: $orange;
+        }
+    }
+    &-info {
+        background-color: $purple;
+        &--light {
+            background-color: $transPurple;
+            color: $purple;
+        }
+    }
+    &-danger {
+        background-color: $red;
+        &--light {
+            background-color: $transRed;
+            color: $red;
         }
     }
 }
@@ -116,6 +229,19 @@
             background: $blue;
             border-radius: 1rem;
         }
+    }
+}
+
+.dropdown {
+    &-menu {
+        position: absolute;
+        background-color: $bg;
+        box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+        border-radius: 0.65rem;
+    }
+    &-item {
+        padding: 0.5rem 0;
+        border-radius: 0.65rem;
     }
 }
 
@@ -182,7 +308,7 @@
                     padding-bottom: 1.5rem;
                 }
                 .select2-search .select2-search__field {
-                    background-color: $bg2;
+                    background: url('../images/search.png') right 0.65rem top 0.8rem no-repeat $bg2;
                     padding: .55rem .75rem;
                     color: #fff;
                     font-size: .925rem;
@@ -224,3 +350,4 @@
         border: none;
     }
 }
+

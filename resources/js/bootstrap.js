@@ -18,6 +18,7 @@ require('spotlight.js')
 
 // extra js
 require('./components/loadMoreData')
+require('./components/buttonLoading')
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

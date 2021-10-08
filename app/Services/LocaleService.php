@@ -20,6 +20,6 @@ class LocaleService
      */
     public static function setLocale(): void
     {
-        App::setLocale(Cookie::get('locale') ?? self::LOCALE_EN);
+        App::setLocale(Cookie::get('locale') ?? self::LOCALE_RO);
     }
 }

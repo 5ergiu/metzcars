@@ -23,7 +23,7 @@ class ContactsService
 
 
             return redirect()
-                ->route('app.contacts.create')
+                ->route('contacts.create')
                 ->with('success', __('contacts.thankYouMessage'))
             ;
         } catch (Throwable $e) {

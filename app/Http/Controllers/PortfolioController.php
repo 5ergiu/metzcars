@@ -25,7 +25,7 @@ class PortfolioController extends Controller
         $adverts = Advert::paginate(10);
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advertSmall', compact('adverts'))->render()]);
+            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
         }
 
         return view('portfolio.index', compact('adverts'));

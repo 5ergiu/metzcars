@@ -7,8 +7,21 @@
 @section('title') {{ __('labels.stock') }} @endsection
 
 @section('content')
-    <section class="stock wrapper wrapper--load-more">
-        @include('elements.advertBig', $adverts)
+    <section class="container">
+        @foreach($adverts as $advert)
+            @include('elements.advert')
+        @endforeach
     </section>
-    @include('elements.loader')
+    <div id="loader" class="text-center">
+        <p class="d-none fs-4 fw-bold color-orange">{{ __('labels.noMoreData') }}</p>
+        @include('elements.buttonLoading', [
+            'type'  => 'button',
+            'class' => 'btn-light btn-light--success',
+            'text'  => 'actions.loadMore',
+        ])
+    </div>
 @endsection
+
+@push('styles')
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/stock.css') }}"
+@endpush

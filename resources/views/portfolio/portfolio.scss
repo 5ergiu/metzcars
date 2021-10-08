@@ -1,35 +1,73 @@
 @import "../../sass/vars";
 
+.advert {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__img {
+        height: 200px;
+    }
+    &__edit {
+        display: inline-block;
+        top: 1rem;
+        right: 1rem;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__special-offer {
+        display: none;
+    }
+    &__mark-as-sold {
+        display: none;
+    }
+    &__price {
+        &--sold {
+            display: none;
+        }
+    }
+    &__autovit {
+        display: none;
+    }
+}
+
 .portfolio {
-    .list-unstyled {
-        li {
-            white-space: nowrap;
-            margin-bottom: 0.5rem;
-            > span:nth-child(2) {
-                font: {
-                    weight: bold;
-                }
-            }
-        }
-    }
-    .spotlight-group {
-        img {
-            margin-bottom: 1rem;
-            margin-right: 1rem;
-            border-radius: 1rem;
-        }
-    }
-    .fa-check-circle {
-        color: $green;
-    }
+
+    //.list-unstyled {
+    //    li {
+    //        white-space: nowrap;
+    //        margin-bottom: 0.5rem;
+    //        > span:nth-child(2) {
+    //            font: {
+    //                weight: bold;
+    //            }
+    //        }
+    //    }
+    //}
+    //.spotlight-group {
+    //    img {
+    //        margin-bottom: 1rem;
+    //        margin-right: 1rem;
+    //        border-radius: 1rem;
+    //    }
+    //}
+    //.fa-check-circle {
+    //    color: $green;
+    //}
 
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .portfolio {
-        ul {
-            columns: 2;
+    .advert {
+        &__img {
+            height: 200px;
         }
     }
+    //.portfolio {
+    //    ul {
+    //        columns: 2;
+    //    }
+    //}
 }
