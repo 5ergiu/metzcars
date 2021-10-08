@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col-5 col-md-3 mb-4 mb-md-0 align-self-end">
+                <div class="col-5 col-md-4 col-lg-3 mb-3 mb-md-0 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertYear" class="form-control @error('advert.year') is-invalid @enderror" name="advert[year]" required
                                value="{{ $advert->year ?? old('advert.year') }}"
@@ -37,8 +37,8 @@
                         @error('advert.year') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
-                <div class="row col-md-9 pe-0">
-                    <div class="col-md-6 pe-0 mb-4 mb-md-0">
+                <div class="row col-md-8 col-lg-9 pe-0">
+                    <div class="col-md-6 pe-0 mb-3 mb-md-0">
                         <label for="selectBrand" class="form-label required-field">{{ __('adverts.brand') }}</label>
                         <select name="advert[brand]" id="selectBrand" class="form-control select2" required>
                             <option value="" selected>{{ __('labels.selectBrand') }}</option>
@@ -49,7 +49,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-12 col-md-6 pe-0 mb-4 mb-md-0">
+                    <div class="col-12 col-md-6 pe-0">
                         <label for="selectModel" class="form-label required-field">{{ __('adverts.model') }}</label>
                         <select name="advert[model]" id="selectModel" class="form-select select2" required>
                             @if(!empty($advert))
@@ -120,7 +120,7 @@
                         @error('advert.engine_power') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
-                <div class="col-12 col-md-4 align-self-end mb-4 mb-md-0">
+                <div class="col-12 col-md-4 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertEngineCapacity" class="form-control pe-4 @error('advert.engine_capacity') is-invalid @enderror" name="advert[engine_capacity]" required
                                value="{{ $advert->engine_capacity ?? old('advert.engine_capacity') }}"
@@ -155,7 +155,7 @@
                         @error('advert.mileage') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
-                <div class="col-12 col-md-4 align-self-end mb-4 mb-md-0">
+                <div class="col-12 col-md-4 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertDoorCount" class="form-control @error('advert.door_count') is-invalid @enderror" name="advert[door_count]" required
                                value="{{ $advert->door_count ?? old('advert.door_count') }}"
@@ -179,6 +179,23 @@
                     </select>
                 </div>
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
+                    <label for="advertTransmission" class="form-label">{{ __('adverts.transmission') }}</label>
+                    <select name="advert[transmission]" id="advertTransmission" class="form-select">
+                        <option value="" selected></option>
+                        @foreach($transmissionOptions as $transmission)
+                            <option value="{{ $transmission }}" {{ ($advert->transmission ?? null) == $transmission ? 'selected' : '' }}>
+                                {{ $transmission }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label for="advertRegistrationDate" class="form-label">{{ __('adverts.registrationDate') }}</label>
+                    <input type="text" id="advertRegistrationDate" name="advert[registration_date]" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 col-md-4 mb-4 mb-md-0">
                     <label for="advertColor" class="form-label required-field">{{ __('adverts.color') }}</label>
                     <select name="advert[color]" id="advertColor" class="form-select" required>
                         <option value="" selected></option>
@@ -189,7 +206,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                <div class="col-12 col-md-4">
                     <label for="advertColorType" class="form-label">{{ __('adverts.colorType') }}</label>
                     <select name="advert[color_type]" id="advertColorType" class="form-select">
                         <option value="" selected></option>
@@ -201,23 +218,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-floating mb-4">
-                <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="height: 150px">{{ old('advert.description') }}</textarea>
-                <label for="advertDescription" class="form-label">{{ __('adverts.description') }}</label>
-                @error('advert.description') @include('elements.errorMessage') @enderror
-            </div>
             <div class="row mb-4">
-                <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <label for="advertTransmission" class="form-label">{{ __('adverts.transmission') }}</label>
-                    <select name="advert[transmission]" id="advertTransmission" class="form-select">
-                        <option value="" selected></option>
-                        @foreach($transmissionOptions as $transmission)
-                            <option value="{{ $transmission }}" {{ ($advert->transmission ?? null) == $transmission ? 'selected' : '' }}>
-                                {{ $transmission }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
                     <label for="advertPollutionStandard" class="form-label">{{ __('adverts.pollutionStandard') }}</label>
                     <select name="advert[pollution_standard]" id="advertPollutionStandard" class="form-select">
@@ -229,9 +230,7 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-12 col-md-4 align-self-end mb-4 mb-md-0">
+                <div class="col-12 col-md-4 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertCo2Emissions" class="form-control pe-4 @error('advert.co2_emissions') is-invalid @enderror" name="advert[co2_emissions]"
                                value="{{ $advert->co2_emissions ?? old('advert.co2_emissions') }}"
@@ -242,10 +241,11 @@
                         @error('advert.co2_emissions') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <label for="advertRegistrationDate" class="form-label">{{ __('adverts.registrationDate') }}</label>
-                    <input type="text" id="advertRegistrationDate" name="advert[registration_date]" class="form-control" />
-                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="height: 150px">{{ old('advert.description') }}</textarea>
+                <label for="advertDescription" class="form-label">{{ __('adverts.description') }}</label>
+                @error('advert.description') @include('elements.errorMessage') @enderror
             </div>
             <div class="portfolio-create__options row mb-4">
                 <div class="col-12">
