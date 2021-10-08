@@ -1,6 +1,7 @@
 {
     "/bundle/js/app.js": "/bundle/js/app.js",
-    "/bundle/js/pages/contacts.js": "/bundle/js/pages/contacts.js",
+    "/bundle/js/components/selectsAutovit.js": "/bundle/js/components/selectsAutovit.js",
+    "/bundle/js/pages/portfolio.js": "/bundle/js/pages/portfolio.js",
     "/bundle/css/vendor.css": "/bundle/css/vendor.css",
     "/bundle/css/pages/portfolio.css": "/bundle/css/pages/portfolio.css",
     "/bundle/css/pages/stock.css": "/bundle/css/pages/stock.css",

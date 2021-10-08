@@ -7,18 +7,24 @@
 @section('title') {{ $advert->title }} @endsection
 
 @section('content')
-    <section class="portfolio wrapper">
+    <section class="portfolio-show container">
         <h2 class="title text-center">{{ $advert->title }}</h2>
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="d-flex flex-column flex-xl-row justify-content-xl-between">
-            <div class="col-xl-7">
+            <div class="col-xl-8 me-xl-3">
                 <h3 class="title title--bordered">{{ __('portfolio.details') }}</h3>
-                <ul class="list-unstyled">
+                <ul class="portfolio-show__details dark my-0 list-unstyled">
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.brand') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->make }}
+                            {{ $advert->brand }}
                         </span>
                     </li>
                     <li class="row">
@@ -111,10 +117,26 @@
                     </li>
                     <li class="row">
                         <span class="col-6">
+                            {{ __('adverts.originalOwner') }}
+                        </span>
+                        <span class="col-6">
+                            {{ $advert->original_owner ? __('labels.yes') : __('labels.no') }}
+                        </span>
+                    </li>
+                    <li class="row">
+                        <span class="col-6">
+                            {{ __('adverts.rhd') }}
+                        </span>
+                        <span class="col-6">
+                            <i class="fas {{ $advert->rhd ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
+                        </span>
+                    </li>
+                    <li class="row">
+                        <span class="col-6">
                             {{ __('adverts.particleFilter') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->particle_filter ? __('labels.yes') : __('labels.no') }}
+                            <i class="fas {{ $advert->particle_filter ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
                     <li class="row">
@@ -175,10 +197,10 @@
                     </li>
                     <li class="row">
                         <span class="col-6">
-                            {{ __('adverts.dateRegistration') }}
+                            {{ __('adverts.registrationDate') }}
                         </span>
                         <span class="col-6">
-                            {{ date('d/m/Y', strtotime($advert->date_registration)) }}
+                            {{ date('d/m/Y', strtotime($advert->registration_date)) }}
                         </span>
                     </li>
                     <li class="row">
@@ -186,7 +208,7 @@
                             {{ __('adverts.registered') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->registered ? __('labels.yes') : __('labels.no') }}
+                             <i class="fas {{ $advert->registered ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
                     <li class="row">
@@ -194,7 +216,7 @@
                             {{ __('adverts.noAccident') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->no_accident ? __('labels.yes') : __('labels.no') }}
+                            <i class="fas {{ $advert->no_accident ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
                     <li class="row">
@@ -202,26 +224,32 @@
                             {{ __('adverts.serviceRecord') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->service_record ? __('labels.yes') : __('labels.no') }}
+                             <i class="fas {{ $advert->service_record ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
                 </ul>
-                <h3 class="title title--bordered">{{ __('portfolio.features') }}</h3>
-                <ul class="list-unstyled">
+                <h3 class="title title--bordered">{{ __('portfolio.description') }}</h3>
+                <div class="dark my-0">
+                    {!! nl2br($advert->description) !!}
+                </div>
+                <h3 class="title title--bordered">{{ __('adverts.features') }}</h3>
+                <ul class="portfolio-show__features dark my-0 list-unstyled">
                     @foreach($advert->features as $feature)
                         <li>
-                            <i class="far fa-check-circle"></i>
+                            <i class="far fa-check-circle color-green"></i>
                             {{ str_replace('-', ' ', Str::of($feature)->ucfirst()) }}
                         </li>
                     @endforeach
                 </ul>
             </div>
-            <div class="portfolio__gallery col">
+            <div class="portfolio-show__gallery col">
                 <h3 class="title title--bordered">{{ __('portfolio.gallery') }}</h3>
-                <span class="fw-bold">({{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->autovit_id"))]) }})</span>
-                <div class="spotlight-group d-flex flex-wrap align-items-center" data-infinite="true" data-download="true" data-autofit="false" data-autohide="false">
+                <a class="fs-3 fw-bold" onclick="Spotlight.show(document.getElementsByClassName('spotlight'))">
+                    {{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->autovit_id"))]) }}
+                </a>
+                <div class="spotlight-group d-flex flex-wrap justify-content-xxl-center align-items-center" data-infinite="true" data-download="true" data-autofit="false" data-autohide="false">
                     @foreach(Storage::files("images/$advert->autovit_id") as $key => $file)
-                        <a class="spotlight m-2 {{ $key > 5 ? 'd-none' : '' }}" href="{{ asset("storage/images/$advert->autovit_id/" . substr($file, strrpos($file, '/') + 1)) }}">
+                        <a class="spotlight me-1 mb-1 {{ $key > 5 ? 'd-none' : '' }}" href="{{ asset("storage/images/$advert->autovit_id/" . substr($file, strrpos($file, '/') + 1)) }}">
                             <img src="{{ asset("storage/images/$advert->autovit_id/thumbs/" . substr($file, strrpos($file, '/') + 1)) }}" alt="" />
                         </a>
                     @endforeach
@@ -232,5 +260,5 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/portfolio.css') }}"
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/pages/portfolio.css') }}"
 @endpush

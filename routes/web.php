@@ -20,7 +20,7 @@ Route::middleware(['locale'])->group(function() {
     Route::get('/locale/{code}',      [Controllers\LocaleController::class, 'handleLocaleChange'])->name('locale');
 
     // Contacts
-    Route::get('/contacts',          [Controllers\ContactsController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts',           [Controllers\ContactsController::class, 'index'])->name('contacts.index');
     Route::post('/contact',           [Controllers\ContactsController::class, 'store'])->name('contacts.store');
     Route::get('/contact/create',     [Controllers\ContactsController::class, 'create'])->name('contacts.create');
 
@@ -32,4 +32,5 @@ Route::middleware(['locale'])->group(function() {
 });
 
 # Autovit routes
-Route::get('/autovit/{brand}/models', [Controllers\AutovitController::class, 'getBrandModels']);
+Route::get('/autovit/{brand}/models',              [Controllers\AutovitController::class, 'getBrandModels']);
+Route::get('/autovit/{brand}/{model}/generations', [Controllers\AutovitController::class, 'getModelGenerations']);

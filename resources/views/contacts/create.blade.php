@@ -32,7 +32,7 @@
                     <div class="col-sm-6 mb-4">
                         <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
                         <select name="contact[brand]" id="contactBrand" class="form-control select2">
-                            <option value="" selected>{{ __('contacts.selectBrand') }}</option>
+                            <option value="" selected>{{ __('labels.selectBrand') }}</option>
                             @foreach($brands as $key => $brand)
                                 <option value="{{ $brand['en'] }}" data-brand="{{ $key }}">
                                     {{ $brand['en'] }}
@@ -43,7 +43,7 @@
                     <div class="col-sm-6 mb-4">
                         <label for="contactModel" class="form-label">{{ __('adverts.model') }}</label>
                         <select name="contact[model]" id="contactModel" class="form-select select2">
-                            <option value="" selected disabled>{{ __('contacts.selectBrandFirst') }}</option>
+                            <option value="" selected disabled>{{ __('labels.selectBrandFirst') }}</option>
                         </select>
                     </div>
                 </div>
@@ -113,10 +113,6 @@
                         'icon'  => 'far fa-paper-plane me-1',
                         'text'  => 'actions.send',
                     ])
-{{--                    <button type="submit" class="btn btn-light--success">--}}
-{{--                        <i class="far fa-paper-plane me-1"></i>--}}
-{{--                        {{ __('actions.send') }}--}}
-{{--                    </button>--}}
                 </div>
             </form>
         </div>
@@ -134,5 +130,5 @@
 
 @push('scripts')
     <script type="text/javascript" src="{{ asset('vendor/select2.full.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundle/js/pages/contacts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundle/js/components/selectsAutovit.js') }}"></script>
 @endpush

@@ -5,7 +5,7 @@
     <ul class="dropdown-menu border-0">
         @foreach(LocaleService::$locales as $code => $name)
             @if($code !== app()->getLocale())
-                <li class="dropdown-item p-0">
+                <li>
                     <a href="{{ route('locale', $code) }}">
                         <img src="{{ asset('static/locales/' . $code . '.png') }}" width="60px" alt="{{ $code }}" />
                     </a>

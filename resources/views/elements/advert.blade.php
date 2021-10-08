@@ -11,7 +11,7 @@
             <i class="fas fa-pencil-alt"></i>
             {{ __('actions.edit') }}
         </button>
-        @if($advert->special_offer)
+        @if(!$advert->special_offer)
             <button class="advert__special-offer btn btn-light position-absolute">
                 <i class="fas fa-star color-orange"></i>
                 {{ __('actions.specialOffer') }}
@@ -93,18 +93,16 @@
                 </li>
             </ul>
         </div>
-        @if(!$advert->sold)
-            <div class="advert__autovit">
-                <small class="text-muted fw-bold">
-                    {{ $advert->city }},
-                    {{ date('d M Y', strtotime($advert->added_on)) }}
-                </small>
-                <a class="btn btn-secondary py-1 px-2" href="{{ $advert->url }}" target="_blank">
-                    {{ __('labels.checkoutTheAdd') }}
-                    <br />
-                    <img src="{{ asset('static/autovit.svg') }}" alt="AUTOVIT.RO" width="120px" />
-                </a>
-            </div>
-        @endif
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted fw-bold">
+                {{ $advert->city }},
+                {{ date('d M Y', strtotime($advert->added_on)) }}
+            </small>
+            <a class="btn btn-secondary py-1 px-2" href="{{ $advert->url }}" target="_blank">
+                {{ __('labels.checkoutTheAdd') }}
+                <br />
+                <img src="{{ asset('static/autovit.svg') }}" alt="AUTOVIT.RO" width="120px" />
+            </a>
+        </div>
     </div>
 </div>

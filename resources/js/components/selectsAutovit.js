@@ -1,10 +1,11 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const model = $('#contactModel')
+    const brand = $('#selectBrand')
+    const model = $('#selectModel')
 
     model.select2({
         theme: 'bootstrap-5'
     })
-    $('#contactBrand').select2({
+    brand.select2({
         theme: 'bootstrap-5'
     }).on('select2:select', e => {
         let brand = e.params.data.element.dataset.brand

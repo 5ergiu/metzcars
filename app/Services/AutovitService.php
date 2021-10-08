@@ -17,8 +17,8 @@ class AutovitService
     const ADVERT_ENDPOINT          = '/adverts/';
     const CATEGORIES_ENDPOINT      = '/categories/';
 
-    const VEHICLE_BRANDS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/makes';
-    const VEHICLE_MODELS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/models';
+    const VEHICLE_BRANDS_ENDPOINT      = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/makes';
+    const VEHICLE_MODELS_ENDPOINT      = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/models';
 
     private RestService $restService;
     private string $autovitToken;
@@ -90,6 +90,17 @@ class AutovitService
     public function getBrandModels(string $brand): string
     {
         return $this->getResponse(self::VEHICLE_MODELS_ENDPOINT . "/$brand");
+    }
+
+    /**
+     * Get all generations for a specific model.
+     * @param string $brand
+     * @param string $model
+     * @return string
+     */
+    public function getModelGenerations(string $brand, string $model): string
+    {
+        return $this->getResponse(self::VEHICLE_MODELS_ENDPOINT . "/$brand" . "/generations/$model");
     }
 
     /**

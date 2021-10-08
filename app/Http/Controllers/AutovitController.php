@@ -20,7 +20,8 @@ class AutovitController extends Controller
      */
     public function getBrandModels(string $brand): JsonResponse
     {
-        $models  = [];
+        $models = [];
+
         $options = json_decode($this->autovitService->getBrandModels($brand), true)['options'];
 
         foreach ($options as $key => $option) {
@@ -31,5 +32,27 @@ class AutovitController extends Controller
         }
 
         return response()->json($models);
+    }
+
+    /**
+     * Get all generations for a specific model.
+     * @param string $brand
+     * @param string $model
+     * @return JsonResponse
+     */
+    public function getModelGenerations(string $brand, string $model): JsonResponse
+    {
+        $generations  = [];
+
+        $options = json_decode($this->autovitService->getModelGenerations($brand, $model), true)['options'];
+
+        foreach ($options as $option) {
+            $generations[] = [
+                'id'   => $option['en'],
+                'text' => $option['en'],
+            ];
+        }
+
+        return response()->json($generations);
     }
 }

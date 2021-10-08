@@ -134,6 +134,30 @@
                 color: $red;
             }
         }
+        &--secondary {
+            background-color: $grey;
+            color: $text;
+            &:hover {
+                background-color: $lighterGrey;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $grey;
+                color: $text;
+            }
+            &--active {
+                background-color: $green;
+                color: #fff;
+                &:hover {
+                    background-color: $green;
+                    color: #fff;
+                }
+                &:focus {
+                    background-color: $green;
+                    color: #fff;
+                }
+            }
+        }
     }
     &-loading, &-loading-submit {
         &__spinner {
@@ -258,6 +282,12 @@
             border-color: $blue;
             box-shadow: 0 0 10px $blue;
         }
+        &.datepicker-input {
+            &:focus {
+                border-color: $darkerGrey;
+                box-shadow: none;
+            }
+        }
     }
     &-select {
         background-color: $bg2;
@@ -268,6 +298,36 @@
             background-color: $bg2;
             color: #fff;
         }
+    }
+    &-check {
+        display: flex;
+        align-items: flex-end;
+        &-input {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            &:focus {
+                box-shadow: none;
+            }
+            &:checked[type=checkbox] {
+                background-color: $blue;
+                border-color: $blue;
+            }
+        }
+        &-label {
+            user-select: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.alert {
+    &-success {
+        background-color: $green;
+        color: $bg2;
+        border-radius: 0.65rem;
+        border: none;
     }
 }
 
@@ -342,12 +402,32 @@
     }
 }
 
-.alert {
-    &-success {
-        background-color: $green;
-        color: $bg2;
+.datepicker {
+    &-picker {
+        background-color: $bg2;
         border-radius: 0.65rem;
-        border: none;
+        box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+        .datepicker-controls .button:hover {
+            background-color: $transBlue;
+            color: $blue;
+        }
+    }
+    &-controls {
+        .button {
+            background-color: $bg;
+            color: #fff;
+        }
+    }
+    &-cell {
+        &:not(.disabled, .selected) {
+            &:hover {
+                background-color: $transBlue;
+                color: $blue;
+            }
+        }
+        &.focused:not(.selected) {
+            background-color: $blue;
+            color: #fff;
+        }
     }
 }
-

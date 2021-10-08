@@ -15,6 +15,7 @@ window.$ = window.jQuery = require('jquery')
 window.Popper = require('@popperjs/core')
 require('bootstrap')
 require('spotlight.js')
+window.Datepicker = require('vanillajs-datepicker').Datepicker
 
 // extra js
 require('./components/loadMoreData')

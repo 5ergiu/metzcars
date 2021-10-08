@@ -1,5 +1,5 @@
 @import "vars";
-@import "overrideBootstrap";
+@import "overrideStyles";
 @import "partials";
 @import "elements";
 
@@ -276,27 +276,25 @@ select:-webkit-autofill:focus {
     &-info {
         color: $purple;
     }
-    &-secondary {
+    &-grey {
         color: $grey;
     }
 }
 
-//.title {
-//    margin: 2rem 0 4rem 0;
-//    color: #fff;
-//    text-transform: uppercase;
-//    font: {
-//        weight: bold;
-//    }
-//    &--bordered {
-//        display: inline-block;
-//        border-bottom: 0.25rem solid #35B6FF;
-//        border-radius: 0.1rem;
-//        padding: 0 0.2rem;
-//        margin: 1rem 0;
-//    }
-//}
-//
+.title {
+    margin: 2rem 0;
+    text-transform: uppercase;
+    font: {
+        weight: bold;
+    }
+    &--bordered {
+        display: inline-block;
+        border-bottom: 0.25rem solid $blue;
+        border-radius: 0.1rem;
+        padding: 0 0.2rem;
+        margin: 1rem 0;
+    }
+}
 
 //// Media queries
 //

@@ -2,8 +2,8 @@
 
 return [
 
+    "description" => "Descriere",
     "details"     => "Detalii",
-    "features"    => "Dotări",
     "gallery"     => "Galerie",
     "pictures"    => ":number de poze",
 

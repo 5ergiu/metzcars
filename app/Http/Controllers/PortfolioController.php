@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advert;
-use App\Services\AdvertsService;
+use App\Services\AutovitService;
+use App\Services\AutovitTranslationsService;
+use App\Services\PortfolioService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PortfolioController extends Controller
 {
     public function __construct(
-        private AdvertsService $advertsService
+        private AutovitService $autovitService,
+        private AutovitTranslationsService $autovitTranslationsService,
+        private PortfolioService $portfolioService
     ) { }
 
     /**
@@ -37,7 +40,29 @@ class PortfolioController extends Controller
      */
     public function create(): View
     {
-        return view('admin.portfolio.create');
+        $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
+        $fuelTypeOptions          = $this->autovitTranslationsService::getFuelTypeOptions();
+        $gearboxOptions           = $this->autovitTranslationsService::getGearboxOptions();
+        $bodyTypeOptions          = $this->autovitTranslationsService::getBodyTypeOptions();
+        $colorOptions             = $this->autovitTranslationsService::getColorOptions();
+        $colorTypeOptions         = $this->autovitTranslationsService::getColorTypeOptions();
+        $transmissionOptions      = $this->autovitTranslationsService::getTransmissionOptions();
+        $pollutionStandardOptions = $this->autovitTranslationsService::getPollutionStandardOptions();
+        $featureOptions           = $this->autovitTranslationsService::getFeatureOptions();
+
+        return view('admin.portfolio.create',
+            compact(
+                'brands',
+                'fuelTypeOptions',
+                'gearboxOptions',
+                'bodyTypeOptions',
+                'colorOptions',
+                'colorTypeOptions',
+                'transmissionOptions',
+                'pollutionStandardOptions',
+                'featureOptions',
+            )
+        );
     }
 
     /**
@@ -48,7 +73,7 @@ class PortfolioController extends Controller
     public function show(Advert $advert): View
     {
         return view(
-            'portfolio.details',
+            'portfolio.show',
             compact('advert')
         );
     }
