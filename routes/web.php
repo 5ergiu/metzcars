@@ -28,6 +28,7 @@ Route::middleware(['locale'])->group(function() {
     Route::get('/stock',              [Controllers\StockController::class, 'index'])->name('stock.index');
 
     // Portfolio
+    Route::post('/portfolio/upload',   [Controllers\PortfolioController::class, 'upload']);
     Route::resource('/portfolio', Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
 });
 

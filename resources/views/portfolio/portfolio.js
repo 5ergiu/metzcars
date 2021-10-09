@@ -12,4 +12,33 @@ window.addEventListener('DOMContentLoaded', () => {
             button.classList.toggle('btn-light--secondary--active')
         })
     })
+
+    const restrictions = {
+        maxFileSize: 20971520, // 20 MB
+        maxTotalFileSize: 734003200, // 700 MB
+        maxNumberOfFiles: 50
+    }
+
+    const uppy = new Uppy.Core({
+        meta: {
+            directory: document.getElementById('advertDirectory').value
+        },
+        restrictions: restrictions
+    })
+
+    uppy.use(Uppy.Dashboard, {
+        theme: 'dark',
+        target: '#uppyModal',
+        trigger: '#toggleUppyModal',
+        allowMultipleUploads: false,
+        closeModalOnClickOutside: true
+    }).use(Uppy.XHRUpload, {
+        endpoint: '/portfolio/upload',
+        formData: true,
+        bundle: true,
+        fieldName: 'images[]',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    })
 })

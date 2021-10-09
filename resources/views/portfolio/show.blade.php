@@ -72,7 +72,7 @@
                             {{ __('adverts.fuelType') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->fuel_type }}
+                            {{ $translatedOptions['fuelTypeOptions'][$advert->fuel_type] }}
                         </span>
                     </li>
                     <li class="row">
@@ -96,7 +96,7 @@
                             {{ __('adverts.transmission') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->transmission }}
+                            {{ $translatedOptions['transmissionOptions'][$advert->transmission] }}
                         </span>
                     </li>
                     <li class="row">
@@ -104,7 +104,7 @@
                             {{ __('adverts.gearbox') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->gearbox }}
+                            {{ $translatedOptions['gearboxOptions'][$advert->gearbox] }}
                         </span>
                     </li>
                     <li class="row">
@@ -121,14 +121,6 @@
                         </span>
                         <span class="col-6">
                             {{ $advert->original_owner ? __('labels.yes') : __('labels.no') }}
-                        </span>
-                    </li>
-                    <li class="row">
-                        <span class="col-6">
-                            {{ __('adverts.rhd') }}
-                        </span>
-                        <span class="col-6">
-                            <i class="fas {{ $advert->rhd ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
                     <li class="row">
@@ -152,7 +144,7 @@
                             {{ __('adverts.bodyType') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->body_type }}
+                            {{ $translatedOptions['bodyTypeOptions'][$advert->body_type] }}
                         </span>
                     </li>
                     <li class="row">
@@ -184,7 +176,7 @@
                             {{ __('adverts.color') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->color }}
+                            {{ $translatedOptions['colorOptions'][$advert->color] }}
                         </span>
                     </li>
                     <li class="row">
@@ -192,7 +184,7 @@
                             {{ __('adverts.colorType') }}
                         </span>
                         <span class="col-6">
-                            {{ $advert->color_type }}
+                            {{ $translatedOptions['colorTypeOptions'][$advert->color_type] }}
                         </span>
                     </li>
                     <li class="row">
@@ -234,10 +226,10 @@
                 </div>
                 <h3 class="title title--bordered">{{ __('adverts.features') }}</h3>
                 <ul class="portfolio-show__features dark my-0 list-unstyled">
-                    @foreach($advert->features as $feature)
+                    @foreach($advert->features as $key => $feature)
                         <li>
                             <i class="far fa-check-circle color-green"></i>
-                            {{ str_replace('-', ' ', Str::of($feature)->ucfirst()) }}
+                            {{ $translatedOptions['featureOptions'][$feature] }}
                         </li>
                     @endforeach
                 </ul>
@@ -245,12 +237,12 @@
             <div class="portfolio-show__gallery col">
                 <h3 class="title title--bordered">{{ __('portfolio.gallery') }}</h3>
                 <a class="fs-3 fw-bold" onclick="Spotlight.show(document.getElementsByClassName('spotlight'))">
-                    {{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->autovit_id"))]) }}
+                    {{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->directory"))]) }}
                 </a>
                 <div class="spotlight-group d-flex flex-wrap justify-content-xxl-center align-items-center" data-infinite="true" data-download="true" data-autofit="false" data-autohide="false">
-                    @foreach(Storage::files("images/$advert->autovit_id") as $key => $file)
-                        <a class="spotlight me-1 mb-1 {{ $key > 5 ? 'd-none' : '' }}" href="{{ asset("storage/images/$advert->autovit_id/" . substr($file, strrpos($file, '/') + 1)) }}">
-                            <img src="{{ asset("storage/images/$advert->autovit_id/thumbs/" . substr($file, strrpos($file, '/') + 1)) }}" alt="" />
+                    @foreach(Storage::files("images/$advert->directory") as $key => $file)
+                        <a class="spotlight me-1 mb-1 {{ $key > 5 ? 'd-none' : '' }}" href="{{ asset("storage/images/$advert->directory/" . substr($file, strrpos($file, '/') + 1)) }}">
+                            <img src="{{ asset("storage/images/$advert->directory/thumbs/" . substr($file, strrpos($file, '/') + 1)) }}" alt="" />
                         </a>
                     @endforeach
                 </div>

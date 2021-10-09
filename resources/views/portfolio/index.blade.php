@@ -9,13 +9,7 @@
 @section('content')
     <section class="container">
         <div class="d-flex flex-wrap justify-content-center">
-            @foreach($adverts as $advert)
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="d-flex flex-column mx-2 h-100">
-                        @include('elements.advert')
-                    </div>
-                </div>
-            @endforeach
+            @include('elements.advert')
         </div>
     </section>
     <div id="loader" class="text-center">

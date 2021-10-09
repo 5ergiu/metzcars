@@ -24,10 +24,9 @@ class CreateAdvertsTable extends Migration
             $table->boolean('invoice_issued')->default(0);
             $table->string('url')->nullable();
             $table->dateTime('added_on')->nullable();
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->text('description')->nullable();
             $table->unsignedMediumInteger('price')->nullable();
-            $table->boolean('rhd')->nullable();
             $table->string('brand');
             $table->string('model');
             $table->string('version');
@@ -41,7 +40,7 @@ class CreateAdvertsTable extends Migration
             $table->string('transmission')->nullable();
             $table->string('gearbox');
             $table->string('pollution_standard')->nullable();
-            $table->boolean('particle_filter');
+            $table->boolean('particle_filter')->nullable();
             $table->decimal('urban_consumption')->nullable();
             $table->string('body_type');
             $table->unsignedSmallInteger('co2_emissions')->nullable();
@@ -57,6 +56,7 @@ class CreateAdvertsTable extends Migration
             $table->boolean('service_record')->default(0);
             $table->boolean('historical_vehicle')->default(0);
             $table->boolean('tuning')->default(0);
+            $table->string('directory')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
         });

@@ -20,7 +20,6 @@ class Advert extends Model
         'city',
         'description',
         'price',
-        'rhd',
         'brand',
         'model',
         'version',
@@ -50,6 +49,7 @@ class Advert extends Model
         'service_record',
         'historical_vehicle',
         'tuning',
+        'directory',
     ];
 
     /**
@@ -70,7 +70,13 @@ class Advert extends Model
      * @var array
      */
     protected $casts = [
-        'features' => 'array',
+        'features'       => 'array',
+        'special_offer'  => 'boolean',
+        'sold'           => 'boolean',
+        'deductible_vat' => 'boolean',
+        'invoice_issued' => 'boolean',
+        'sold'           => 'boolean',
+        'sold'           => 'boolean',
     ];
 
     /**
@@ -110,74 +116,65 @@ class Advert extends Model
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getRhdAttribute(string $value): bool
+    public function getParticleFilterAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getParticleFilterAttribute(string $value): bool
+    public function getRegisteredAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getRegisteredAttribute(string $value): bool
+    public function getOriginalOwnerAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getOriginalOwnerAttribute(string $value): bool
+    public function getNoAccidentAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getNoAccidentAttribute(string $value): bool
+    public function getServiceRecordAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getServiceRecordAttribute(string $value): bool
+    public function getHistoricalVehicleAttribute(?string $value): bool
     {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function getHistoricalVehicleAttribute(string $value): bool
+    public function getTuningAttribute(?string $value): bool
     {
-        return !($value === '0');
-    }
-
-    /**
-     * @param string $value
-     * @return bool
-     */
-    public function getTuningAttribute(string $value): bool
-    {
-        return !($value === '0');
+        return !($value === '' || $value === '0');
     }
 }

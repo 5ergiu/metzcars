@@ -21,8 +21,6 @@ class HomeController extends Controller
         $portfolio = Advert::limit(3)->get();
         $stock     = $this->autovitService->getActiveAdverts(null, 3);
 
-        dd($stock);
-
         return view('home.index', compact('stock', 'portfolio'));
     }
 }

@@ -8,9 +8,7 @@
 
 @section('content')
     <section class="container">
-        @foreach($adverts as $advert)
-            @include('elements.advert')
-        @endforeach
+        @include('elements.advert')
     </section>
     <div id="loader" class="text-center">
         <p class="d-none fs-4 fw-bold color-orange">{{ __('labels.noMoreData') }}</p>

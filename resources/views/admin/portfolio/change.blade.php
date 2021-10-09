@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col-auto mt-4 mt-lg-0">
-                    <button class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" id="toggleUppyModal">
                         <i class="fas fa-camera"></i>
                         {{ __('actions.addPhotos') }}
                     </button>
@@ -102,8 +102,8 @@
                     <label for="advertFuelType" class="form-label required-field">{{ __('adverts.fuelType') }}</label>
                     <select name="advert[fuel_type]" id="advertFuelType" class="form-select">
                         <option value="" selected></option>
-                        @foreach($fuelTypeOptions as $fuelType)
-                            <option value="{{ $fuelType }}" {{ ($advert->fuel_type ?? null) == $fuelType ? 'selected' : '' }}>
+                        @foreach($translatedOptions['fuelTypeOptions'] as $key => $fuelType)
+                            <option value="{{ $key }}" {{ ($advert->fuel_type ?? null) == $key ? 'selected' : '' }}>
                                 {{ $fuelType }}
                             </option>
                         @endforeach
@@ -137,8 +137,8 @@
                     <label for="advertGearbox" class="form-label required-field">{{ __('adverts.gearbox') }}</label>
                     <select name="advert[gearbox]" id="advertGearbox" class="form-select" required>
                         <option value="" selected></option>
-                        @foreach($gearboxOptions as $gearbox)
-                            <option value="{{ $gearbox }}" {{ ($advert->gearbox ?? null) == $gearbox ? 'selected' : '' }}>
+                        @foreach($translatedOptions['gearboxOptions'] as $key => $gearbox)
+                            <option value="{{ $key }}" {{ ($advert->gearbox ?? null) == $key ? 'selected' : '' }}>
                                 {{ $gearbox }}
                             </option>
                         @endforeach
@@ -171,8 +171,8 @@
                     <label for="advertBodyType" class="form-label required-field">{{ __('adverts.bodyType') }}</label>
                     <select name="advert[body_type]" id="advertBodyType" class="form-select" required>
                         <option value="" selected></option>
-                        @foreach($bodyTypeOptions as $bodyType)
-                            <option value="{{ $bodyType }}" {{ ($advert->body_type ?? null) == $bodyType ? 'selected' : '' }}>
+                        @foreach($translatedOptions['bodyTypeOptions'] as $key => $bodyType)
+                            <option value="{{ $key }}" {{ ($advert->body_type ?? null) == $key ? 'selected' : '' }}>
                                 {{ $bodyType }}
                             </option>
                         @endforeach
@@ -182,8 +182,8 @@
                     <label for="advertTransmission" class="form-label">{{ __('adverts.transmission') }}</label>
                     <select name="advert[transmission]" id="advertTransmission" class="form-select">
                         <option value="" selected></option>
-                        @foreach($transmissionOptions as $transmission)
-                            <option value="{{ $transmission }}" {{ ($advert->transmission ?? null) == $transmission ? 'selected' : '' }}>
+                        @foreach($translatedOptions['transmissionOptions'] as $key => $transmission)
+                            <option value="{{ $key }}" {{ ($advert->transmission ?? null) == $key ? 'selected' : '' }}>
                                 {{ $transmission }}
                             </option>
                         @endforeach
@@ -199,8 +199,8 @@
                     <label for="advertColor" class="form-label required-field">{{ __('adverts.color') }}</label>
                     <select name="advert[color]" id="advertColor" class="form-select" required>
                         <option value="" selected></option>
-                        @foreach($colorOptions as $color)
-                            <option value="{{ $color }}" {{ ($advert->color ?? null) == $color ? 'selected' : '' }}>
+                        @foreach($translatedOptions['colorOptions'] as $key => $color)
+                            <option value="{{ $key }}" {{ ($advert->color ?? null) == $key ? 'selected' : '' }}>
                                 {{ $color }}
                             </option>
                         @endforeach
@@ -210,8 +210,8 @@
                     <label for="advertColorType" class="form-label">{{ __('adverts.colorType') }}</label>
                     <select name="advert[color_type]" id="advertColorType" class="form-select">
                         <option value="" selected></option>
-                        @foreach($colorTypeOptions as $colorType)
-                            <option value="{{ $colorType }}" {{ ($advert->color_type ?? null) == $colorType ? 'selected' : '' }}>
+                        @foreach($translatedOptions['colorTypeOptions'] as $key => $colorType)
+                            <option value="{{ $key }}" {{ ($advert->color_type ?? null) == $key ? 'selected' : '' }}>
                                 {{ $colorType }}
                             </option>
                         @endforeach
@@ -223,7 +223,7 @@
                     <label for="advertPollutionStandard" class="form-label">{{ __('adverts.pollutionStandard') }}</label>
                     <select name="advert[pollution_standard]" id="advertPollutionStandard" class="form-select">
                         <option value="" selected></option>
-                        @foreach($pollutionStandardOptions as $pollutionStandard)
+                        @foreach($translatedOptions['pollutionStandardOptions'] as $pollutionStandard)
                             <option value="{{ $pollutionStandard }}" {{ ($advert->pollution_standard ?? null) == $pollutionStandard ? 'selected' : '' }}>
                                 {{ $pollutionStandard }}
                             </option>
@@ -264,12 +264,6 @@
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[rhd]" value="" id="advertRhd" {{ ($advert->rhd ?? null) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="advertRhd">
-                                {{ __('adverts.rhd') }}
-                            </label>
-                        </li>
-                        <li class="form-check">
                             <input class="form-check-input" type="checkbox" name="advert[particle_filter]" value="" id="advertParticleFilter" {{ ($advert->particle_filter ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertParticleFilter">
                                 {{ __('adverts.particleFilter') }}
@@ -305,14 +299,15 @@
             <div class="portfolio-create__features row mb-2">
                 <div class="col-12">
                     <p class="form-label">{{ __('adverts.features') }}</p>
-                    @foreach($featureOptions as $key => $feature)
+                    @foreach($translatedOptions['featureOptions'] as $key => $feature)
                         <button type="button" class="btn btn-light btn-light--secondary me-2 mb-2">
                             <input type="hidden" name="advert[features][{{ $key }}]" value="{{ ($advert->features[$key] ?? null) === $key ? '1' : '0' }}" />
-                            {!! $feature !!}
+                            {{ $feature }}
                         </button>
                     @endforeach
                 </div>
             </div>
+            <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ old('advert.directory') ?? uniqid() }}" />
             <div class="text-center">
                 @include('elements.buttonLoading', [
                     'type'  => 'submit',
@@ -322,6 +317,7 @@
                 ])
             </div>
         </form>
+        <div id="uppyModal"></div>
     </section>
 @endsection
 

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdvertStoreRequest;
+use App\Http\Requests\ContactsStoreRequest;
+use App\Http\Requests\UploadImagesRequest;
 use App\Models\Advert;
 use App\Services\AutovitService;
 use App\Services\AutovitTranslationsService;
 use App\Services\PortfolioService;
+use App\Services\UploadsService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -15,7 +20,8 @@ class PortfolioController extends Controller
     public function __construct(
         private AutovitService $autovitService,
         private AutovitTranslationsService $autovitTranslationsService,
-        private PortfolioService $portfolioService
+        private PortfolioService $portfolioService,
+        private UploadsService $uploadsService
     ) { }
 
     /**
@@ -41,28 +47,10 @@ class PortfolioController extends Controller
     public function create(): View
     {
         $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
-        $fuelTypeOptions          = $this->autovitTranslationsService::getFuelTypeOptions();
-        $gearboxOptions           = $this->autovitTranslationsService::getGearboxOptions();
-        $bodyTypeOptions          = $this->autovitTranslationsService::getBodyTypeOptions();
-        $colorOptions             = $this->autovitTranslationsService::getColorOptions();
-        $colorTypeOptions         = $this->autovitTranslationsService::getColorTypeOptions();
-        $transmissionOptions      = $this->autovitTranslationsService::getTransmissionOptions();
+        $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
         $pollutionStandardOptions = $this->autovitTranslationsService::getPollutionStandardOptions();
-        $featureOptions           = $this->autovitTranslationsService::getFeatureOptions();
 
-        return view('admin.portfolio.create',
-            compact(
-                'brands',
-                'fuelTypeOptions',
-                'gearboxOptions',
-                'bodyTypeOptions',
-                'colorOptions',
-                'colorTypeOptions',
-                'transmissionOptions',
-                'pollutionStandardOptions',
-                'featureOptions',
-            )
-        );
+        return view('admin.portfolio.change', compact('brands', 'translatedOptions', 'pollutionStandardOptions'));
     }
 
     /**
@@ -72,9 +60,33 @@ class PortfolioController extends Controller
      */
     public function show(Advert $advert): View
     {
+        $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
+        $pollutionStandardOptions = $this->autovitTranslationsService::getPollutionStandardOptions();
+
         return view(
             'portfolio.show',
-            compact('advert')
+            compact('advert', 'translatedOptions', 'pollutionStandardOptions')
         );
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param AdvertStoreRequest $request
+     * @return RedirectResponse
+     */
+    public function store(AdvertStoreRequest $request): RedirectResponse
+    {
+        dd($request->all());
+        return $this->portfolioService->handleStore($request);
+    }
+
+    /**
+     * Uploads advert photos.
+     * @param UploadImagesRequest $request
+     * @return JsonResponse
+     */
+    public function upload(UploadImagesRequest $request): JsonResponse
+    {
+        return $this->uploadsService->handleImagesUpload($request);
     }
 }

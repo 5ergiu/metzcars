@@ -4,100 +4,101 @@ namespace App\Services;
 
 class AutovitTranslationsService
 {
-    const FUEL_TYPE_DIESEL   = 1;
-    const FUEL_TYPE_GASOLINE = 2;
-    const FUEL_TYPE_HYBRID   = 3;
+    const FUEL_TYPE_DIESEL       = 'diesel';
+    const FUEL_TYPE_GASOLINE     = 'petrol';
+    const FUEL_TYPE_GASOLINE_CNG = 'petrol-cng';
+    const FUEL_TYPE_HYBRID       = 'hybrid';
 
-    const GEARBOX_AUTOMATIC = 1;
-    const GEARBOX_MANUAL    = 2;
+    const GEARBOX_AUTOMATIC = 'automatic';
+    const GEARBOX_MANUAL    = 'manual';
 
-    const BODY_TYPE_SMALL     = 1;
-    const BODY_TYPE_CITY      = 2;
-    const BODY_TYPE_COMPACT   = 3;
-    const BODY_TYPE_SEDAN     = 4;
-    const BODY_TYPE_COMBI     = 5;
-    const BODY_TYPE_MONOVOLUM = 6;
-    const BODY_TYPE_SUV       = 7;
-    const BODY_TYPE_CABRIO    = 8;
-    const BODY_TYPE_COUPE     = 9;
+    const BODY_TYPE_MINI      = 'mini';
+    const BODY_TYPE_CITY_CAR  = 'city-car';
+    const BODY_TYPE_COMPACT   = 'compact';
+    const BODY_TYPE_SEDAN     = 'sedan';
+    const BODY_TYPE_COMBI     = 'combi';
+    const BODY_TYPE_MINIVAN   = 'minivan';
+    const BODY_TYPE_SUV       = 'suv';
+    const BODY_TYPE_CABRIO    = 'cabrio';
+    const BODY_TYPE_COUPE     = 'coupe';
 
-    const COLOR_WHITE     = 1;
-    const COLOR_BLUE      = 2;
-    const COLOR_SILVER    = 3;
-    const COLOR_BROWN     = 4;
-    const COLOR_YELL_GOLD = 5;
-    const COLOR_GREY      = 6;
-    const COLOR_BLACK     = 7;
-    const COLOR_RED       = 8;
-    const COLOR_GREEN     = 9;
-    const COLOR_OTHER     = 10;
-    const COLOR_BEIGE     = 11;
+    const COLOR_WHITE     = 'white';
+    const COLOR_BLUE      = 'blue';
+    const COLOR_SILVER    = 'silver';
+    const COLOR_BROWN     = 'brown';
+    const COLOR_YELL_GOLD = 'yellow-gold';
+    const COLOR_GREY      = 'gray';
+    const COLOR_BLACK     = 'black';
+    const COLOR_RED       = 'red';
+    const COLOR_GREEN     = 'green';
+    const COLOR_OTHER     = 'other';
+    const COLOR_BEIGE     = 'bej';
 
-    const COLOR_TYPE_METALLIC = 1;
-    const COLOR_TYPE_MATTE    = 2;
-    const COLOR_TYPE_PEARLED  = 3;
+    const COLOR_TYPE_METALLIC = 'metallic';
+    const COLOR_TYPE_MATTE    = 'matt';
+    const COLOR_TYPE_PEARLED  = 'pearl';
 
-    const TRANSMISSION_4X4_AUTOMATIC = 1;
-    const TRANSMISSION_4X4_MANUAL    = 2;
-    const TRANSMISSION_FRONT         = 3;
-    const TRANSMISSION_REAR          = 4;
+    const TRANSMISSION_4X4_AUTOMATIC = 'all-wheel-lock';
+    const TRANSMISSION_4X4_MANUAL    = 'all-wheel-lock';
+    const TRANSMISSION_FRONT         = 'front-wheel';
+    const TRANSMISSION_REAR          = 'rear-wheel';
 
-    const FEATURE_ABS                         = 1;
-    const FEATURE_FRONT_AIRBAGS               = 2;
-    const FEATURE_FRONT_PASSENGER_AIRBAGS     = 3;
-    const FEATURE_CD                          = 4;
-    const FEATURE_ONBOARD_COMPUTER            = 5;
-    const FEATURE_ESP                         = 6;
-    const FEATURE_FRONT_ELECTRIC_WINDOWS      = 7;
-    const FEATURE_CENTRAL_LOCK                = 8;
-    const FEATURE_RADIO                       = 9;
-    const FEATURE_ASSISTED_STEERING           = 10;
-    const FEATURE_PANORAMIC_SUNROOF           = 11;
-    const FEATURE_AIR_CONDITIONING            = 12;
-    const FEATURE_DUAL_AIR_CONDITIONING       = 13;
-    const FEATURE_QUAD_AIR_CONDITIONING       = 14;
-    const FEATURE_DRIVER_KNEE_AIRBAG          = 15;
-    const FEATURE_SIDE_WINDOW_AIRBAGS         = 16;
-    const FEATURE_REAR_PASSENGER_AIRBAGS      = 17;
-    const FEATURE_ALARM                       = 18;
-    const FEATURE_ROOF_BARS                   = 19;
-    const FEATURE_BLUETOOTH                   = 20;
-    const FEATURE_REARVIEW_CAMERA             = 21;
-    const FEATURE_TOWING_HOOK                 = 22;
-    const FEATURE_STEERING_WHELL_COMANDS      = 23;
-    const FEATURE_ASR                         = 24;
-    const FEATURE_DVD                         = 25;
-    const FEATURE_AUTOMATIC_LIGHTS            = 26;
-    const FEATURE_XENON_LIGHTS                = 27;
-    const FEATURE_TINTED_WINDOWS              = 28;
-    const FEATURE_PRIVACY_WINDOWS             = 29;
-    const FEATURE_REAR_ELECTRIC_WINDOWS       = 30;
-    const FEATURE_HEAD_DISPLAY                = 31;
-    const FEATURE_ELECTRONIC_IMMOBILISER      = 32;
-    const FEATURE_AUXILIARY_HEATING           = 33;
-    const FEATURE_LEATHER_INTERIOR            = 34;
-    const FEATURE_VELOUR_INTERIOR             = 35;
-    const FEATURE_AUX_IN                      = 36;
-    const FEATURE_ALLOY_WHEELS                = 37;
-    const FEATURE_SPEED_LIMITER               = 38;
-    const FEATURE_LEDS                        = 39;
-    const FEATURE_GPS                         = 40;
-    const FEATURE_ELECTRIC_INTERIOR_MIRROR    = 41;
-    const FEATURE_ELECTRONIC_REARVIEW_MIRRORS = 42;
-    const FEATURE_ELECTRIC_EXTERIOR_MIRROR    = 43;
-    const FEATURE_HEATED_REARVIEW_MIRRORS     = 44;
-    const FEATURE_HEATED_WINDSHIELD           = 45;
-    const FEATURE_CRUISE_CONTROL              = 46;
-    const FEATURE_FOG_LIGHTS                  = 47;
-    const FEATURE_FRONT_HEATED_SEATS          = 48;
-    const FEATURE_REAR_HEATED_SEATS           = 49;
-    const FEATURE_BOTH_PARKING_SENSORS        = 50;
-    const FEATURE_REAR_PARKING_SENSORS        = 51;
-    const FEATURE_AUTOMATIC_WIPERS            = 52;
-    const FEATURE_ADJUSTABLE_SUSPENSION       = 53;
-    const FEATURE_SUNROOF                     = 54;
-    const FEATURE_TV                          = 55;
-    const FEATURE_ISOFIX                      = 56;
+    const FEATURE_ABS                         = "abs";
+    const FEATURE_FRONT_AIRBAGS               = "front-airbags";
+    const FEATURE_FRONT_PASSENGER_AIRBAGS     = "front-passenger-airbags";
+    const FEATURE_CD                          = "cd";
+    const FEATURE_ONBOARD_COMPUTER            = "onboard-computer";
+    const FEATURE_ESP                         = "esp";
+    const FEATURE_FRONT_ELECTRIC_WINDOWS      = "front-electric-windows";
+    const FEATURE_CENTRAL_LOCK                = "central-lock";
+    const FEATURE_RADIO                       = "radio";
+    const FEATURE_ASSISTED_STEERING           = "assisted-steering";
+    const FEATURE_PANORAMIC_SUNROOF           = "panoramic-sunroof";
+    const FEATURE_AIR_CONDITIONING            = "air-conditioning";
+    const FEATURE_DUAL_AIR_CONDITIONING       = "dual-air-conditioning";
+    const FEATURE_QUAD_AIR_CONDITIONING       = "quad-air-conditioning";
+    const FEATURE_DRIVER_KNEE_AIRBAG          = "driver-knee-airbag";
+    const FEATURE_SIDE_WINDOW_AIRBAGS         = "side-window-airbags";
+    const FEATURE_REAR_PASSENGER_AIRBAGS      = "rear-passenger-airbags";
+    const FEATURE_ALARM                       = "alarm";
+    const FEATURE_ROOF_BARS                   = "roof-bars";
+    const FEATURE_BLUETOOTH                   = "bluetooth";
+    const FEATURE_REARVIEW_CAMERA             = "rearview-camera";
+    const FEATURE_TOWING_HOOK                 = "towing-hook";
+    const FEATURE_STEERING_WHELL_COMANDS      = "steering-whell-comands";
+    const FEATURE_ASR                         = "asr";
+    const FEATURE_DVD                         = "dvd";
+    const FEATURE_AUTOMATIC_LIGHTS            = "automatic-lights";
+    const FEATURE_XENON_LIGHTS                = "xenon-lights";
+    const FEATURE_TINTED_WINDOWS              = "tinted-windows";
+    const FEATURE_PRIVACY_WINDOWS             = "privacy-windows";
+    const FEATURE_REAR_ELECTRIC_WINDOWS       = "rear-electric-windows";
+    const FEATURE_HEAD_DISPLAY                = "head-display";
+    const FEATURE_ELECTRONIC_IMMOBILISER      = "electronic-immobiliser";
+    const FEATURE_AUXILIARY_HEATING           = "auxiliary-heating";
+    const FEATURE_LEATHER_INTERIOR            = "leather-interior";
+    const FEATURE_VELOUR_INTERIOR             = "velour-interior";
+    const FEATURE_AUX_IN                      = "aux-in";
+    const FEATURE_ALLOY_WHEELS                = "alloy-wheels";
+    const FEATURE_SPEED_LIMITER               = "speed-limiter";
+    const FEATURE_LEDS                        = "leds";
+    const FEATURE_GPS                         = "gps";
+    const FEATURE_ELECTRIC_INTERIOR_MIRROR    = "electric-interior-mirror";
+    const FEATURE_ELECTRONIC_REARVIEW_MIRRORS = "electronic-rearview-mirrors";
+    const FEATURE_ELECTRIC_EXTERIOR_MIRROR    = "electric-exterior-mirror";
+    const FEATURE_HEATED_REARVIEW_MIRRORS     = "heated-rearview-mirrors";
+    const FEATURE_HEATED_WINDSHIELD           = "heated-windshield";
+    const FEATURE_CRUISE_CONTROL              = "cruise-control";
+    const FEATURE_FOG_LIGHTS                  = "fog-lights";
+    const FEATURE_FRONT_HEATED_SEATS          = "front-heated-seats";
+    const FEATURE_REAR_HEATED_SEATS           = "rear-heated-seats";
+    const FEATURE_BOTH_PARKING_SENSORS        = "both-parking-sensors";
+    const FEATURE_REAR_PARKING_SENSORS        = "rear-parking-sensors";
+    const FEATURE_AUTOMATIC_WIPERS            = "automatic-wipers";
+    const FEATURE_ADJUSTABLE_SUSPENSION       = "adjustable-suspension";
+    const FEATURE_SUNROOF                     = "sunroof";
+    const FEATURE_TV                          = "tv";
+    const FEATURE_ISOFIX                      = "isofix";
 
     /**
      * @return array
@@ -105,9 +106,10 @@ class AutovitTranslationsService
     public static function getFuelTypeOptions(): array
     {
         return [
-            self::FUEL_TYPE_DIESEL   => __('adverts.fuelTypeOptions.diesel'),
-            self::FUEL_TYPE_GASOLINE => __('adverts.fuelTypeOptions.gasoline'),
-            self::FUEL_TYPE_HYBRID   => __('adverts.fuelTypeOptions.hybrid'),
+            self::FUEL_TYPE_DIESEL       => __('adverts.fuelTypeOptions.diesel'),
+            self::FUEL_TYPE_GASOLINE     => __('adverts.fuelTypeOptions.petrol'),
+            self::FUEL_TYPE_GASOLINE_CNG => __('adverts.fuelTypeOptions.petrolCng'),
+            self::FUEL_TYPE_HYBRID       => __('adverts.fuelTypeOptions.hybrid'),
         ];
     }
 
@@ -117,8 +119,8 @@ class AutovitTranslationsService
     public static function getGearboxOptions(): array
     {
         return [
-            self::GEARBOX_AUTOMATIC => __('adverts.gearboxOptions.manual'),
-            self::GEARBOX_MANUAL    => __('adverts.gearboxOptions.automatic'),
+            self::GEARBOX_AUTOMATIC => __('adverts.gearboxOptions.automatic'),
+            self::GEARBOX_MANUAL    => __('adverts.gearboxOptions.manual'),
         ];
     }
 
@@ -128,15 +130,15 @@ class AutovitTranslationsService
     public static function getBodyTypeOptions(): array
     {
         return [
-            self::BODY_TYPE_SMALL     => __('adverts.bodyTypeOptions.small'),
-            self::BODY_TYPE_CITY      => __('adverts.bodyTypeOptions.city'),
-            self::BODY_TYPE_COMPACT   => __('adverts.bodyTypeOptions.compact'),
-            self::BODY_TYPE_SEDAN     => __('adverts.bodyTypeOptions.sedan'),
-            self::BODY_TYPE_COMBI     => __('adverts.bodyTypeOptions.combi'),
-            self::BODY_TYPE_MONOVOLUM => __('adverts.bodyTypeOptions.monovolum'),
-            self::BODY_TYPE_SUV       => __('adverts.bodyTypeOptions.suv'),
-            self::BODY_TYPE_CABRIO    => __('adverts.bodyTypeOptions.cabrio'),
-            self::BODY_TYPE_COUPE     => __('adverts.bodyTypeOptions.coupe'),
+            self::BODY_TYPE_MINI     => __('adverts.bodyTypeOptions.mini'),
+            self::BODY_TYPE_CITY_CAR => __('adverts.bodyTypeOptions.cityCar'),
+            self::BODY_TYPE_COMPACT  => __('adverts.bodyTypeOptions.compact'),
+            self::BODY_TYPE_SEDAN    => __('adverts.bodyTypeOptions.sedan'),
+            self::BODY_TYPE_COMBI    => __('adverts.bodyTypeOptions.combi'),
+            self::BODY_TYPE_MINIVAN  => __('adverts.bodyTypeOptions.minivan'),
+            self::BODY_TYPE_SUV      => __('adverts.bodyTypeOptions.suv'),
+            self::BODY_TYPE_CABRIO   => __('adverts.bodyTypeOptions.cabrio'),
+            self::BODY_TYPE_COUPE    => __('adverts.bodyTypeOptions.coupe'),
         ];
     }
 
@@ -150,7 +152,7 @@ class AutovitTranslationsService
             self::COLOR_BLUE      => __('adverts.colorOptions.blue'),
             self::COLOR_SILVER    => __('adverts.colorOptions.silver'),
             self::COLOR_BROWN     => __('adverts.colorOptions.brown'),
-            self::COLOR_YELL_GOLD => __('adverts.colorOptions.yellow') . '/' . __('adverts.colorOptions.golden'),
+            self::COLOR_YELL_GOLD => __('adverts.colorOptions.yellowGold'),
             self::COLOR_GREY      => __('adverts.colorOptions.grey'),
             self::COLOR_BLACK     => __('adverts.colorOptions.black'),
             self::COLOR_RED       => __('adverts.colorOptions.red'),
@@ -178,10 +180,10 @@ class AutovitTranslationsService
     public static function getTransmissionOptions(): array
     {
         return [
-            self::TRANSMISSION_4X4_AUTOMATIC => __('adverts.transmissionOptions.4x4a'),
-            self::TRANSMISSION_4X4_MANUAL    => __('adverts.transmissionOptions.4x4m'),
-            self::TRANSMISSION_FRONT         => __('adverts.transmissionOptions.front'),
-            self::TRANSMISSION_REAR          => __('adverts.transmissionOptions.rear'),
+            self::TRANSMISSION_4X4_AUTOMATIC => __('adverts.transmissionOptions.allWheelAuto'),
+            self::TRANSMISSION_4X4_MANUAL    => __('adverts.transmissionOptions.allWheelLock'),
+            self::TRANSMISSION_FRONT         => __('adverts.transmissionOptions.frontWheel'),
+            self::TRANSMISSION_REAR          => __('adverts.transmissionOptions.rearWheel'),
         ];
     }
 
@@ -263,6 +265,23 @@ class AutovitTranslationsService
             self::FEATURE_SUNROOF                     => __('adverts.featureOptions.sunroof'),
             self::FEATURE_TV                          => __('adverts.featureOptions.tv'),
             self::FEATURE_ISOFIX                      => __('adverts.featureOptions.isofix'),
+        ];
+    }
+
+    /**
+     * return @array
+     */
+    public function getTranslatedOptions(): array
+    {
+        return [
+            'fuelTypeOptions'          => self::getFuelTypeOptions(),
+            'gearboxOptions'           => self::getGearboxOptions(),
+            'bodyTypeOptions'          => self::getBodyTypeOptions(),
+            'colorOptions'             => self::getColorOptions(),
+            'colorTypeOptions'         => self::getColorTypeOptions(),
+            'transmissionOptions'      => self::getTransmissionOptions(),
+            'pollutionStandardOptions' => self::getPollutionStandardOptions(),
+            'featureOptions'           => self::getFeatureOptions(),
         ];
     }
 }
