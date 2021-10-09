@@ -5,6 +5,6 @@ return [
     "description" => "Descriere",
     "details"     => "Detalii",
     "gallery"     => "Galerie",
-    "pictures"    => ":number de poze",
+    "pictures"    => ":number poze",
 
 ];

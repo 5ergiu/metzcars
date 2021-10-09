@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdvertStoreRequest extends FormRequest
+class AdvertUpdateStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -36,7 +36,6 @@ class AdvertStoreRequest extends FormRequest
             'advert.body_type'       => 'required',
             'advert.door_count'      => 'required',
             'advert.color'           => 'required',
-            'advert.features'        => 'required',
         ];
     }
 
@@ -61,7 +60,6 @@ class AdvertStoreRequest extends FormRequest
             'advert.body_type.required'       => __('validation.required', ['attribute' => __('advert.body_type')]),
             'advert.door_count.required'      => __('validation.required', ['attribute' => __('advert.door_count')]),
             'advert.color.required'           => __('validation.required', ['attribute' => __('advert.color')]),
-            'advert.features.required'        => __('validation.required', ['attribute' => __('advert.features')]),
         ];
     }
 }

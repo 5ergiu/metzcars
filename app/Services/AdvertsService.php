@@ -106,8 +106,6 @@ class AdvertsService
             'original_owner'     => $advert['params']['original_owner'] === '1',
             'no_accident'        => $advert['params']['no_accident'] === '1',
             'service_record'     => $advert['params']['service_record'] === '1',
-            'historical_vehicle' => $advert['params']['historical_vehicle'] === '1',
-            'tuning'             => $advert['params']['tuning'] === '1',
             'directory'          => $directory,
         ];
     }

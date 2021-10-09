@@ -43,14 +43,16 @@
                             {{ $advert->version }}
                         </span>
                     </li>
-                    <li class="row">
+                    @if(!empty($advert->generation))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.generation') }}
                         </span>
-                        <span class="col-6">
+                            <span class="col-6">
                             {{ $advert->generation }}
                         </span>
-                    </li>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.year') }}
@@ -91,14 +93,16 @@
                             {{ $advert->engine_capacity }} cm <sup>3</sup>
                         </span>
                     </li>
-                    <li class="row">
+                    @if(!empty($advert->transmission))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.transmission') }}
                         </span>
-                        <span class="col-6">
+                            <span class="col-6">
                             {{ $translatedOptions['transmissionOptions'][$advert->transmission] }}
                         </span>
-                    </li>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.gearbox') }}
@@ -107,14 +111,16 @@
                             {{ $translatedOptions['gearboxOptions'][$advert->gearbox] }}
                         </span>
                     </li>
-                    <li class="row">
+                    @if(!empty($advert->pollition_standard))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.pollutionStandard') }}
                         </span>
-                        <span class="col-6">
+                            <span class="col-6">
                             {{ $advert->pollution_standard }}
                         </span>
-                    </li>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.originalOwner') }}
@@ -155,14 +161,16 @@
                             {{  $advert->vin }}
                         </span>
                     </li>
-                    <li class="row">
+                    @if(!empty($advert->co2_emissions))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.co2Emissions') }}
                         </span>
-                        <span class="col-6">
+                            <span class="col-6">
                             {{ $advert->co2_emissions . ' g/km' }}
                         </span>
-                    </li>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.doorCount') }}
@@ -179,22 +187,26 @@
                             {{ $translatedOptions['colorOptions'][$advert->color] }}
                         </span>
                     </li>
-                    <li class="row">
+                    @if(!empty($advert->color_type))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.colorType') }}
                         </span>
-                        <span class="col-6">
-                            {{ $translatedOptions['colorTypeOptions'][$advert->color_type] }}
+                            <span class="col-6">
+                            {{ $translatedOptions['colorTypeOptions'][$advert->color_type] ?? '' }}
                         </span>
-                    </li>
-                    <li class="row">
+                        </li>
+                    @endif
+                    @if(!empty($advert->registration_date))
+                        <li class="row">
                         <span class="col-6">
                             {{ __('adverts.registrationDate') }}
                         </span>
-                        <span class="col-6">
+                            <span class="col-6">
                             {{ date('d/m/Y', strtotime($advert->registration_date)) }}
                         </span>
-                    </li>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.registered') }}

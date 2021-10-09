@@ -47,8 +47,6 @@ class Advert extends Model
         'original_owner',
         'no_accident',
         'service_record',
-        'historical_vehicle',
-        'tuning',
         'directory',
     ];
 
@@ -62,6 +60,10 @@ class Advert extends Model
         'sold'           => false,
         'deductible_vat' => false,
         'invoice_issued' => false,
+        'registered'     => false,
+        'original_owner' => false,
+        'no_accident'    => false,
+        'service_record' => false,
     ];
 
     /**
@@ -70,111 +72,14 @@ class Advert extends Model
      * @var array
      */
     protected $casts = [
-        'features'       => 'array',
-        'special_offer'  => 'boolean',
-        'sold'           => 'boolean',
-        'deductible_vat' => 'boolean',
-        'invoice_issued' => 'boolean',
-        'sold'           => 'boolean',
-        'sold'           => 'boolean',
+        'features'           => 'array',
+        'special_offer'      => 'boolean',
+        'sold'               => 'boolean',
+        'deductible_vat'     => 'boolean',
+        'invoice_issued'     => 'boolean',
+        'registered'         => 'boolean',
+        'original_owner'     => 'boolean',
+        'no_accident'        => 'boolean',
+        'service_record'     => 'boolean',
     ];
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getSpecialOfferAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getSoldAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getDeductibleVatAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getInvoiceIssuedAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getParticleFilterAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getRegisteredAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getOriginalOwnerAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getNoAccidentAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getServiceRecordAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getHistoricalVehicleAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
-
-    /**
-     * @param string|null $value
-     * @return bool
-     */
-    public function getTuningAttribute(?string $value): bool
-    {
-        return !($value === '' || $value === '0');
-    }
 }

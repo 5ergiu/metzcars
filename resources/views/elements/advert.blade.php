@@ -5,13 +5,13 @@
                 class="advert__img"
                 title="{{ $advert->title }}"
                 onclick="window.open('{{ !empty($advert->id) ? route('portfolio.show', ['advert' => $advert]) : $advert->url }}', '_self')"
-                style="background: no-repeat center url({{ asset("storage/images/$advert->autovit_id/1.jpeg") }}); background-size: cover"
+                style="background: no-repeat center url({{ asset("storage/images/$advert->directory/1.jpeg") }}); background-size: cover"
             ></div>
         @auth
-            <button class="advert__edit btn btn-warning position-absolute">
+            <a class="advert__edit btn btn-warning position-absolute" href="{{ route('portfolio.edit', $advert) }}">
                 <i class="fas fa-pencil-alt"></i>
                 {{ __('actions.edit') }}
-            </button>
+            </a>
             @if(!$advert->special_offer)
                 <button class="advert__special-offer btn btn-light position-absolute">
                     <i class="fas fa-star color-orange"></i>

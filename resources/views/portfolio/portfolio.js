@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     new Datepicker(document.getElementById('advertRegistrationDate'), {
-        format: 'd/m/y',
+        format: 'y-m-d',
         autohide: true,
     })
 

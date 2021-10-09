@@ -2,9 +2,10 @@
 
 namespace App\Services;
 
-use App\Http\Requests\AdvertStoreRequest;
+use App\Http\Requests\AdvertUpdateStoreRequest;
 use App\Models\Advert;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -12,20 +13,17 @@ class PortfolioService
 {
 
     /**
-     * @param AdvertStoreRequest $request
+     * @param AdvertUpdateStoreRequest $request
      * @return RedirectResponse
      */
-    public function handleStore(AdvertStoreRequest $request): RedirectResponse
+    public function handleStore(AdvertUpdateStoreRequest $request): RedirectResponse
     {
-        $advert = $request->get('advert');
-
-        $advert['features'] = json_encode($advert['features']);
-
         try {
-            $advert = Advert::create($request->get('advert'));
+            $advert = Advert::create($this->evaluateRequest($request));
 
             return redirect()->route('portfolio.show', $advert);
         } catch (Throwable $e) {
+            DB::rollback();
             Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
         }
 
@@ -33,5 +31,52 @@ class PortfolioService
             ->back()
             ->withErrors(['advert' => __('labels.genericError')])
         ;
+    }
+
+    /**
+     * @param AdvertUpdateStoreRequest $request
+     * @param Advert $advert
+     * @return RedirectResponse
+     */
+    public function handleUpdate(AdvertUpdateStoreRequest $request, Advert $advert): RedirectResponse
+    {
+        try {
+            $advert->update($this->evaluateRequest($request));
+
+            return redirect()->route('portfolio.show', $advert);
+        } catch (Throwable $e) {
+            DB::rollback();
+            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+        }
+
+        return redirect()
+            ->back()
+            ->withErrors(['advert' => __('labels.genericError')])
+        ;
+    }
+
+    /**
+     * @param AdvertUpdateStoreRequest $request
+     * @return array
+     */
+    private function evaluateRequest(AdvertUpdateStoreRequest $request): array
+    {
+        $advert = $request->get('advert');
+
+        $advert['deductible_vat']  = $request->has('advert.deductible_vat');
+        $advert['invoice_issued']  = $request->has('advert.invoice_issued');
+        $advert['particle_filter'] = $request->has('advert.particle_filter');
+        $advert['registered']      = $request->has('advert.registered');
+        $advert['original_owner']  = $request->has('advert.original_owner');
+        $advert['no_accident']     = $request->has('advert.no_accident');
+        $advert['service_record']  = $request->has('advert.service_record');
+
+        foreach ($advert['features'] as $feature => $key) {
+            if ($key === '0') unset($advert['features'][$feature]);
+        }
+
+        $advert['features'] = array_keys($advert['features']);
+
+        return $advert;
     }
 }

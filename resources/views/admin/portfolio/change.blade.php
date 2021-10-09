@@ -4,7 +4,15 @@
 
 @section('content')
     <section class="portfolio-create container">
-        <h3 class="text-center">{{ __('labels.addToPortfolio') }}</h3>
+        <h3 class="title text-center">{{ __('labels.addToPortfolio') }}</h3>
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ $error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endforeach
+        @endif
         <form class="needs-validation dark" action="{{ route('portfolio.store') }}" method="post">
             @csrf
             <input type="hidden" name="advert[sold]" value="1" />
@@ -55,7 +63,7 @@
                             @if(!empty($advert))
                                 @foreach($models as $id => $model)
                                     <option value="{{ $id }}" {{ ($advert->model ?? null) == $model ? 'selected' : '' }} data-model="{{ $id }}">
-                                        {{ $model }}
+                                        {{ $model['en'] }}
                                     </option>
                                 @endforeach
                             @else
@@ -243,7 +251,7 @@
                 </div>
             </div>
             <div class="form-floating mb-4">
-                <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="height: 150px">{{ old('advert.description') }}</textarea>
+                <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="height: 150px">{{ $advert->description ?? old('advert.description') }}</textarea>
                 <label for="advertDescription" class="form-label">{{ __('adverts.description') }}</label>
                 @error('advert.description') @include('elements.errorMessage') @enderror
             </div>
@@ -252,43 +260,43 @@
                     <p class="form-label">{{ __('adverts.options') }}</p>
                     <ul class="list-unstyled col-12 col-md-8 col-lg-6 col-xl-5 mb-0">
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[deductible_vat]" value="" id="advertDeductibleVat" {{ ($advert->deductible_vat ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[deductible_vat]" id="advertDeductibleVat" {{ ($advert->deductible_vat ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertDeductibleVat">
                                 {{ __('adverts.deductibleVat') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[invoice_issued]" value="" id="advertInvoiceIssued" {{ ($advert->invoice_issued ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[invoice_issued]" id="advertInvoiceIssued" {{ ($advert->invoice_issued ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertInvoiceIssued">
                                 {{ __('adverts.invoiceIssued') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[particle_filter]" value="" id="advertParticleFilter" {{ ($advert->particle_filter ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[particle_filter]" id="advertParticleFilter" {{ ($advert->particle_filter ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertParticleFilter">
                                 {{ __('adverts.particleFilter') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[registered]" value="" id="advertRegistered" {{ ($advert->registered ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[registered]" id="advertRegistered" {{ ($advert->registered ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertRegistered">
                                 {{ __('adverts.registered') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[original_owner]" value="" id="advertOriginalOwner" {{ ($advert->original_owner ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[original_owner]" id="advertOriginalOwner" {{ ($advert->original_owner ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertOriginalOwner">
                                 {{ __('adverts.originalOwner') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[no_accident]" value="" id="advertNoAccident" {{ ($advert->no_accident ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[no_accident]" id="advertNoAccident" {{ ($advert->no_accident ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertNoAccident">
                                 {{ __('adverts.noAccident') }}
                             </label>
                         </li>
                         <li class="form-check">
-                            <input class="form-check-input" type="checkbox" name="advert[service_record]" value="" id="advertServiceRecord" {{ ($advert->service_record ?? null) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="advert[service_record]" id="advertServiceRecord" {{ ($advert->service_record ?? null) ? 'checked' : '' }}>
                             <label class="form-check-label" for="advertServiceRecord">
                                 {{ __('adverts.serviceRecord') }}
                             </label>
@@ -299,11 +307,18 @@
             <div class="portfolio-create__features row mb-2">
                 <div class="col-12">
                     <p class="form-label">{{ __('adverts.features') }}</p>
-                    @foreach($translatedOptions['featureOptions'] as $key => $feature)
-                        <button type="button" class="btn btn-light btn-light--secondary me-2 mb-2">
-                            <input type="hidden" name="advert[features][{{ $key }}]" value="{{ ($advert->features[$key] ?? null) === $key ? '1' : '0' }}" />
-                            {{ $feature }}
-                        </button>
+                    @foreach($translatedOptions['featureOptions'] as $key => $translation)
+                        @if(in_array($key, $advert->features))
+                            <button type="button" class="btn btn-light btn-light--secondary btn-light--secondary--active me-2 mb-2">
+                                <input type="hidden" name="advert[features][{{ $key }}]" value="1" />
+                                {{ $translation }}
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-light btn-light--secondary me-2 mb-2">
+                                <input type="hidden" name="advert[features][{{ $key }}]" value="0" />
+                                {{ $translation }}
+                            </button>
+                        @endif
                     @endforeach
                 </div>
             </div>

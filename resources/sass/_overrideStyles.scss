@@ -323,11 +323,17 @@
 }
 
 .alert {
+    color: $bg2;
+    border-radius: 0.65rem;
+    border: none;
+    font: {
+        weight: bold;
+    }
     &-success {
         background-color: $green;
-        color: $bg2;
-        border-radius: 0.65rem;
-        border: none;
+    }
+    &-danger {
+        background-color: $red;
     }
 }
 
