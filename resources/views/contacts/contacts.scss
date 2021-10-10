@@ -17,4 +17,9 @@
             top: 0;
         }
     }
+    &-admin {
+        .table-dark {
+            --bs-table-bg: $bg;
+        }
+    }
 }

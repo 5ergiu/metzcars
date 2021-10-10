@@ -13,6 +13,7 @@ class PortfolioService
 {
 
     /**
+     * Store a newly created resource in storage.
      * @param AdvertUpdateStoreRequest $request
      * @return RedirectResponse
      */
@@ -34,6 +35,7 @@ class PortfolioService
     }
 
     /**
+     * Update the specified resource in storage.
      * @param AdvertUpdateStoreRequest $request
      * @param Advert $advert
      * @return RedirectResponse
@@ -44,6 +46,30 @@ class PortfolioService
             $advert->update($this->evaluateRequest($request));
 
             return redirect()->route('portfolio.show', $advert);
+        } catch (Throwable $e) {
+            DB::rollback();
+            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+        }
+
+        return redirect()
+            ->back()
+            ->withErrors(['advert' => __('labels.genericError')])
+        ;
+    }
+
+    /**
+     * Delete the model from the database.
+     * @param Advert $advert
+     * @return RedirectResponse
+     */
+    public function handleDestroy(Advert $advert): RedirectResponse
+    {
+        try {
+            $advert->delete();
+
+            return redirect()->route('portfolio.index')
+                ->with('success', __('adverts.messages.delete'))
+            ;
         } catch (Throwable $e) {
             DB::rollback();
             Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);

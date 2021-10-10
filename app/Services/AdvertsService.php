@@ -22,21 +22,16 @@ class AdvertsService
      */
     public function updatePortfolio()
     {
-        $adverts        = [];
-        $directory       = uniqid();
+        $directory      = uniqid();
         $autovitAdverts = json_decode($this->autovitService->getAdverts(), true)['results'];
 
         foreach ($autovitAdverts as $key => $autovitAdvert) {
             if (Advert::find($autovitAdvert['id'])) {
                 unset($autovitAdvert[$key]);
             } else {
-                $this->uploadsService->saveAutovitAdvertImages($directory, $autovitAdvert['photos']);
-                $adverts[] = $this->buildAdvert($autovitAdvert, $directory);
+                $this->uploadsService->saveAutovitAdvertPhotos($directory, $autovitAdvert['photos']);
+                Advert::create($this->buildAdvert($autovitAdvert, $directory));
             }
-        }
-
-        if (!empty($adverts)) {
-            Advert::insert($adverts);
         }
     }
 
@@ -68,6 +63,7 @@ class AdvertsService
     {
         return [
             'autovit_id'         => $advert['id'],
+            'autovit_photo'      => $advert['photos'][1]['1280x800'],
             'title'              => $advert['title'],
             'status'             => $advert['status'],
 //            'special_offer'      => Advert::where(['autovit_id' => $advert['id']], ['special_offer' => 1])->firstOrFail() ?? false,
@@ -99,7 +95,7 @@ class AdvertsService
             'door_count'         => $advert['params']['door_count'],
             'color'              => $advert['params']['color'],
             'color_type'         => $advert['params']['colour_type'],
-            'features'           => json_encode($advert['params']['features']),
+            'features'           => $advert['params']['features'],
             'vat'                => $advert['params']['vat'] === '1',
             'registration_date'  => $advert['params']['date_registration'],
             'registered'         => $advert['params']['registered'] === '1',

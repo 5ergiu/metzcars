@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advert;
 use App\Services\AdvertsService;
+use App\Services\AutovitTranslationsService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -11,7 +12,8 @@ use Illuminate\View\View;
 class StockController extends Controller
 {
     public function __construct(
-        private AdvertsService $advertsService
+        private AdvertsService $advertsService,
+        private AutovitTranslationsService $autovitTranslationsService
     ) { }
 
     /**
@@ -21,13 +23,14 @@ class StockController extends Controller
      */
     public function index(Request $request): View|JsonResponse
     {
-        $adverts = $this->advertsService->getFormattedAdvertsForStock($request->query('page'));
+        $adverts           = $this->advertsService->getFormattedAdvertsForStock($request->query('page'));
+        $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
+            return response()->json(['html' => view('elements.advert', compact('adverts', 'translatedOptions'))->render()]);
         }
 
-        return view('stock.index', compact('adverts'));
+        return view('stock.index', compact('adverts', 'translatedOptions'));
     }
 
     /**

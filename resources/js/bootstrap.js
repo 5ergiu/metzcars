@@ -17,6 +17,7 @@ require('bootstrap')
 require('spotlight.js')
 window.Uppy = require('uppy')
 window.Datepicker = require('vanillajs-datepicker').Datepicker
+window.autosize = require('autosize').default
 
 // extra js
 require('./components/loadMoreData')

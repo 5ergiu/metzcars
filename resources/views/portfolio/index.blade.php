@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="container">
-        <div class="d-flex flex-wrap justify-content-center">
+        <div class="d-flex flex-wrap gap-3">
             @include('elements.advert')
         </div>
     </section>

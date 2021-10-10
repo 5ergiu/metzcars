@@ -22,7 +22,7 @@ class UploadsService
      * @param string $directory
      * @param array $photos
      */
-    public function saveAutovitAdvertImages(string $directory, array $photos): void
+    public function saveAutovitAdvertPhotos(string $directory, array $photos): void
     {
         foreach ($photos as $key => $photo) {
             foreach ($photo as $size => $url) {

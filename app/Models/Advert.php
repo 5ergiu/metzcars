@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Advert extends Model
 {
+    use HasFactory;
+
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
+        'autovit_photo',
         'title',
         'status',
         'special_offer',

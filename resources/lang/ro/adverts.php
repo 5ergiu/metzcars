@@ -106,7 +106,11 @@ return [
         "diesel"    => "Diesel",
         "petrol"    => "Benzină",
         "petrolCng" => "Benzină + CNG",
-        "hybrid"    => "Hibrid"
+        "petrolLpg" => "Benzină + LPG",
+        "electric"  => "Electric",
+        "etanol"    => "Etanol",
+        "hybrid"    => "Hibrid",
+        "hidrogen"  => "Hidrogen",
     ],
     "gearbox"             => "Cutie de viteze",
     "gearboxOptions"      => [
@@ -116,6 +120,9 @@ return [
     "generation"          => "Generație",
     "hp"                  => "CP",
     "invoiceIssued"       => "Emitere factură",
+    "messages"            => [
+        "delete" => "Anunț șters"
+    ],
     "mileage"             => "Kilometraj",
     "model"               => "Model",
     "noAccident"          => "Fără accident",

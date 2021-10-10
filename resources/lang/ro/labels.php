@@ -13,7 +13,6 @@ return [
     */
 
     "addToPortfolio"   => "Adaugă la portofoliu",
-    "officeHours"      => "Program L-V",
     "callUsAt"         => "Sună-ne la numărul de telefon",
     "carNotFound"      => "Nu ai găsit mașina pe care o căutai",
     "changeLanguage"   => "Schimbă limba",
@@ -31,6 +30,7 @@ return [
     "moreItems"        => "Vezi mai multe",
     "no"               => "Nu",
     "noMoreData"       => "Acestea sunt toate datele",
+    "officeHours"      => "Program L-V",
     "orSendUs"         => "sau, trimite-ne un mesaj",
     "pleaseWait"       => "Vă rugăm așteptați",
     "portfolio"        => "Portofoliu",

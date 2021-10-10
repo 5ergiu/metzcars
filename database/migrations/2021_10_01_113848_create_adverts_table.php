@@ -16,6 +16,7 @@ class CreateAdvertsTable extends Migration
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('autovit_id')->nullable();
+            $table->string('autovit_photo')->nullable();
             $table->string('title');
             $table->string('status')->nullable();
             $table->boolean('special_offer')->default(0);
@@ -24,9 +25,9 @@ class CreateAdvertsTable extends Migration
             $table->boolean('invoice_issued')->default(0);
             $table->string('url')->nullable();
             $table->dateTime('added_on')->nullable();
-            $table->string('city')->nullable()->default('-');
+            $table->string('city')->nullable();
             $table->text('description')->nullable();
-            $table->unsignedMediumInteger('price')->nullable();
+            $table->unsignedMediumInteger('price');
             $table->string('brand');
             $table->string('model');
             $table->string('version');

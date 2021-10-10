@@ -106,7 +106,11 @@ return [
         "diesel"    => "Diesel",
         "petrol"    => "Gasoline",
         "petrolCng" => "Gasoline + CNG",
-        "hybrid"    => "Hybrid"
+        "petrolLpg" => "Gasoline + LPG",
+        "electric"  => "Electric",
+        "etanol"    => "Etanol",
+        "hybrid"    => "Hybrid",
+        "hidrogen"  => "Hidrogen",
     ],
     "gearbox"             => "Gearbox",
     "gearboxOptions"      => [
@@ -116,6 +120,9 @@ return [
     "generation"          => "Generation",
     "hp"                  => "HP",
     "invoiceIssued"       => "Invoice issued",
+    "messages"            => [
+        "delete" => "Successfully deleted advert."
+    ],
     "mileage"             => "Mileage",
     "model"               => "Model",
     "noAccident"          => "No accident",

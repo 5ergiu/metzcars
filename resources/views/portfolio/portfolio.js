@@ -19,9 +19,11 @@ window.addEventListener('DOMContentLoaded', () => {
         maxNumberOfFiles: 50
     }
 
+    const advertDirectory   = document.getElementById('advertDirectory').value
+
     const uppy = new Uppy.Core({
         meta: {
-            directory: document.getElementById('advertDirectory').value
+            directory: advertDirectory
         },
         restrictions: restrictions
     })
@@ -30,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
         theme: 'dark',
         target: '#uppyModal',
         trigger: '#toggleUppyModal',
+        autoProceed: false,
         allowMultipleUploads: false,
         closeModalOnClickOutside: true
     }).use(Uppy.XHRUpload, {

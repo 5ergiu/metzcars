@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-sm-6 mb-4">
                         <label for="contactBrand" class="form-label">{{ __('adverts.brand') }}</label>
-                        <select name="contact[brand]" id="contactBrand" class="form-control select2">
+                        <select name="contact[brand]" id="selectBrand" class="form-control select2">
                             <option value="" selected>{{ __('labels.selectBrand') }}</option>
                             @foreach($brands as $key => $brand)
                                 <option value="{{ $brand['en'] }}" data-brand="{{ $key }}">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-sm-6 mb-4">
                         <label for="contactModel" class="form-label">{{ __('adverts.model') }}</label>
-                        <select name="contact[model]" id="contactModel" class="form-select select2">
+                        <select name="contact[model]" id="selectModel" class="form-select select2">
                             <option value="" selected disabled>{{ __('labels.selectBrandFirst') }}</option>
                         </select>
                     </div>

@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Throwable;
 
 class PortfolioController extends Controller
 {
@@ -23,7 +24,9 @@ class PortfolioController extends Controller
         private AutovitTranslationsService $autovitTranslationsService,
         private PortfolioService $portfolioService,
         private UploadsService $uploadsService
-    ) { }
+    ) {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
 
     /**
      * Display a listing of the resource.
@@ -32,13 +35,14 @@ class PortfolioController extends Controller
      */
     public function index(Request $request): View|JsonResponse
     {
-        $adverts = Advert::paginate(10);
+        $adverts           = Advert::paginate(10);
+        $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advert', compact('adverts'))->render()]);
+            return response()->json(['html' => view('elements.advert', compact('adverts', 'translatedOptions'))->render()]);
         }
 
-        return view('portfolio.index', compact('adverts'));
+        return view('portfolio.index', compact('adverts', 'translatedOptions'));
     }
 
     /**
@@ -49,9 +53,8 @@ class PortfolioController extends Controller
     {
         $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
         $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
-        $pollutionStandardOptions = $this->autovitTranslationsService::getPollutionStandardOptions();
 
-        return view('admin.portfolio.change', compact('brands', 'translatedOptions', 'pollutionStandardOptions'));
+        return view('admin.portfolio.change', compact('brands', 'translatedOptions'));
     }
 
     /**
@@ -87,11 +90,10 @@ class PortfolioController extends Controller
     public function edit(Advert $advert): View
     {
         $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
-        $models                   = json_decode($this->autovitService->getBrandModels(Str::kebab($advert->brand)), true)['options'];
+        $models                   = json_decode($this->autovitService->getBrandModels(Str::kebab(Str::lower($advert->brand))), true)['options'];
         $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
-        $pollutionStandardOptions = $this->autovitTranslationsService::getPollutionStandardOptions();
 
-        return view('admin.portfolio.change', compact('translatedOptions', 'advert', 'brands', 'models', 'pollutionStandardOptions'));
+        return view('admin.portfolio.change', compact('translatedOptions', 'advert', 'brands', 'models'));
     }
 
     /**
@@ -103,6 +105,16 @@ class PortfolioController extends Controller
     public function update(AdvertUpdateStoreRequest $request, Advert $advert): RedirectResponse
     {
         return $this->portfolioService->handleUpdate($request, $advert);
+    }
+
+    /**
+     * Delete the model from the database.
+     * @param Advert $advert
+     * @return RedirectResponse
+     */
+    public function destroy(Advert $advert): RedirectResponse
+    {
+        return $this->portfolioService->handleDestroy($advert);
     }
 
     /**

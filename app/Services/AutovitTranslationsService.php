@@ -6,8 +6,12 @@ class AutovitTranslationsService
 {
     const FUEL_TYPE_DIESEL       = 'diesel';
     const FUEL_TYPE_GASOLINE     = 'petrol';
+    const FUEL_TYPE_GASOLINE_GPL = 'petrol-lpg';
     const FUEL_TYPE_GASOLINE_CNG = 'petrol-cng';
+    const FUEL_TYPE_ELECTRIC     = 'electric';
+    const FUEL_TYPE_ETANOL       = 'etanol';
     const FUEL_TYPE_HYBRID       = 'hybrid';
+    const FUEL_TYPE_HIDROGEN     = 'hidrogen';
 
     const GEARBOX_AUTOMATIC = 'automatic';
     const GEARBOX_MANUAL    = 'manual';
@@ -38,7 +42,7 @@ class AutovitTranslationsService
     const COLOR_TYPE_MATTE    = 'matt';
     const COLOR_TYPE_PEARLED  = 'pearl';
 
-    const TRANSMISSION_4X4_AUTOMATIC = 'all-wheel-lock';
+    const TRANSMISSION_4X4_AUTOMATIC = 'all-wheel-auto';
     const TRANSMISSION_4X4_MANUAL    = 'all-wheel-lock';
     const TRANSMISSION_FRONT         = 'front-wheel';
     const TRANSMISSION_REAR          = 'rear-wheel';
@@ -108,8 +112,12 @@ class AutovitTranslationsService
         return [
             self::FUEL_TYPE_DIESEL       => __('adverts.fuelTypeOptions.diesel'),
             self::FUEL_TYPE_GASOLINE     => __('adverts.fuelTypeOptions.petrol'),
+            self::FUEL_TYPE_GASOLINE_GPL => __('adverts.fuelTypeOptions.petrolLpg'),
             self::FUEL_TYPE_GASOLINE_CNG => __('adverts.fuelTypeOptions.petrolCng'),
+            self::FUEL_TYPE_ELECTRIC     => __('adverts.fuelTypeOptions.electric'),
+            self::FUEL_TYPE_ETANOL       => __('adverts.fuelTypeOptions.etanol'),
             self::FUEL_TYPE_HYBRID       => __('adverts.fuelTypeOptions.hybrid'),
+            self::FUEL_TYPE_HIDROGEN     => __('adverts.fuelTypeOptions.hidrogen'),
         ];
     }
 

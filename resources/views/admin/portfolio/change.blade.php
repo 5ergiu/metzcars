@@ -1,10 +1,22 @@
 @extends('main')
 
-@section('title') {{ __('labels.addToPortfolio') }} @endsection
+@section('title')
+    @if(empty($advert))
+        {{ __('labels.addToPortfolio') }}
+    @else
+        {{ __('actions.edit') . $advert->title }}
+    @endif
+@endsection
 
 @section('content')
     <section class="portfolio-create container">
-        <h3 class="title text-center">{{ __('labels.addToPortfolio') }}</h3>
+        <h3 class="title text-center">
+            @if(empty($advert))
+                {{ __('labels.addToPortfolio') }}
+            @else
+                {{ __('actions.edit') . " $advert->title" }}
+            @endif
+        </h3>
         @if($errors->any())
             @foreach($errors->all() as $error)
                 <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
@@ -15,7 +27,7 @@
         @endif
         <form class="needs-validation dark" action="{{ route('portfolio.store') }}" method="post">
             @csrf
-            <input type="hidden" name="advert[sold]" value="1" />
+            <input type="hidden" name="advert[sold]" value="{{ empty($advert) ? '1' : $advert->sold }}" />
             <div class="row mb-4 align-items-center">
                 <div class="col-12 col-lg">
                     <div class="form-floating">
@@ -234,7 +246,7 @@
                         @foreach($translatedOptions['pollutionStandardOptions'] as $pollutionStandard)
                             <option value="{{ $pollutionStandard }}" {{ ($advert->pollution_standard ?? null) == $pollutionStandard ? 'selected' : '' }}>
                                 {{ $pollutionStandard }}
-                            </option>
+                            </option>price
                         @endforeach
                     </select>
                 </div>
@@ -250,11 +262,13 @@
                     </div>
                 </div>
             </div>
-            <div class="form-floating mb-4">
-                <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="height: 150px">{{ $advert->description ?? old('advert.description') }}</textarea>
-                <label for="advertDescription" class="form-label">{{ __('adverts.description') }}</label>
-                @error('advert.description') @include('elements.errorMessage') @enderror
-            </div>
+            @if(!empty($advert->description))
+                <div class="form-floating mb-4">
+                    <textarea class="form-control @error('advert.description') is-invalid @enderror" placeholder="{{ __('adverts.description') }}..." name="advert[description]" id="advertDescription" style="min-height: 150px">{{ $advert->description ?? old('advert.description') }}</textarea>
+                    <label for="advertDescription" class="form-label">{{ __('adverts.description') }}</label>
+                    @error('advert.description') @include('elements.errorMessage') @enderror
+                </div>
+            @endif
             <div class="portfolio-create__options row mb-4">
                 <div class="col-12">
                     <p class="form-label">{{ __('adverts.options') }}</p>
@@ -308,7 +322,7 @@
                 <div class="col-12">
                     <p class="form-label">{{ __('adverts.features') }}</p>
                     @foreach($translatedOptions['featureOptions'] as $key => $translation)
-                        @if(in_array($key, $advert->features))
+                        @if(!empty($advert) && in_array($key, $advert->features))
                             <button type="button" class="btn btn-light btn-light--secondary btn-light--secondary--active me-2 mb-2">
                                 <input type="hidden" name="advert[features][{{ $key }}]" value="1" />
                                 {{ $translation }}
@@ -322,7 +336,7 @@
                     @endforeach
                 </div>
             </div>
-            <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ old('advert.directory') ?? uniqid() }}" />
+            <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ (!empty($advert->directory) && ($advert->directory !== 'fake')) ? $advert->directory : uniqid() }}" />
             <div class="text-center">
                 @include('elements.buttonLoading', [
                     'type'  => 'submit',
@@ -330,18 +344,18 @@
                     'icon'  => 'far fa-paper-plane me-1',
                     'text'  => 'actions.save',
                 ])
-            </div>
+           </div>
         </form>
-        <div id="uppyModal"></div>
-    </section>
+    <div id="uppyModal"></div>
+</section>
 @endsection
 
 @push('styles')
-    <link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/portfolio.css') }}"
+<link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/portfolio.css') }}"
 @endpush
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('vendor/select2.full.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundle/js/components/selectsAutovit.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundle/js/pages/portfolio.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/select2.full.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundle/js/components/selectsAutovit.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundle/js/pages/portfolio.js') }}"></script>
 @endpush
