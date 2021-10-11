@@ -8,6 +8,9 @@
 
 @section('content')
     <section class="container mt-3">
+        <h3 class="title text-center">
+            {{ __('registrationServices.registrationServices') }}
+        </h3>
         <div class="d-flex flex-wrap justify-content-center gap-3">
             <div class="dark p-0 text-center">
                 <h5 class="border-bottom p-2">
