@@ -243,12 +243,14 @@ select:-webkit-autofill:focus {
 .dark {
     background-color: $bg;
     padding: 1rem;
-    margin: 1rem 0;
     border-radius: 0.65rem;
     box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
 }
 
 .color {
+    &-white {
+        color: #fff;
+    }
     &-text {
         color: $text;
     }

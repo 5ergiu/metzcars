@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Advert;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -25,10 +27,8 @@ class AdvertsService
         $directory      = uniqid();
         $autovitAdverts = json_decode($this->autovitService->getAdverts(), true)['results'];
 
-        foreach ($autovitAdverts as $key => $autovitAdvert) {
-            if (Advert::find($autovitAdvert['id'])) {
-                unset($autovitAdvert[$key]);
-            } else {
+        foreach ($autovitAdverts as $autovitAdvert) {
+            if (!Advert::firstWhere('autovit_id', $autovitAdvert['id'])) {
                 $this->uploadsService->saveAutovitAdvertPhotos($directory, $autovitAdvert['photos']);
                 Advert::create($this->buildAdvert($autovitAdvert, $directory));
             }
@@ -36,25 +36,17 @@ class AdvertsService
     }
 
     /**
-     * Returns a collection with the formatted autovit adverts.
-     * @param int|null $page
-     * @param int|null $limit
-     * @return Collection
+     * Formats strings to be ready for database insertion.
+     * @param string $text
+     * @return string
      */
-    public function getFormattedAdvertsForStock(?int $page = null, ?int $limit = null): Collection
+    private function formatStrings(string $text): string
     {
-        $adverts = [];
-        $autovitAdverts = $this->autovitService->getActiveAdverts($page, $limit);
-
-        foreach ($autovitAdverts as $autovitAdvert) {
-            $adverts[] = Advert::make($this->buildAdvert($autovitAdvert, null));
-        }
-
-        return collect($adverts);
+        return str_replace('-', ' ', Str::of($text)->ucfirst());
     }
 
     /**
-     * Build the proper array model to store in the database.
+     * Build the array model to store in the database.
      * @param array $advert
      * @param string|null $directory
      * @return array
@@ -66,10 +58,6 @@ class AdvertsService
             'autovit_photo'      => $advert['photos'][1]['1280x800'],
             'title'              => $advert['title'],
             'status'             => $advert['status'],
-//            'special_offer'      => Advert::where(['autovit_id' => $advert['id']], ['special_offer' => 1])->firstOrFail() ?? false,
-//            'sold'               => Advert::where(['autovit_id' => $advert['id']], ['sold' => 1])->firstOrFail() ?? false,
-//            'deductible_vat'     => Advert::where(['autovit_id' => $advert['id']], ['deductible_vat' => 1])->firstOrFail() ?? false,
-//            'invoice_issued'     => Advert::where(['autovit_id' => $advert['id']], ['invoice_issued' => 1])->firstOrFail() ?? false,
             'url'                => $advert['url'],
             'added_on'           => $advert['created_at'],
             'city'               => $advert['city']['ro'],
@@ -104,15 +92,5 @@ class AdvertsService
             'service_record'     => $advert['params']['service_record'] === '1',
             'directory'          => $directory,
         ];
-    }
-
-    /**
-     * Formats strings to be ready for database insertion.
-     * @param string $text
-     * @return string
-     */
-    private function formatStrings(string $text): string
-    {
-        return str_replace('-', ' ', Str::of($text)->ucfirst());
     }
 }

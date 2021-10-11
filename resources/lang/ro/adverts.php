@@ -121,7 +121,8 @@ return [
     "hp"                  => "CP",
     "invoiceIssued"       => "Emitere factură",
     "messages"            => [
-        "delete" => "Anunț șters"
+        "delete"  => "Anunț șters.",
+        "success" => "👍 Updatat cu success.",
     ],
     "mileage"             => "Kilometraj",
     "model"               => "Model",
@@ -131,6 +132,7 @@ return [
     "particleFilter"      => "Filtru de particule",
     "pollutionStandard"   => "Norma de poluare",
     "power"               => "Putere",
+    "price"               => "Preț",
     "registered"          => "Înmatriculat",
     "registrationDate"    => "Data primei înmatriculări",
     "rhd"                 => "Volan pe dreapa",

@@ -35,11 +35,12 @@ class PortfolioController extends Controller
      */
     public function index(Request $request): View|JsonResponse
     {
-        $adverts           = Advert::paginate(10);
+        $adverts           = Advert::paginate(9);
         $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
+        $type              = 'portfolio';
 
         if ($request->ajax()) {
-            return response()->json(['html' => view('elements.advert', compact('adverts', 'translatedOptions'))->render()]);
+            return response()->json(['html' => view('elements.advert', compact('adverts', 'type', 'translatedOptions'))->render()]);
         }
 
         return view('portfolio.index', compact('adverts', 'translatedOptions'));
@@ -51,8 +52,8 @@ class PortfolioController extends Controller
      */
     public function create(): View
     {
-        $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
-        $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
+        $brands            = json_decode($this->autovitService->getBrands(), true)['options'];
+        $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
 
         return view('admin.portfolio.change', compact('brands', 'translatedOptions'));
     }
@@ -89,9 +90,9 @@ class PortfolioController extends Controller
      */
     public function edit(Advert $advert): View
     {
-        $brands                   = json_decode($this->autovitService->getBrands(), true)['options'];
-        $models                   = json_decode($this->autovitService->getBrandModels(Str::kebab(Str::lower($advert->brand))), true)['options'];
-        $translatedOptions        = $this->autovitTranslationsService->getTranslatedOptions();
+        $brands            = json_decode($this->autovitService->getBrands(), true)['options'];
+        $models            = json_decode($this->autovitService->getBrandModels(Str::kebab(Str::lower($advert->brand))), true)['options'];
+        $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
 
         return view('admin.portfolio.change', compact('translatedOptions', 'advert', 'brands', 'models'));
     }

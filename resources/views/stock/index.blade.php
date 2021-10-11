@@ -8,16 +8,18 @@
 
 @section('content')
     <section class="container">
-        @include('elements.advert')
+        <div class="adverts-wrapper d-flex flex-column gap-3">
+            @include('elements.advert', ['type' => 'stock'])
+        </div>
+        <div id="loader" class="text-center mt-3">
+            <p class="d-none fs-4 fw-bold color-orange">{{ __('labels.noMoreData') }}</p>
+            @include('elements.buttonLoading', [
+                'type'  => 'button',
+                'class' => 'btn-light btn-light--success',
+                'text'  => 'actions.loadMore',
+            ])
+        </div>
     </section>
-    <div id="loader" class="text-center">
-        <p class="d-none fs-4 fw-bold color-orange">{{ __('labels.noMoreData') }}</p>
-        @include('elements.buttonLoading', [
-            'type'  => 'button',
-            'class' => 'btn-light btn-light--success',
-            'text'  => 'actions.loadMore',
-        ])
-    </div>
 @endsection
 
 @push('styles')

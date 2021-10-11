@@ -86,4 +86,13 @@ class Advert extends Model
         'no_accident'        => 'boolean',
         'service_record'     => 'boolean',
     ];
+
+    /**
+     * Check if an advert can become special.
+     * @return bool
+     */
+    public static function canBeSpecial(): bool
+    {
+        return (bool)Advert::where('special_offer', true)->limit(1)->get();
+    }
 }

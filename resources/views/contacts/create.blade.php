@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="contact container">
-        <div class="dark col-lg-7 mx-auto py-4">
+        <div class="dark col-lg-7 mx-auto py-4 mt-3">
             <h3 class="text-center">
                 {{ __('labels.carNotFound') }}?
             </h3>
@@ -20,12 +20,6 @@
                 <br />
                 {{ __('labels.orSendUs') }}:
             </h5>
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
             <form class="needs-validation" action="{{ route('contacts.store') }}" method="post">
                 @csrf
                 <div class="row">
@@ -70,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12">
                         <div class="form-floating mb-4">
                             <input type="text" id="contactName" class="form-control @error('contact.name') is-invalid @enderror" name="contact[name]" required
                                    value="{{ old('contact.name') }}"
@@ -80,7 +74,7 @@
                             @error('contact.name') @include('elements.errorMessage') @enderror
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6">
                         <div class="form-floating mb-4">
                             <input type="email" id="contactEmail" class="form-control @error('contact.email') is-invalid @enderror" name="contact[email]" required
                                    value="{{ old('contact.email') }}"
@@ -90,7 +84,7 @@
                             @error('contact.email') @include('elements.errorMessage') @enderror
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6">
                         <div class="form-floating mb-4">
                             <input type="tel" id="contactPhone" class="form-control @error('contact.phone') is-invalid @enderror" name="contact[phone]" required
                                    value="{{ old('contact.phone') }}"
@@ -116,7 +110,7 @@
                 </div>
             </form>
         </div>
-        <div class="contact__map">
+        <div class="contact__map mt-3">
             <div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2715.4200210188237!2d27.547349051901705!3d47.11043947905274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafa65695769d3%3A0x5fac1e98aff019a!2sStr.%20Soarelui%2C%20Horpaz%20707313!5e0!3m2!1sro!2sro!4v1633171559386!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
             </div>

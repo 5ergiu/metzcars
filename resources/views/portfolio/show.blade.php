@@ -9,12 +9,6 @@
 @section('content')
     <section class="portfolio-show container">
         <h2 class="title text-center">{{ $advert->title }}</h2>
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
         <div class="d-flex flex-column flex-xl-row justify-content-xl-between">
             <div class="col-xl-8 me-xl-3">
                 <h3 class="title title--bordered">{{ __('portfolio.details') }}</h3>
@@ -247,10 +241,12 @@
                 </ul>
             </div>
             <div class="portfolio-show__gallery col">
-                <h3 class="title title--bordered">{{ __('portfolio.gallery') }}</h3>
-                <a class="fs-3 fw-bold" onclick="Spotlight.show(document.getElementsByClassName('spotlight'))">
-                    {{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->directory"))]) }}
-                </a>
+                <h3 class="title title--bordered">
+                    {{ __('portfolio.gallery') }}
+                    <a class="fs-3 fw-bold" onclick="Spotlight.show(document.getElementsByClassName('spotlight'))">
+                        {{ __('portfolio.pictures', ['number' => count(Storage::files("images/$advert->directory"))]) }}
+                    </a>
+                </h3>
                 <div class="spotlight-group d-flex flex-wrap justify-content-xxl-center align-items-center" data-infinite="true" data-download="true" data-autofit="false" data-autohide="false">
                     @foreach(Storage::files("images/$advert->directory") as $key => $file)
                         <a class="spotlight me-1 mb-1 {{ $key > 5 ? 'd-none' : '' }}" href="{{ asset("storage/images/$advert->directory/" . substr($file, strrpos($file, '/') + 1)) }}">

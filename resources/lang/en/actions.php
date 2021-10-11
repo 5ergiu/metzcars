@@ -2,12 +2,12 @@
 
 return [
 
-    "addPhotos"    => "Add photos",
-    "edit"         => "Edit",
-    "loadMore"     => "Load more",
-    "save"         => "Save",
-    "sold"         => "Sold",
-    "send"         => "Send",
-    "specialOffer" => "Special offer",
+    "addPhotos"          => "Add photos",
+    "edit"               => "Edit",
+    "loadMore"           => "Load more",
+    "save"               => "Save",
+    "markAsSold"         => "Mark as sold",
+    "send"               => "Send",
+    "markAsSpecialOffer" => "Mark as special",
 
 ];

@@ -22,7 +22,10 @@ class PortfolioService
         try {
             $advert = Advert::create($this->evaluateRequest($request));
 
-            return redirect()->route('portfolio.show', $advert);
+            return redirect()
+                ->route('portfolio.show', $advert)
+                ->with('success', __('adverts.messages.success'))
+            ;
         } catch (Throwable $e) {
             DB::rollback();
             Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
@@ -45,7 +48,10 @@ class PortfolioService
         try {
             $advert->update($this->evaluateRequest($request));
 
-            return redirect()->route('portfolio.show', $advert);
+            return redirect()
+                ->route('portfolio.show', $advert)
+                ->with('success', __('adverts.messages.success'))
+            ;
         } catch (Throwable $e) {
             DB::rollback();
             Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);

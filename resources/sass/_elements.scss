@@ -60,6 +60,8 @@
             max-width: 450px;
             columns: unset;
             ul {
+                display: flex;
+                flex-wrap: wrap;
                 list-style: none;
                 padding: 0;
                 li {
@@ -78,6 +80,25 @@
                     bottom: unset;
                     margin-top: 0.125rem;
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .advert {
+        &__specifications {
+            &--flexed {
+                ul {
+                    display: block;
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    li {
+                        margin-right: 0;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }

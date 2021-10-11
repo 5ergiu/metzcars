@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'name' => 'admin',
             'email' => 'admin@metzcars.com',
             'email_verified_at' => now(),
-            'password' => '$2y$10$sc8BaxRzYeesCiJUBH6WVelb4pnLQQflElloMDts3Vb.0zvjN/ZXS', // U9.)DGNeX)g[t%9#
+            'password' => '$2y$10$sc8BaxRzYeesCiJUBH6WVelb4pnLQQflElloMDts3Vb.0zvjN/ZXS',
             'remember_token' => Str::random(10),
         ];
     }

@@ -29,11 +29,15 @@
     <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/pages/contacts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/pages/portfolio.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundle/css/pages/stock.css') }}">
     @stack('styles')
 </head>
 <body class="d-flex flex-column">
     @include('partials.navbar')
     <main class="flex-grow-1">
+        @include('elements.alert')
         @yield('content')
     </main>
     @include('partials.footer')

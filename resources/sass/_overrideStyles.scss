@@ -322,6 +322,9 @@
 }
 
 .alert {
+    position: absolute;
+    top: 7rem;
+    right: 5rem;
     color: $bg2;
     border-radius: 0.65rem;
     border: none;

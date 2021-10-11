@@ -121,7 +121,8 @@ return [
     "hp"                  => "HP",
     "invoiceIssued"       => "Invoice issued",
     "messages"            => [
-        "delete" => "Successfully deleted advert."
+        "delete"  => "Successfully deleted advert.",
+        "success" => "👍 Successfully updated.",
     ],
     "mileage"             => "Mileage",
     "model"               => "Model",
@@ -131,6 +132,7 @@ return [
     "particleFilter"      => "Particle filter",
     "pollutionStandard"   => "Pollution standard",
     "power"               => "Power",
+    "price"               => "Price",
     "registered"          => "Registered",
     "registrationDate"    => "Registration date",
     "rhd"                 => "Right hand drive",

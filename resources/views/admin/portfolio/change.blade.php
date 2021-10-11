@@ -17,17 +17,9 @@
                 {{ __('actions.edit') . " $advert->title" }}
             @endif
         </h3>
-        @if($errors->any())
-            @foreach($errors->all() as $error)
-                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
-                    {{ $error }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endforeach
-        @endif
-        <form class="needs-validation dark" action="{{ route('portfolio.store') }}" method="post">
+        <form class="needs-validation dark" action="{{ !empty($advert) ? route('portfolio.update', $advert) : route('portfolio.store') }}" method="POST">
             @csrf
-            <input type="hidden" name="advert[sold]" value="{{ empty($advert) ? '1' : $advert->sold }}" />
+            @if (!empty($advert)) @method('PATCH') @endif
             <div class="row mb-4 align-items-center">
                 <div class="col-12 col-lg">
                     <div class="form-floating">
@@ -40,6 +32,17 @@
                     </div>
                 </div>
                 <div class="col-auto mt-4 mt-lg-0">
+                    <div class="form-floating">
+                        <input type="text" id="advertPrice" class="form-control pe-4 @error('advert.price') is-invalid @enderror" name="advert[price]" required
+                               value="{{ $advert->price ?? old('advert.price') }}"
+                               placeholder="{{ __('adverts.price') }}"
+                        />
+                        <span class="position-absolute top-0 end-0 mt-3 me-3"><i class="fas fa-euro-sign"></i></span>
+                        <label for="advertPrice" class="form-label required-field">{{ __('adverts.price') }}</label>
+                        @error('advert.price') @include('elements.errorMessage') @enderror
+                    </div>
+                </div>
+                <div class="col-auto mt-4 mt-lg-0">
                     <button type="button" class="btn btn-primary" id="toggleUppyModal">
                         <i class="fas fa-camera"></i>
                         {{ __('actions.addPhotos') }}
@@ -47,7 +50,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col-5 col-md-4 col-lg-3 mb-3 mb-md-0 align-self-end">
+                <div class="col-6 col-md-4 col-lg-3 mb-3 mb-md-0 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertYear" class="form-control @error('advert.year') is-invalid @enderror" name="advert[year]" required
                                value="{{ $advert->year ?? old('advert.year') }}"
@@ -246,7 +249,7 @@
                         @foreach($translatedOptions['pollutionStandardOptions'] as $pollutionStandard)
                             <option value="{{ $pollutionStandard }}" {{ ($advert->pollution_standard ?? null) == $pollutionStandard ? 'selected' : '' }}>
                                 {{ $pollutionStandard }}
-                            </option>price
+                            </option>
                         @endforeach
                     </select>
                 </div>
