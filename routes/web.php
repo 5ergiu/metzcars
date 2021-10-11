@@ -33,7 +33,7 @@ Route::middleware(['locale'])->group(function() {
     Route::post('/portfolio/upload',               [Controllers\PortfolioController::class, 'upload']);
     Route::resource('/portfolio',                  Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
 
-    // Prices
+    // Registration Services
     Route::get('/registration-services',                       [Controllers\RegistrationServicesController::class, 'index']);
 });
 
