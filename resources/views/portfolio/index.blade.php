@@ -7,7 +7,7 @@
 @section('title') {{ __('labels.portfolio') }} @endsection
 
 @section('content')
-    <section class="container">
+    <section class="container mt-3">
         <div class="adverts-wrapper d-flex flex-wrap gap-3">
             @include('elements.advert', ['type' => 'portfolio'])
         </div>

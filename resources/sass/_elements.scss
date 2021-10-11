@@ -44,6 +44,9 @@
         .dropdown-menu {
             background: transparent;
             left: unset;
+            min-width: unset;
+            right: 0;
+            box-shadow: none;
             .dropdown-item {
                 &:hover {
                     background: transparent;
