@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col-6 col-md-4 col-lg-3 mb-3 mb-md-0 align-self-end">
+                <div class="col-7 col-md-4 col-lg-3 mb-3 mb-md-0 align-self-end">
                     <div class="form-floating">
                         <input type="text" id="advertYear" class="form-control @error('advert.year') is-invalid @enderror" name="advert[year]" required
                                value="{{ $advert->year ?? old('advert.year') }}"
