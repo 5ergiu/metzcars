@@ -34,6 +34,7 @@ return [
     "orSendUs"         => "or, send us a message",
     "pleaseWait"       => "Please wait",
     "portfolio"        => "Portfolio",
+    "prices"           => "Prices",
     "privacy"          => "Privacy policy",
     "selectBrand"      => "Select a brand",
     "selectBrandFirst" => "Select a brand first",

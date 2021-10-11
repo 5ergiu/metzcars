@@ -34,6 +34,7 @@ return [
     "orSendUs"         => "sau, trimite-ne un mesaj",
     "pleaseWait"       => "Vă rugăm așteptați",
     "portfolio"        => "Portofoliu",
+    "prices"           => "Prețuri",
     "privacy"          => "Politica de confidențialitate",
     "selectBrand"      => "Selectează o marcă",
     "selectBrandFirst" => "Selectează o marcă mai întâi",

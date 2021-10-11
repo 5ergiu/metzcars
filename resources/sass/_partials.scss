@@ -28,7 +28,7 @@
     }
     &--fixed {
         position: fixed;
-        z-index: 2;
+        z-index: 999;
         &-small {
             top: 0;
             left: 0;
