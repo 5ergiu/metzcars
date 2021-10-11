@@ -1,87 +1,27 @@
 @import "../../sass/vars";
 
-.home {
+.intro {
+    margin-top: -5rem; // compensating for main content padding for fixed navbar
+    height: 40vh;
     &__bg {
-        position: relative;
-        height: 40vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &_img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: linear-gradient(to bottom, transparent, $dark),  url('../../images/home.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            padding: 6rem 0;
-            -webkit-filter: blur(2px);
-            -moz-filter: blur(2px);
-            -o-filter: blur(2px);
-            -ms-filter: blur(2px);
-            filter: blur(2px);
-        }
-        &_txt {
-            padding: 3rem;
-            color: #fff;
-            text-shadow: 2px 2px #000;
-        }
+        z-index: -1;
+        background-image: linear-gradient(to bottom, transparent, $dark),  url('../../images/homeBg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-filter: blur(2px);
+        -moz-filter: blur(2px);
+        -o-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(2px);
     }
-}
-
-#content {
-    padding-top: 4rem;
 }
 
 // Landscape view
 @media (max-height: 500px) {
-    .home {
-        &__bg {
-            &_txt {
-                display: none;
-            }
-        }
-    }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-    .navbar {
-        background: transparent;
-    }
-
-    #content {
-        padding-top: 0; // overwriting
-        margin-top: -5rem;
-    }
-
-    .home {
-        &__bg {
-            &_txt {
-                max-width: 800px;
-            }
-        }
-        .title--bordered {
-            font-size: 1.3rem;
-        }
-    }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-    #content {
-        margin-top: -8rem;
-    }
-
-    .home {
-        &__bg {
-            &_txt {
-                padding: 8rem 1rem 0 1rem;
-            }
+    .intro {
+        &__txt {
+            display: none;
         }
     }
 }

@@ -1,17 +1,17 @@
-<div class="modal-header border-0">
-    <h5 class="modal-title"><strong>Privacy Policy for Metz Cars S.R.L</strong></h5>
+<div class="modal-header">
+    <h5 class="modal-title"><strong>Privacy Policy</strong></h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <p>At Metz Cars, accessible from https://metzcars.com, one of our main priorities is the privacy of our visitors.
-        This Privacy Policy document contains types of information that is collected and recorded by Metz Cars and how
+    <p>At METZ CARS, accessible from https://metzcars.com, one of our main priorities is the privacy of our visitors.
+        This Privacy Policy document contains types of information that is collected and recorded by METZ CARS and how
         we use it.</p>
 
     <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact
         us.</p>
 
     <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards
-        to the information that they shared and/or collect in Metz Cars. This policy is not applicable to any
+        to the information that they shared and/or collect in METZ CARS. This policy is not applicable to any
         information collected offline or via channels other than this website.
     </p>
 
@@ -48,7 +48,7 @@
 
     <h4>Log Files</h4>
 
-    <p>Metz Cars follows a standard procedure of using log files. These files log visitors when they visit websites. All
+    <p>METZ CARS follows a standard procedure of using log files. These files log visitors when they visit websites. All
         hosting companies do this and a part of hosting services' analytics. The information collected by log files
         include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp,
         referring/exit pages, and possibly the number of clicks. These are not linked to any information that is
@@ -57,7 +57,7 @@
 
     <h4>Cookies and Web Beacons</h4>
 
-    <p>Like any other website, Metz Cars uses 'cookies'. These cookies are used to store information including visitors'
+    <p>Like any other website, METZ CARS uses 'cookies'. These cookies are used to store information including visitors'
         preferences, and the pages on the website that the visitor accessed or visited. The information is used to
         optimize the users' experience by customizing our web page content based on visitors' browser type and/or other
         information.</p>
@@ -66,16 +66,16 @@
     <h4>Advertising Partners Privacy Policies</h4>
 
     <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in
-        their respective advertisements and links that appear on Metz Cars, which are sent directly to users' browser.
+        their respective advertisements and links that appear on METZ CARS, which are sent directly to users' browser.
         They automatically receive your IP address when this occurs. These technologies are used to measure the
         effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on
         websites that you visit.</p>
 
-    <p>Note that Metz Cars has no access to or control over these cookies that are used by third-party advertisers.</p>
+    <p>Note that METZ CARS has no access to or control over these cookies that are used by third-party advertisers.</p>
 
     <h4>Third Party Privacy Policies</h4>
 
-    <p>Metz Cars's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult
+    <p>METZ CARS's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult
         the respective Privacy Policies of these third-party ad servers for more detailed information. It may include
         their practices and instructions about how to opt-out of certain options. </p>
 
@@ -86,18 +86,36 @@
 
     <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to
         the following:</p>
-    <p>The right to access – You have the right to request copies of your personal data. We may charge you a small fee
-        for this service.</p>
-    <p>The right to rectification – You have the right to request that we correct any information you believe is
-        inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
-    <p>The right to erasure – You have the right to request that we erase your personal data, under certain
-        conditions.</p>
-    <p>The right to restrict processing – You have the right to request that we restrict the processing of your personal
-        data, under certain conditions.</p>
-    <p>The right to object to processing – You have the right to object to our processing of your personal data, under
-        certain conditions.</p>
-    <p>The right to data portability – You have the right to request that we transfer the data that we have collected to
-        another organization, or directly to you, under certain conditions.</p>
-    <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights,
-        please contact us.</p>
+
+    <ul>
+        <li>
+            The right to access – You have the right to request copies of your personal data. We may charge you a small fee
+            for this service.
+        </li>
+        <li>
+            The right to rectification – You have the right to request that we correct any information you believe is
+            inaccurate. You also have the right to request that we complete the information you believe is incomplete.
+        </li>
+        <li>
+            The right to erasure – You have the right to request that we erase your personal data, under certain
+            conditions.
+        </li>
+        <li>
+            The right to restrict processing – You have the right to request that we restrict the processing of your personal
+            data, under certain conditions.
+        </li>
+        <li>
+            The right to object to processing – You have the right to object to our processing of your personal data, under
+            certain conditions.
+        </li>
+        <li>
+            The right to data portability – You have the right to request that we transfer the data that we have collected to
+            another organization, or directly to you, under certain conditions.
+        </li>
+        <li>
+            If you make a request, we have one month to respond to you. If you would like to exercise any of these rights,
+            please contact us.
+        </li>
+    </ul>
+
 </div>

@@ -14,7 +14,9 @@ class ContactsController extends Controller
     public function __construct(
         private ContactsService $contactService,
         private AutovitService $autovitService
-    ) { }
+    ) {
+        $this->middleware('auth')->except('create');
+    }
 
     /**
      * Display a listing of the resource.

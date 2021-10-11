@@ -15,7 +15,7 @@ class ContactObserver
     public function created(Contact $contact): void
     {
         Mail::send('emails.contact', ['contact' => $contact], function($m) {
-            $m->to('contact.metzcars@gmail.com', 'Contact Metz Cars')->subject('METZ CARS - Contact message received');
+            $m->to('sales@metzcars.com', 'Contact METZ CARS')->subject('METZ CARS - Contact message received');
         });
     }
 }

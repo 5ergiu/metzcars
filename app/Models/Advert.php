@@ -2,32 +2,29 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Advert extends Model
 {
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'autovit_id';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
+    use HasFactory;
 
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
+        'autovit_photo',
         'title',
+        'status',
+        'special_offer',
+        'sold',
+        'deductible_vat',
+        'invoice_issued',
+        'url',
+        'added_on',
+        'city',
         'description',
         'price',
-        'rhd',
-        'make',
+        'brand',
         'model',
         'version',
         'generation',
@@ -48,13 +45,29 @@ class Advert extends Model
         'color',
         'color_type',
         'features',
-        'date_registration',
+        'vat',
+        'registration_date',
         'registered',
         'original_owner',
         'no_accident',
         'service_record',
-        'historical_vehicle',
-        'tuning',
+        'directory',
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'special_offer'  => false,
+        'sold'           => false,
+        'deductible_vat' => false,
+        'invoice_issued' => false,
+        'registered'     => false,
+        'original_owner' => false,
+        'no_accident'    => false,
+        'service_record' => false,
     ];
 
     /**
@@ -63,42 +76,23 @@ class Advert extends Model
      * @var array
      */
     protected $casts = [
-        'features' => 'array',
+        'features'           => 'array',
+        'special_offer'      => 'boolean',
+        'sold'               => 'boolean',
+        'deductible_vat'     => 'boolean',
+        'invoice_issued'     => 'boolean',
+        'registered'         => 'boolean',
+        'original_owner'     => 'boolean',
+        'no_accident'        => 'boolean',
+        'service_record'     => 'boolean',
     ];
 
     /**
-     * @param string $value
+     * Check if an advert can become special.
      * @return bool
      */
-    public function getParticleFilterAttribute(string $value): bool
+    public static function canBeSpecial(): bool
     {
-        return !($value === '0');
-    }
-
-    /**
-     * @param string $value
-     * @return bool
-     */
-    public function getRegisteredAttribute(string $value): bool
-    {
-        return !($value === '0');
-    }
-
-    /**
-     * @param string $value
-     * @return bool
-     */
-    public function getNoAccidentAttribute(string $value): bool
-    {
-        return !($value === '0');
-    }
-
-    /**
-     * @param string $value
-     * @return bool
-     */
-    public function getServiceRecordAttribute(string $value): bool
-    {
-        return !($value === '0');
+        return (bool)Advert::where('special_offer', true)->limit(1)->get();
     }
 }

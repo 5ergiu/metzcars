@@ -1,0 +1,52 @@
+@import "../../sass/vars";
+
+.advert--stock {
+    display: flex;
+    flex-direction: column;
+    .advert__edit {
+        display: none;
+    }
+    .advert__special-offer {
+        top: 1rem;
+        left: 1rem;
+        z-index: 2;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .advert__mark-as-sold {
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 2;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .advert--stock {
+        flex-direction: row;
+        .advert__img {
+            width: 300px;
+            height: 350px;
+            border-top-right-radius: unset;
+            border-bottom-left-radius: 0.65rem;
+            border-bottom: unset;
+            border-right: 2px solid $grey;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .advert--stock {
+        .advert__img {
+            width: 450px;
+            height: 305px;
+        }
+    }
+}

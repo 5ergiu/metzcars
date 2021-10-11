@@ -13,8 +13,8 @@ class Contact extends Model
         'phone',
         'brand',
         'model',
-        'price',
-        'year',
+        'max_price',
+        'from_year',
         'message',
     ];
 }

@@ -3,7 +3,8 @@ Disallow: /api
 Disallow: /api/user
 Disallow: /autovit
 Disallow: /admin
-Disallow: /contact
+Disallow: /admin/contact
+Disallow: /admin/portfolio/create
 Disallow: /locale
 Disallow: /login
 Disallow: /opcache-api

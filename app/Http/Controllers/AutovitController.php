@@ -21,18 +21,13 @@ class AutovitController extends Controller
     public function getBrandModels(string $brand): JsonResponse
     {
         $models = [];
+
         $options = json_decode($this->autovitService->getBrandModels($brand), true)['options'];
 
         foreach ($options as $key => $option) {
-            // key, value, group, selected, disabled, description, rebuild
             $models[] = [
-                'key' => $key,
-                'value' => $option['en'],
-                'group' => false,
-                'selected' => false,
-                'disabled' => false,
-                'description' => '',
-                'rebuild' => true,
+                'id'   => $key,
+                'text' => $option['en'],
             ];
         }
 

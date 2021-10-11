@@ -1,0 +1,452 @@
+@import "vars";
+
+// Overriding bootstrap
+.btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: .65rem;
+    font: {
+        size: 1.1rem;
+        weight: bold;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+    &-primary {
+        background-color: $blue;
+        &:hover {
+            background-color: $darkerBlue;
+        }
+        &:focus {
+            background-color: $blue;
+        }
+    }
+    &-secondary {
+        background-color: #fff;
+        color: $dark;
+        &:hover {
+            background-color: #e8e8e8;
+            color: $dark;
+        }
+        &:focus {
+            background-color: #fff;
+            color: $dark;
+        }
+    }
+    &-success {
+        background-color: $green;
+        &:hover {
+            background-color: $darkerGreen;
+        }
+        &:focus {
+            background-color: $green;
+        }
+    }
+    &-info {
+        background-color: $purple;
+        color: #fff;
+        &:hover {
+            background-color: $darkerPurple;
+            color: #fff;
+        }
+        &:focus {
+            background-color: $purple;
+            color: #fff;
+        }
+    }
+    &-warning {
+        background-color: $orange;
+        color: #fff;
+        &:hover {
+            background-color: $darkerOrange;
+            color: #fff;
+        }
+        &:focus {
+            background-color: $orange;
+            color: #fff;
+        }
+    }
+    &-danger {
+        background-color: $red;
+        &:hover {
+            background-color: $darkerRed;
+        }
+        &:focus {
+            background-color: $red;
+        }
+    }
+    &-light {
+        background-color: $transBlue;
+        color: $blue;
+        &:hover {
+            background-color: $blue;
+            color: #fff;
+        }
+        &:focus {
+            background-color: $transBlue;
+            color: $blue;
+        }
+        &--success {
+            background-color: $transGreen;
+            color: $green;
+            &:hover {
+                background-color: $green;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $transGreen;
+                color: $green;
+            }
+        }
+        &--info {
+            background-color: $transPurple;
+            color: $purple;
+            &:hover {
+                background-color: $purple;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $transPurple;
+                color: $purple;
+            }
+        }
+        &--warning {
+            background-color: $transOrange;
+            color: $orange;
+            &:hover {
+                background-color: $orange;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $transOrange;
+                color: $orange;
+            }
+        }
+        &--danger {
+            background-color: $transRed;
+            color: $red;
+            &:hover {
+                background-color: $red;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $transRed;
+                color: $red;
+            }
+        }
+        &--secondary {
+            background-color: $grey;
+            color: $text;
+            &:hover {
+                background-color: $lighterGrey;
+                color: #fff;
+            }
+            &:focus {
+                background-color: $grey;
+                color: $text;
+            }
+            &--active {
+                background-color: $green;
+                color: #fff;
+                &:hover {
+                    background-color: $green;
+                    color: #fff;
+                }
+                &:focus {
+                    background-color: $green;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &-loading, &-loading-submit {
+        &__spinner {
+            display: none;
+        }
+        &--show {
+            &.btn-loading, &.btn-loading-submit {
+                background-color: $green;
+                color: #fff;
+                &:hover {
+                    background-color: $green;
+                    color: #fff;
+                }
+            }
+            .btn-loading, &.btn-loading-submit {
+                &__text {
+                    display: none;
+                }
+                &__spinner {
+                    display: inline-block;
+                }
+            }
+        }
+        span {
+            pointer-events: none;
+        }
+    }
+}
+
+.badge {
+    background-color: $blue;
+    font: {
+        size: 0.9rem;
+    }
+    user-select: none;
+    &-secondary {
+        background-color: #fff;
+        color: #000;
+        &--light {
+            background-color: $darkerGrey;
+            color: #fff;
+        }
+    }
+    &-success {
+        background-color: $green;
+        &--light {
+            background-color: $transGreen;
+            color: $green;
+        }
+    }
+    &-warning {
+        background-color: $orange;
+        &--light {
+            background-color: $transOrange;
+            color: $orange;
+        }
+    }
+    &-info {
+        background-color: $purple;
+        &--light {
+            background-color: $transPurple;
+            color: $purple;
+        }
+    }
+    &-danger {
+        background-color: $red;
+        &--light {
+            background-color: $transRed;
+            color: $red;
+        }
+    }
+}
+
+.modal {
+    &-header {
+        border-bottom: 2px solid $darkerGrey;
+    }
+    &-content {
+        background-color: $bg;
+        border-radius: .65rem;
+    }
+    &-body {
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $bg;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $blue;
+            border-radius: 1rem;
+        }
+    }
+}
+
+.dropdown {
+    &-menu {
+        position: absolute;
+        background-color: $bg;
+        box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+        border-radius: 0.65rem;
+    }
+    &-item {
+        padding: 0.5rem 0;
+        border-radius: 0.65rem;
+    }
+}
+
+.form {
+    &-control {
+        background-color: $bg2;
+        border: 2px solid $darkerGrey;
+        border-radius: .65rem;
+        color: #fff;
+        &:focus {
+            background-color: $bg2;
+            color: #fff;
+            outline: none;
+            border-color: $blue;
+            box-shadow: 0 0 10px $blue;
+        }
+        &.datepicker-input {
+            &:focus {
+                border-color: $darkerGrey;
+                box-shadow: none;
+            }
+        }
+    }
+    &-select {
+        background-color: $bg2;
+        border: 2px solid $darkerGrey;
+        border-radius: .65rem;
+        color: #fff;
+        &:focus {
+            background-color: $bg2;
+            color: #fff;
+        }
+    }
+    &-check {
+        display: flex;
+        align-items: flex-end;
+        &-input {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            &:focus {
+                box-shadow: none;
+            }
+            &:checked[type=checkbox] {
+                background-color: $blue;
+                border-color: $blue;
+            }
+        }
+        &-label {
+            user-select: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.alert {
+    position: absolute;
+    top: 7rem;
+    right: 5rem;
+    color: $bg2;
+    border-radius: 0.65rem;
+    border: none;
+    font: {
+        weight: bold;
+    }
+    &-success {
+        background-color: $green;
+    }
+    &-danger {
+        background-color: $red;
+    }
+}
+
+.select2 {
+    &-container {
+        &--bootstrap-5 {
+            width: initial!important;
+            &.select2-container--open {
+                .select2-selection {
+                    border-color: $darkerGrey;
+                    box-shadow: none;
+                }
+            }
+            &.select2-container--focus {
+                .select2-selection {
+                    border-color: $darkerGrey;
+                    box-shadow: none;
+                }
+            }
+            .select2-selection {
+                background-color: $bg2;
+                border: 2px solid $darkerGrey;
+                border-radius: .65rem;
+                color: #fff;
+            }
+            .select2-selection--single {
+                .select2-selection__rendered {
+                    color: $text;
+                }
+            }
+            .select2-dropdown {
+                border: 0;
+                box-shadow: 0 0 30px rgb(0 0 0 / 30%);
+                border-radius: .65rem;
+                padding: 1rem 0;
+                background-color: $bg;
+                .select2-search {
+                    padding-bottom: 1.5rem;
+                }
+                .select2-search .select2-search__field {
+                    background: url('../images/search.png') right 0.65rem top 0.8rem no-repeat $bg2;
+                    padding: .55rem .75rem;
+                    color: #fff;
+                    font-size: .925rem;
+                    border: 1px solid $darkerGrey;
+                    border-radius: .65rem;
+                    outline: 0!important;
+                    &:focus {
+                        border-color: $darkerGrey;
+                        box-shadow: none;
+                    }
+                }
+                .select2-results {
+                    &__options {
+                        &::-webkit-scrollbar {
+                            width: 0.5rem;
+                        }
+                        &::-webkit-scrollbar-track {
+                            background: $blue;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: #fff;
+                            border-radius: 1rem;
+                        }
+                        .select2-results__option.select2-results__option--selected {
+                            background-color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.datepicker {
+    &-picker {
+        background-color: $bg2;
+        border-radius: 0.65rem;
+        box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+        .datepicker-controls .button:hover {
+            background-color: $transBlue;
+            color: $blue;
+        }
+    }
+    &-controls {
+        .button {
+            background-color: $bg;
+            color: #fff;
+        }
+    }
+    &-cell {
+        &:not(.disabled, .selected) {
+            &:hover {
+                background-color: $transBlue;
+                color: $blue;
+            }
+        }
+        &.focused:not(.selected) {
+            background-color: $blue;
+            color: #fff;
+        }
+    }
+}
+
+.uppy-Dashboard-files {
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $blue;
+        border-radius: 1rem;
+    }
+}

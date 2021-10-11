@@ -7,10 +7,21 @@
 @section('title') {{ __('labels.portfolio') }} @endsection
 
 @section('content')
-    <section class="portfolio wrapper wrapper--load-more">
-        <div class="d-flex flex-wrap justify-content-xl-between gap-3">
-            @include('elements.advertSmall', $adverts)
+    <section class="container">
+        <div class="adverts-wrapper d-flex flex-wrap gap-3">
+            @include('elements.advert', ['type' => 'portfolio'])
+        </div>
+        <div id="loader" class="text-center mt-3">
+            <p class="d-none fs-4 fw-bold color-orange">{{ __('labels.noMoreData') }}</p>
+            @include('elements.buttonLoading', [
+                'type'  => 'button',
+                'class' => 'btn-light btn-light--success',
+                'text'  => 'actions.loadMore',
+            ])
         </div>
     </section>
-   @include('elements.loader')
 @endsection
+
+@push('styles')
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundle/css/pages/portfolio.css') }}"
+@endpush
