@@ -15,8 +15,8 @@ Contents
 
 ### Tech stack
 
-| For | Using |
-| ----------- | -------- |
+| | |
+| --- | --- |
 | 🛠️ Environment | Docker |
 | 💻 Backend | PHP 8 (with [OPcache](https://devdojo.com/bobbyiliev/how-to-speed-up-your-laravel-application-with-php-opcache) & [JIT compiler](https://kinsta.com/blog/php-8/#jit)) - Laravel |
 | 🌐 Frontend | Blade - Bootstrap - SASS - JavaScript ES6 |
@@ -34,6 +34,9 @@ installed on your system, and then clone this repository.
 2. Add `.docker/certs/local-metzcars.crt` certificate to trust store
 3. Copy .env file `cp .env.example .env` and setup env variables
 4. Run `docker-compose up -d`
+5. Install dependencies & build assets:
+   1. *./bin composer install*
+   2. *./bin yarn dev*
 
 ***That's it!*** The website is up and running: https://metzcars.local
 
