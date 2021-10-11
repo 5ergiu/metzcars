@@ -30,6 +30,7 @@ return [
     "moreItems"        => "Vezi mai multe",
     "no"               => "Nu",
     "noMoreData"       => "Acestea sunt toate datele",
+    "noStock"          => "Momentan, nu sunt mașini pe stoc",
     "officeHours"      => "Program L-V",
     "orSendUs"         => "sau, trimite-ne un mesaj",
     "pleaseWait"       => "Vă rugăm așteptați",

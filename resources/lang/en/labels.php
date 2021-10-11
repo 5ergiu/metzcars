@@ -31,6 +31,7 @@ return [
     "moreItems"        => "View more",
     "no"               => "No",
     "noMoreData"       => "No more data",
+    "noStock"          => "There are no available cars on stock at the moment",
     "orSendUs"         => "or, send us a message",
     "pleaseWait"       => "Please wait",
     "portfolio"        => "Portfolio",
