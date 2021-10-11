@@ -16,27 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 # Public routes
 Route::middleware(['locale'])->group(function() {
-    Route::get('/',                   [Controllers\HomeController::class, 'index'])->name('app.home');
-    Route::get('/locale/{code}',      [Controllers\LocaleController::class, 'handleLocaleChange'])->name('app.locale');
+    Route::get('/',                                [Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/locale/{code}',                   [Controllers\LocaleController::class, 'handleLocaleChange'])->name('locale');
 
     // Contacts
-    Route::get('/contact/create',     [Controllers\ContactsController::class, 'create'])->name('app.contacts.create');
-    Route::post('/contact',           [Controllers\ContactsController::class, 'store'])->name('app.contacts.store');
+    Route::get('/contacts',                        [Controllers\ContactsController::class, 'index'])->name('contacts.index');
+    Route::post('/contact',                        [Controllers\ContactsController::class, 'store'])->name('contacts.store');
+    Route::get('/contact/create',                  [Controllers\ContactsController::class, 'create'])->name('contacts.create');
 
     // Stock
-    Route::get('/stock',              [Controllers\StockController::class, 'index'])->name('app.stock.index');
+    Route::get('/stock',                           [Controllers\StockController::class, 'index'])->name('stock.index');
+    Route::post('/stock/mark-as-sold/{advert}',    [Controllers\StockController::class, 'markAsSold'])->name('stock.sold');
+    Route::post('/stock/mark-as-special/{advert}', [Controllers\StockController::class, 'markAsSpecialOffer'])->name('stock.special');
 
     // Portfolio
-    Route::get('/portfolio',          [Controllers\PortfolioController::class, 'index'])->name('app.portfolio.index');
-    Route::get('/portfolio/{advert}', [Controllers\PortfolioController::class, 'show'])->name('app.portfolio.show');
-});
-
-# Admin routes
-Route::prefix('admin')->middleware(['auth', 'locale'])->group(function() {
-    Route::get('/contact',          [Controllers\ContactsController::class, 'index'])->name('admin.contacts.index');
-    Route::get('/portfolio/create', [Controllers\PortfolioController::class, 'create'])->name('admin.portfolio.create');
-    Route::post('/portfolio',       [Controllers\PortfolioController::class, 'store'])->name('admin.portfolio.store');
+    Route::post('/portfolio/upload',               [Controllers\PortfolioController::class, 'upload']);
+    Route::resource('/portfolio',                  Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
 });
 
 # Autovit routes
-Route::get('/autovit/{brand}/models', [Controllers\AutovitController::class, 'getBrandModels']);
+Route::get('/autovit/{brand}/models',              [Controllers\AutovitController::class, 'getBrandModels']);

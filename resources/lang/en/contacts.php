@@ -10,10 +10,6 @@ return [
     "phone"            => "Phone",
     "maxPrice"         => "Maximum price",
     "otherOptions"     => "Other options, details",
-    "selectBrand"      => "Select a brand",
-    "selectBrandFirst" => "Select a brand first",
-    "selectModel"      => "Select a model",
-    "selectModelFirst" => "Select a model first",
     "thankYouMessage"  => "Thanks for reaching out! We'll contact you back as soon as possible.",
     "viewMessage"      => "View message",
 

@@ -8,16 +8,21 @@
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@popperjs/core": "^2.10.1",
+        "autosize": "^5.0.1",
         "axios": "^0.21",
         "bootstrap": "^5.1.1",
         "cross-env": "^7.0.3",
+        "jquery": "^3.6.0",
         "laravel-mix": "^6.0.31",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.42.1",
         "sass-loader": "^12.1.0",
+        "select2": "^4.1.0-rc.0",
+        "select2-bootstrap-5-theme": "^1.1.1",
         "spotlight.js": "^0.7.8",
-        "tail.select.js": "^0.5.21"
+        "uppy": "^2.2.0",
+        "vanillajs-datepicker": "^1.1.4"
     }
 }

@@ -1,34 +1,30 @@
 window.addEventListener('DOMContentLoaded', () => {
     if (!document.getElementById('loader')) return
 
-    let page = 2;
+    window.page = 2
 
-    const loader = document.getElementById('loader')
-
+    const loader         = document.getElementById('loader')
     const loadMoreButton = loader.querySelector('button')
-    const loadSpinner    = loader.querySelector('div')
     const noMoreData     = loader.querySelector('p')
 
     loadMoreButton.addEventListener('click', () => {
-        loadMoreData(page)
+        loadMoreData(window.page)
     })
 
     const loadMoreData = async page => {
+        noMoreData.classList.add('d-none')
         try {
-            loadMoreButton.classList.toggle('d-none')
-            loadSpinner.classList.toggle('d-none')
-
             await axios.get(`?page=${page}`)
-                .then(function (response) {
-                    if (response.data.html == '') {
+                .then(response => {
+                    if (response.data.html === '') {
                         noMoreData.classList.remove('d-none')
                     } else {
-                        document.querySelector('.wrapper--load-more').innerHTML += response.data.html
+                        document.querySelector('.adverts-wrapper').innerHTML += response.data.html
                         noMoreData.classList.add('d-none')
-                        page += 1
+                        window.page += 1
                     }
-                    loadMoreButton.classList.toggle('d-none')
-                    loadSpinner.classList.toggle('d-none')
+                    loadMoreButton.classList.remove('btn-loading--show')
+                    loadMoreButton.disabled = false
                 })
         } catch (error) {
             console.error(error)

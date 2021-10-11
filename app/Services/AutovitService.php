@@ -7,7 +7,6 @@ use App\Security\AutovitProvider;
 class AutovitService
 {
     const METHOD_GET  = 'get';
-    const METHOD_POST = 'post';
 
     const STATUS_ACTIVE = 'active';
 
@@ -17,8 +16,8 @@ class AutovitService
     const ADVERT_ENDPOINT          = '/adverts/';
     const CATEGORIES_ENDPOINT      = '/categories/';
 
-    const VEHICLE_BRANDS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/makes';
-    const VEHICLE_MODELS_ENDPOINT = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/models';
+    const VEHICLE_BRANDS_ENDPOINT      = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/makes';
+    const VEHICLE_MODELS_ENDPOINT      = self::CATEGORIES_ENDPOINT . self::CATEGORY_CARS . '/models';
 
     private RestService $restService;
     private string $autovitToken;
@@ -36,31 +35,6 @@ class AutovitService
     public function getAdverts(): string
     {
         return $this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT);
-    }
-
-    /**
-     * Get a list of all active adverts.
-     * @param int|null $page
-     * @param int|null $limit
-     * @return array
-     */
-    public function getActiveAdverts(?int $page =null, ?int $limit = null): array
-    {
-        $params = [
-            'query' => [
-                'limit' => $limit ?? 5,
-                'page'  => $page ?? null,
-            ],
-        ];
-        $adverts = json_decode($this->getResponse(self::ACCOUNT_ADVERTS_ENDPOINT, $params), true)['results'];
-
-        foreach ($adverts as $key => $advert) {
-            if ($advert['status'] !== self::STATUS_ACTIVE) {
-                unset($adverts[$key]);
-            }
-        }
-
-        return $adverts;
     }
 
     /**

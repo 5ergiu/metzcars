@@ -1,0 +1,106 @@
+@import "vars";
+
+.advert {
+    &__img {
+        position: relative;
+        cursor: pointer;
+        height: 200px;
+        border-bottom: 2px solid $grey;
+        border-top-left-radius: 0.65rem;
+        border-top-right-radius: 0.65rem;
+    }
+    &__edit {
+        display: none;
+    }
+    &__specifications {
+        columns: 2;
+    }
+}
+
+.dropdown {
+    &-admin {
+        button {
+            font: {
+                size: 1rem;
+            }
+        }
+        .dropdown-menu {
+            left: unset;
+            right: 0;
+            &[data-bs-popper] {
+                top: auto;
+                bottom: 100%;
+                margin-top: 0;
+                margin-bottom: 0.125rem;
+            }
+        }
+        .dropdown-item {
+            &:hover {
+                background-color: $transBlue;
+            }
+        }
+    }
+    &-locale {
+        .dropdown-menu {
+            background: transparent;
+            left: unset;
+            .dropdown-item {
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .advert {
+        &__specifications {
+            max-width: 450px;
+            columns: unset;
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                padding: 0;
+                li {
+                    margin-right: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        &-admin {
+            .dropdown-menu {
+                &[data-bs-popper] {
+                    top: 100%;
+                    bottom: unset;
+                    margin-top: 0.125rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .advert {
+        &__specifications {
+            &--flexed {
+                ul {
+                    display: block;
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    li {
+                        margin-right: 0;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

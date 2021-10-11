@@ -2,8 +2,8 @@
 
 return [
 
+    "description" => "Description",
     "details"     => "Details",
-    "features"    => "Features",
     "gallery"     => "Gallery",
     "pictures"    => ":number pictures",
 

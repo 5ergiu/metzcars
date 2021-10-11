@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\LoggerHelper;
 use App\Services\AdvertsService;
-use App\Services\AutovitService;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class UpdatePortfolioCommand extends Command
@@ -46,7 +45,7 @@ class UpdatePortfolioCommand extends Command
             $this->advertsService->updatePortfolio();
             $this->info('Successfully updated portfolio');
         } catch (Throwable $e) {
-            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+            new LoggerHelper($e);
         }
     }
 }

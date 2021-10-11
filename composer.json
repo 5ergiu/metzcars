@@ -6,16 +6,17 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "ext-fileinfo": "*",
+        "ext-zend-opcache": "*",
         "appstract/laravel-opcache": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "intervention/image": "^2.7",
         "laravel/fortify": "^1.8",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "league/oauth2-client": "^2.6",
-        "ext-fileinfo": "*",
-        "ext-zend-opcache": "*"
+        "league/oauth2-client": "^2.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
