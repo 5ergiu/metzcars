@@ -3,7 +3,7 @@
 @section('title') {{ __('auth.actions.register') }} @endsection
 
 @section('content')
-    <section class="container">
+    <section class="container mt-3">
         <div class="dark col-lg-5 mx-auto">
             <h3 class="text-center mb-4">{{ __('auth.actions.register') }}</h3>
             <form class="needs-validation" action="{{ route('register') }}" method="POST">
