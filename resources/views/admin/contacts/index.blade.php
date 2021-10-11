@@ -4,6 +4,9 @@
 
 @section('content')
     <section class="contact-admin container">
+        <h3 class="title text-center">
+            {{ __('labels.contacts') }}
+        </h3>
         <table class="table table-dark table-responsive">
             <thead>
             <tr>

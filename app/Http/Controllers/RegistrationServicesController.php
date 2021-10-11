@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 
-class PricesController
+class RegistrationServicesController
 {
     /**
      * @return View
      */
     public function index(): View
     {
-        return view('prices.index');
+        return view('registrationServices.index');
     }
 }

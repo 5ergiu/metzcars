@@ -34,7 +34,7 @@ Route::middleware(['locale'])->group(function() {
     Route::resource('/portfolio',                  Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
 
     // Prices
-    Route::get('/prices',                          [Controllers\PricesController::class, 'index']);
+    Route::get('/registration-services',                       [Controllers\RegistrationServicesController::class, 'index']);
 });
 
 # Autovit routes

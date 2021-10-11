@@ -1,66 +1,66 @@
 @extends('main')
 
 @section('meta')
-    <meta name="description" content="{{ config('app.name') . ' - ' . __('labels.prices') }}">
+    <meta name="description" content="{{ config('app.name') . ' - ' . __('labels.registrationServices') }}">
 @endsection
 
-@section('title') {{ __('labels.prices') }} @endsection
+@section('title') {{ __('labels.registrationServices') }} @endsection
 
 @section('content')
     <section class="container mt-3">
         <div class="d-flex flex-wrap justify-content-center gap-3">
             <div class="dark p-0 text-center">
                 <h5 class="border-bottom p-2">
-                    {{ __('prices.registrationPrices') }}
+                    {{ __('registrationServices.registrationPrices') }}
                 </h5>
                 <div class="p-2">
                     <p>
-                        {{ __('prices.definitiveRegistrationPrice') }}:
+                        {{ __('registrationServices.definitiveRegistrationPrice') }}:
                     </p>
                     <p>150 lei</p>
                     <p>
-                        {{ __('prices.provisionalRegistrationPrice') }}:
+                        {{ __('registrationServices.provisionalRegistrationPrice') }}:
                     </p>
                     <p>150 lei</p>
                 </div>
             </div>
             <div class="dark p-0 text-center">
                 <h5 class="border-bottom p-2">
-                    {{ __('prices.carTaxPrices') }}
+                    {{ __('registrationServices.carTaxPrices') }}
                 </h5>
                 <div class="p-2">
                     <p>
-                        {{ __('prices.carTaxWriteOff') }}:
+                        {{ __('registrationServices.carTaxWriteOff') }}:
                     </p>
                     <p>150 lei</p>
                     <p>
-                        {{ __('prices.erasuresFromCarTraffic') }}:
+                        {{ __('registrationServices.erasuresFromCarTraffic') }}:
                     </p>
                     <p>150 lei</p>
                 </div>
             </div>
             <div class="dark p-0 text-center">
                 <h5 class="border-bottom p-2">
-                    {{ __('prices.obtainingDuplicates') }}
+                    {{ __('registrationServices.obtainingDuplicates') }}
                 </h5>
                 <div class="p-2">
                     <p>
-                        {{ __('prices.registrationCertificateDuplicate') }}:
+                        {{ __('registrationServices.registrationCertificateDuplicate') }}:
                     </p>
                     <p>150 lei</p>
                     <p>
-                        {{ __('prices.registrationNumbersDuplicate') }}:
+                        {{ __('registrationServices.registrationNumbersDuplicate') }}:
                     </p>
                     <p>150 lei</p>
                 </div>
             </div>
             <div class="dark p-0 text-center">
                 <h5 class="border-bottom p-2">
-                    {{ __('prices.updateDocuments') }}
+                    {{ __('registrationServices.updateDocuments') }}
                 </h5>
                 <div class="p-2">
                     <p>
-                        {{ __('prices.exchangingCarDocuments') }}:
+                        {{ __('registrationServices.exchangingCarDocuments') }}:
                     </p>
                     <p>150 lei</p>
                 </div>

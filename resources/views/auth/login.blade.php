@@ -4,6 +4,9 @@
 
 @section('content')
     <section class="container mt-3">
+        <h3 class="title text-center">
+            {{ __('auth.actions.login') }}
+        </h3>
         <div class="dark col-lg-5 mx-auto">
             <h3 class="text-center mb-4">{{ __('auth.welcomeBack') }} 👋</h3>
             <form class="needs-validation" action="{{ route('login') }}" method="POST">
