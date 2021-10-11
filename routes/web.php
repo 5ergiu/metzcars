@@ -32,6 +32,9 @@ Route::middleware(['locale'])->group(function() {
     // Portfolio
     Route::post('/portfolio/upload',               [Controllers\PortfolioController::class, 'upload']);
     Route::resource('/portfolio',                  Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
+
+    // Prices
+    Route::get('/prices',                          [Controllers\PricesController::class, 'index']);
 });
 
 # Autovit routes
