@@ -40,12 +40,12 @@
             <div class="d-flex flex-column gap-3">
                 @include('elements.advert', ['adverts' => $stock, 'type' => 'stock'])
             </div>
+            <div class="text-center mt-3">
+                <a class="btn btn-primary" href="{{ route('stock.index')  }}">
+                    {{ __('labels.moreItems') }}
+                </a>
+            </div>
         @endif
-        <div class="text-center mt-3">
-            <a class="btn btn-primary" href="{{ route('stock.index')  }}">
-                {{ __('labels.moreItems') }}
-            </a>
-        </div>
         <div class="text-center text-sm-start">
             <h3 class="title title--bordered">
                 <a class="color-white" href="{{ route('stock.index') }}">
@@ -57,7 +57,7 @@
             @include('elements.advert', ['adverts' => $portfolio, 'type' => 'portfolio'])
         </div>
         <div class="text-center mt-3">
-            <a class="btn btn-primary" href="{{ route('stock.index')  }}">
+            <a class="btn btn-primary" href="{{ route('portfolio.index')  }}">
                 {{ __('labels.moreItems') }}
             </a>
         </div>
