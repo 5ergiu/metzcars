@@ -26,7 +26,7 @@
                             {{ __('adverts.model') }}
                         </span>
                         <span class="col-6">
-                            {{ str_replace('-', ' ', Str::of($advert['model'])->ucfirst() }}
+                            {{ str_replace('-', ' ', Str::of($advert['model'])->ucfirst()) }}
                         </span>
                     </li>
                     <li class="row">
