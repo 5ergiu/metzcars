@@ -31,12 +31,13 @@ installed on your system, and then clone this repository.
 ### Configuration
 
 1. Update hosts - add `127.0.0.1 metzcars.local`
-2. Add `.docker/certs/local-metzcars.crt` certificate to trust store
+2. Add `.docker/certs/metzcars.crt` certificate to trust store
 3. Copy .env file `cp .env.example .env` and setup env variables
-4. Run `docker-compose up -d`
+4. Run `docker-compose -f docker-compose.local.yml up -d`
 5. Install dependencies & build assets:
    1. *./bin composer install*
    2. *./bin yarn dev*
+   3. *./bin php artisan migrate*
 
 ***That's it!*** The website is up and running: https://metzcars.local
 
