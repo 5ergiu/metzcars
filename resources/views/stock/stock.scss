@@ -6,24 +6,6 @@
     .advert__edit {
         display: none;
     }
-    .advert__special-offer {
-        top: 1rem;
-        left: 1rem;
-        z-index: 2;
-        opacity: 0.9;
-        &:hover {
-            opacity: 1;
-        }
-    }
-    .advert__mark-as-sold {
-        bottom: 1rem;
-        left: 1rem;
-        z-index: 2;
-        opacity: 0.9;
-        &:hover {
-            opacity: 1;
-        }
-    }
 }
 
 // Medium devices (tablets, 768px and up)

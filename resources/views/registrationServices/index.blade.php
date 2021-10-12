@@ -20,7 +20,7 @@
                     <p>
                         {{ __('registrationServices.definitiveRegistrationPrice') }}:
                     </p>
-                    <p>150 lei</p>
+                    <p>350 lei</p>
                     <p>
                         {{ __('registrationServices.provisionalRegistrationPrice') }}:
                     </p>
@@ -54,7 +54,7 @@
                     <p>
                         {{ __('registrationServices.registrationNumbersDuplicate') }}:
                     </p>
-                    <p>150 lei</p>
+                    <p>100 lei</p>
                 </div>
             </div>
             <div class="dark p-0 text-center">
@@ -65,13 +65,13 @@
                     <p>
                         {{ __('registrationServices.exchangingCarDocuments') }}:
                     </p>
-                    <p>150 lei</p>
+                    <p>350 lei</p>
                 </div>
             </div>
             <div>
                 <p>Preturile includ atat efectuarea tuturor procedurilor cat si intocmirea formularelor / dosarelor necesare fiecarui serviciu (inmatriculare auto, radiere, etc). <strong>Pretul serviciului solicitat se achita dupa efectuarea acestuia</strong>, la predarea documentelor catre d-voastra.</p>
                 <p><strong>Preturile nu includ contravaloarea taxelor ce trebuiesc achitate</strong>, in numele d-voastra, in vederea efectuarii serviciului dorit (de exemplu: timbrul de mediu, taxa de numar preferential, RCA valabil minim 6 luni etc). Preturile pentru inmatriculari auto includ si programarea si asistenta R.A.R.</p>
-                <p>La preturile afisate <strong>nu se adauga TVA</strong>, ele fiind<strong> </strong>valabile pentru prestarea serviciilor in <strong>Bucuresti</strong> si <strong>Ilfov</strong>. Pentru alte judete, va rugam sa ne contactati.</p>
+                <p>La preturile afisate <strong>nu se adauga TVA</strong>, ele fiind<strong> </strong>valabile pentru prestarea serviciilor in <strong>Iasi</strong>. Pentru alte judete, va rugam sa ne contactati.</p>
                 <p>Preturile nu includ costul procurii notariale (necesara pentru reprezentarea persoanelor fizice).</p>
                 <p>Contractand serviciile noastre, <strong>nu veti mai avea de facut decat doua drumuri</strong>: un drum la notar pentru semnarea procurii prin care ne imputerniciti pentru procedurile contractate (doar in cazul persoanelor fizice) si un drum la Registrul Auto Roman (pentru deplasarea masinii in vederea verificarii de autenticitate / omologare, acolo unde este cazul).</p>
             </div>

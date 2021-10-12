@@ -226,10 +226,12 @@
                         </span>
                     </li>
                 </ul>
-                <h3 class="title title--bordered">{{ __('portfolio.description') }}</h3>
-                <div class="dark my-0">
-                    {!! nl2br($advert->description) !!}
-                </div>
+                @if(!empty($advert->description))
+                    <h3 class="title title--bordered">{{ __('portfolio.description') }}</h3>
+                    <div class="dark my-0">
+                        {!! nl2br($advert->description) !!}
+                    </div>
+                @endif
                 <h3 class="title title--bordered">{{ __('adverts.features') }}</h3>
                 <ul class="portfolio-show__features dark my-0 list-unstyled">
                     @foreach($advert->features as $key => $feature)

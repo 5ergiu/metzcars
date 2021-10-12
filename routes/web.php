@@ -26,8 +26,8 @@ Route::middleware(['locale'])->group(function() {
 
     // Stock
     Route::get('/stock',                           [Controllers\StockController::class, 'index'])->name('stock.index');
-    Route::post('/stock/mark-as-sold/{advert}',    [Controllers\StockController::class, 'markAsSold'])->name('stock.sold');
-    Route::post('/stock/mark-as-special/{advert}', [Controllers\StockController::class, 'markAsSpecialOffer'])->name('stock.special');
+    Route::post('/stock/toggle-sold/{advert}',     [Controllers\StockController::class, 'toggleSold'])->name('stock.sold');
+    Route::post('/stock/toggle-special/{advert}',  [Controllers\StockController::class, 'toggleSpecial'])->name('stock.special');
 
     // Portfolio
     Route::post('/portfolio/upload',               [Controllers\PortfolioController::class, 'upload']);

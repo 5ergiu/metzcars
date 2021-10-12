@@ -36,25 +36,25 @@ class StockController extends Controller
     }
 
     /**
-     * Marks an advert as sold.
+     * Mark or unmark an advert as sold.
      * @param Advert $advert
      * @return RedirectResponse
      */
-    public function markAsSold(Advert $advert): RedirectResponse
+    public function toggleSold(Advert $advert): RedirectResponse
     {
-        $advert->update(['sold' => true, 'special_offer' => false]);
+        $advert->update(['sold' => !$advert->getAttribute('sold'), 'special_offer' => false]);
 
         return back()->with('success', __('adverts.messages.success'));
     }
 
     /**
-     * Marks an advert as special offer.
+     * Mark or unmark an advert as special offer.
      * @param Advert $advert
      * @return RedirectResponse
      */
-    public function markAsSpecialOffer(Advert $advert): RedirectResponse
+    public function toggleSpecial(Advert $advert): RedirectResponse
     {
-        $advert->update(['special_offer' => true]);
+        $advert->update(['special_offer' => !$advert->getAttribute('special_offer')]);
 
         return back()->with('success', __('adverts.messages.success'));
     }

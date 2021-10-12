@@ -12,6 +12,24 @@
     &__edit {
         display: none;
     }
+    .advert__toggle-special-offer {
+        top: 1rem;
+        left: 1rem;
+        z-index: 2;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .advert__toggle-sold {
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 2;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+        }
+    }
     &__specifications {
         columns: 2;
     }
@@ -82,25 +100,6 @@
                     bottom: unset;
                     margin-top: 0.125rem;
                     margin-bottom: 0;
-                }
-            }
-        }
-    }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-    .advert {
-        &__specifications {
-            &--flexed {
-                ul {
-                    display: block;
-                    list-style-type: disc;
-                    padding-left: 1.5rem;
-                    li {
-                        margin-right: 0;
-                        margin-bottom: 0;
-                    }
                 }
             }
         }
