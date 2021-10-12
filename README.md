@@ -1,4 +1,4 @@
-<p align="center"><a href="https://metzcars.com" target="_blank"><img src="https://metzcars.com/logo/logo_h.png" width="250"></a></p>
+<p align="center"><a href="https://metzcars.com" target="_blank"><img src="https://metzcars.com/logo_h.png" width="250"></a></p>
 <p align="center">Leasing & rent website to showcase the dealer's car listings</p>
 
 Developed in [Laravel](https://github.com/laravel/laravel#readme) with [Docker](https://www.docker.com/) for easy use & implementation.
