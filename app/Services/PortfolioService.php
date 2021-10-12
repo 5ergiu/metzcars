@@ -96,7 +96,6 @@ class PortfolioService
     {
         $advert = $request->get('advert');
 
-        $advert['model']           = str_replace('-', ' ', Str::of($advert['model'])->ucfirst());
         $advert['deductible_vat']  = $request->has('advert.deductible_vat');
         $advert['invoice_issued']  = $request->has('advert.invoice_issued');
         $advert['particle_filter'] = $request->has('advert.particle_filter');
