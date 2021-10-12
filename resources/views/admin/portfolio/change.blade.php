@@ -339,6 +339,7 @@
                     @endforeach
                 </div>
             </div>
+            <input type="hidden" name="advert[sold]" value="1" />
             <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ (!empty($advert->directory) && ($advert->directory !== 'fake')) ? $advert->directory : uniqid() }}" />
             <div class="text-center">
                 @include('elements.buttonLoading', [
