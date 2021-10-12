@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    container_name: metzcars_db
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/storage/mysql:/var/lib/mysql
+
+  app:
+    container_name: metzcars_app
+    build: .
+    environment:
+      - PHP_OPCACHE_VALIDATE_TIMESTAMPS
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+      - .docker/www.conf:/etc/php8/php-fpm.d/www.conf
+      - .docker/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - .docker/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+    depends_on:
+      - mysqldb
+
+  nginx:
+    container_name: metzcars_nginx
+    image: nginx:1.21-alpine
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+      - ./.docker/nginx.local.conf:/etc/nginx/nginx.conf
+      - ./.docker/certs:/etc/ssl/certs
+      - ./storage/logs/nginx:/var/log/nginx
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+
+  portainer:
+    container_name: metzcars_portainer
+    image: portainer/portainer-ce
+    restart: always
+    volumes:
+      - ./.docker/storage/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "9000:9000"
