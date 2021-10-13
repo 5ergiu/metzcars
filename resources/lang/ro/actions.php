@@ -2,7 +2,6 @@
 
 return [
 
-    "addPhotos"            => "Adaugă fotografii",
     "edit"                 => "Edit",
     "loadMore"             => "Încarcă mai multe date",
     "save"                 => "Salvează",

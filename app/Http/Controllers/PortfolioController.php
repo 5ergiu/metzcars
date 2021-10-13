@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdvertUpdateStoreRequest;
-use App\Http\Requests\ContactsStoreRequest;
-use App\Http\Requests\UploadImagesRequest;
 use App\Models\Advert;
 use App\Services\AutovitService;
 use App\Services\AutovitTranslationsService;
@@ -15,7 +13,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Throwable;
 
 class PortfolioController extends Controller
 {
@@ -50,7 +47,7 @@ class PortfolioController extends Controller
      * Show the form for creating a new resource.
      * @return View
      */
-    public function create(): View
+    public function create(Request $request): View
     {
         $brands            = json_decode($this->autovitService->getBrands(), true)['options'];
         $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();
@@ -80,6 +77,10 @@ class PortfolioController extends Controller
      */
     public function store(AdvertUpdateStoreRequest $request): RedirectResponse
     {
+        if (!empty($request->all()['images'])) {
+            $this->uploadsService->handleImagesUpload($request->all()['images'], $request->get('advert')['directory']);
+        }
+
         return $this->portfolioService->handleStore($request);
     }
 
@@ -105,6 +106,10 @@ class PortfolioController extends Controller
      */
     public function update(AdvertUpdateStoreRequest $request, Advert $advert): RedirectResponse
     {
+        if (!empty($request->all()['images'])) {
+            $this->uploadsService->handleImagesUpload($request->all()['images'], $request->get('advert')['directory']);
+        }
+
         return $this->portfolioService->handleUpdate($request, $advert);
     }
 
@@ -116,15 +121,5 @@ class PortfolioController extends Controller
     public function destroy(Advert $advert): RedirectResponse
     {
         return $this->portfolioService->handleDestroy($advert);
-    }
-
-    /**
-     * Uploads advert photos.
-     * @param UploadImagesRequest $request
-     * @return JsonResponse
-     */
-    public function upload(UploadImagesRequest $request): JsonResponse
-    {
-        return $this->uploadsService->handleImagesUpload($request);
     }
 }

@@ -7,10 +7,18 @@
 @section('title') {{ $advert->title }} @endsection
 
 @section('content')
-    <section class="portfolio-show container">
-        <h2 class="title text-center">{{ $advert->title }}</h2>
+    <section class="portfolio-show container position-relative">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <h2 class="title flex-grow-1 text-center">{{ $advert->title }}</h2>
+            @auth
+                <a class="advert__edit btn btn-warning" href="{{ route('portfolio.edit', $advert) }}">
+                    <i class="fas fa-pencil-alt"></i>
+                    {{ __('actions.edit') }}
+                </a>
+            @endauth
+        </div>
         <div class="d-flex flex-column flex-xl-row justify-content-xl-between">
-            <div class="col-xl-8 me-xl-3">
+            <div class="col-xl-9 me-xl-3">
                 <h3 class="title title--bordered">{{ __('portfolio.details') }}</h3>
                 <ul class="portfolio-show__details dark my-0 list-unstyled">
                     <li class="row">
