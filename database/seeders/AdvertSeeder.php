@@ -13,6 +13,6 @@ class AdvertSeeder extends Seeder
      */
     public function run()
     {
-        Advert::factory()->times(5)->create();
+//        Advert::factory()->times(5)->create();
     }
 }

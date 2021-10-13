@@ -1,4 +1,9 @@
+import * as FilePond from 'filepond'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import { Datepicker } from 'vanillajs-datepicker'
+
 window.addEventListener('DOMContentLoaded', () => {
+
     new Datepicker(document.getElementById('advertRegistrationDate'), {
         format: 'y-m-d',
         autohide: true,
@@ -13,35 +18,16 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    const restrictions = {
-        maxFileSize: 20971520, // 20 MB
-        maxTotalFileSize: 734003200, // 700 MB
-        maxNumberOfFiles: 50
-    }
+    const advertImagesInput  = document.getElementById('advertImages')
 
-    const advertDirectory   = document.getElementById('advertDirectory').value
+    FilePond.registerPlugin(FilePondPluginImagePreview)
 
-    const uppy = new Uppy.Core({
-        meta: {
-            directory: advertDirectory
-        },
-        restrictions: restrictions
-    })
-
-    uppy.use(Uppy.Dashboard, {
-        theme: 'dark',
-        target: '#uppyModal',
-        trigger: '#toggleUppyModal',
-        autoProceed: false,
-        allowMultipleUploads: false,
-        closeModalOnClickOutside: true
-    }).use(Uppy.XHRUpload, {
-        endpoint: '/portfolio/upload',
-        formData: true,
-        bundle: true,
-        fieldName: 'images[]',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    FilePond.create(advertImagesInput, {
+        credits: false,
+        allowMultiple: true,
+        instantUpload: false,
+        allowReorder: true,
+        storeAsFile: true,
+        imagePreviewHeight: 200,
     })
 })
