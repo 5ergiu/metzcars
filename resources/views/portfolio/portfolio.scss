@@ -21,9 +21,11 @@
 
 .portfolio {
     &-show {
+        .advert__edit {
+            display: block;
+        }
         &__details, &__features {
             li {
-                white-space: nowrap;
                 margin-bottom: 0.5rem;
 
                 > span:nth-child(2) {

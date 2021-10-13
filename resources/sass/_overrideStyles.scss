@@ -322,9 +322,10 @@
 }
 
 .alert {
-    position: absolute;
-    top: 7rem;
-    right: 5rem;
+    position: fixed;
+    bottom: 1rem;
+    left: 2rem;
+    z-index: 9999;
     color: $bg2;
     border-radius: 0.65rem;
     border: none;
@@ -440,13 +441,50 @@
     }
 }
 
-.uppy-Dashboard-files {
-    &::-webkit-scrollbar {
-        width: 0.5rem;
+.filepond {
+    &--panel-root {
+        background-color: $bg2;
+        border-radius: 0.65rem;
+        border: 2px solid #2b2b40;
     }
+    &--drop-label {
+        color: $text;
+    }
+    &--label-action {
+        color: $blue;
+        text-decoration: none;
+        font: {
+            weight: bold;
+        }
+        &:hover {
+            color: $darkerBlue;
+        }
+    }
+}
 
-    &::-webkit-scrollbar-thumb {
-        background: $blue;
-        border-radius: 1rem;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .filepond {
+        &--item {
+            width: calc(50% - 0.5em);
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .filepond {
+        &--item {
+            width: calc(33.33% - 0.5em);
+        }
+    }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .filepond {
+        &--item {
+            width: calc(20% - 0.5em);
+        }
     }
 }

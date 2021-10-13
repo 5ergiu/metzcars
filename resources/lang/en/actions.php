@@ -2,7 +2,6 @@
 
 return [
 
-    "addPhotos"            => "Add photos",
     "edit"                 => "Edit",
     "loadMore"             => "Load more",
     "save"                 => "Save",

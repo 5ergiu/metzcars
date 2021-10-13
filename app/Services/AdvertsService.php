@@ -29,7 +29,7 @@ class AdvertsService
 
         foreach ($autovitAdverts as $autovitAdvert) {
             if (!Advert::firstWhere('autovit_id', $autovitAdvert['id'])) {
-                $this->uploadsService->saveAutovitAdvertPhotos($directory, $autovitAdvert['photos']);
+                $this->uploadsService->saveAutovitAdvertImages($directory, $autovitAdvert['photos']);
                 Advert::create($this->buildAdvert($autovitAdvert, $directory));
             }
         }

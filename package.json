@@ -8,10 +8,15 @@
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@popperjs/core": "^2.10.1",
+        "add": "^2.0.6",
         "autosize": "^5.0.1",
         "axios": "^0.21",
         "bootstrap": "^5.1.1",
         "cross-env": "^7.0.3",
+        "filepond": "^4.30.3",
+        "filepond-plugin-drag-reorder": "^1.0.1",
+        "filepond-plugin-file-poster": "^2.4.4",
+        "filepond-plugin-image-preview": "^4.6.10",
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.31",
         "lodash": "^4.17.19",
@@ -22,7 +27,8 @@
         "select2": "^4.1.0-rc.0",
         "select2-bootstrap-5-theme": "^1.1.1",
         "spotlight.js": "^0.7.8",
-        "uppy": "^2.2.0",
-        "vanillajs-datepicker": "^1.1.4"
-    }
+        "vanillajs-datepicker": "^1.1.4",
+        "yarn": "^1.22.15"
+    },
+    "dependencies": {}
 }

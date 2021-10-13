@@ -2,11 +2,9 @@
 
 namespace App\Services;
 
-use App\Http\Requests\UploadImagesRequest;
+use App\Helpers\LoggerHelper;
 use finfo;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Throwable;
@@ -20,12 +18,12 @@ class UploadsService
     /**
      * Saves autovit advert images to public storage.
      * @param string $directory
-     * @param array $photos
+     * @param array $images
      */
-    public function saveAutovitAdvertPhotos(string $directory, array $photos): void
+    public function saveAutovitAdvertImages(string $directory, array $images): void
     {
-        foreach ($photos as $key => $photo) {
-            foreach ($photo as $size => $url) {
+        foreach ($images as $key => $image) {
+            foreach ($image as $size => $url) {
                 if ($size === self::SIZE_AUTOVIT_S || $size === self::SIZE_AUTOVIT_L) {
                     $buffer = file_get_contents($url);
                     $mime   = (new finfo(FILEINFO_MIME_TYPE))->buffer($buffer);
@@ -43,31 +41,31 @@ class UploadsService
 
     /**
      * Handles the upload of images.
-     * @param UploadImagesRequest $request
-     * @return JsonResponse
+     * @param array $images
+     * @param string $directory
+     * @return void
      */
-    public function handleImagesUpload(UploadImagesRequest $request): JsonResponse
+    public function handleImagesUpload(array $images, string $directory): void
     {
-        $success   = true;
-        $images    = $request->file('images');
-        $directory = $request->get('directory');
-        $idx       = 1;
+        $currentFilesNumber = count(Storage::files("images/$directory"));
+
+        $idx = $currentFilesNumber > 0 ? $currentFilesNumber + 1 : 1;
 
         foreach ($images as $image) {
-            $path      = 'images/' . $directory;
-            $imageName = "$idx." . $image->getClientOriginalExtension();
+
+            $path       = 'images/' . $directory;
+            $encodedImg = Image::make($image->path())->encode('jpeg', 100)->save();
+            $imageName  = "$idx.jpeg";
+
             $idx++;
 
             try {
-                Storage::putFileAs($path, $image, $imageName);
+                Storage::putFileAs($path, $encodedImg->basePath(), $imageName);
                 $this->makeThumb($path, $image, $imageName);
             } catch (Throwable $e) {
-                $success = false;
-                Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+                new LoggerHelper($e);
             }
         }
-
-        return response()->json(['success' => $success], $success ? 200 : 400);
     }
 
     /**

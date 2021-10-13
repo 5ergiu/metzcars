@@ -2,11 +2,10 @@
 
 namespace App\Services;
 
+use App\Helpers\LoggerHelper;
 use App\Http\Requests\ContactsStoreRequest;
 use App\Models\Contact;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class ContactsService
@@ -25,7 +24,7 @@ class ContactsService
                 ->with('success', __('contacts.thankYouMessage'))
             ;
         } catch (Throwable $e) {
-            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+            new LoggerHelper($e);
         }
 
         return redirect()

@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
+use App\Helpers\LoggerHelper;
 use App\Http\Requests\AdvertUpdateStoreRequest;
 use App\Models\Advert;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 use Throwable;
 
 class PortfolioService
@@ -29,7 +28,7 @@ class PortfolioService
             ;
         } catch (Throwable $e) {
             DB::rollback();
-            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+            new LoggerHelper($e);
         }
 
         return redirect()
@@ -55,7 +54,7 @@ class PortfolioService
             ;
         } catch (Throwable $e) {
             DB::rollback();
-            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+            new LoggerHelper($e);
         }
 
         return redirect()
@@ -79,7 +78,7 @@ class PortfolioService
             ;
         } catch (Throwable $e) {
             DB::rollback();
-            Log::error($e->getMessage(), ['file' => $e->getFile(), 'line' => $e->getLine()]);
+            new LoggerHelper($e);
         }
 
         return redirect()

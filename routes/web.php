@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-# Public routes
+# Public & admin routes
 Route::middleware(['locale'])->group(function() {
     Route::get('/',                                [Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/locale/{code}',                   [Controllers\LocaleController::class, 'handleLocaleChange'])->name('locale');
@@ -34,7 +34,7 @@ Route::middleware(['locale'])->group(function() {
     Route::resource('/portfolio',                  Controllers\PortfolioController::class)->parameter('portfolio', 'advert');
 
     // Registration Services
-    Route::get('/registration-services',                       [Controllers\RegistrationServicesController::class, 'index']);
+    Route::get('/registration-services',           [Controllers\RegistrationServicesController::class, 'index']);
 });
 
 # Autovit routes

@@ -4,7 +4,7 @@
     @if(empty($advert))
         {{ __('labels.addToPortfolio') }}
     @else
-        {{ __('actions.edit') . $advert->title }}
+        {{ __('actions.edit') . " $advert->title" }}
     @endif
 @endsection
 
@@ -17,10 +17,10 @@
                 {{ __('actions.edit') . " $advert->title" }}
             @endif
         </h3>
-        <form class="needs-validation dark" action="{{ !empty($advert) ? route('portfolio.update', $advert) : route('portfolio.store') }}" method="POST">
+        <form class="needs-validation dark" action="{{ !empty($advert) ? route('portfolio.update', $advert) : route('portfolio.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @if (!empty($advert)) @method('PATCH') @endif
-            <div class="row mb-4 align-items-center">
+            <div class="row align-items-center">
                 <div class="col-12 col-lg">
                     <div class="form-floating">
                         <input type="text" id="advertTitle" class="form-control @error('advert.title') is-invalid @enderror" name="advert[title]" required
@@ -42,11 +42,8 @@
                         @error('advert.price') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
-                <div class="col-auto mt-4 mt-lg-0">
-                    <button type="button" class="btn btn-primary" id="toggleUppyModal">
-                        <i class="fas fa-camera"></i>
-                        {{ __('actions.addPhotos') }}
-                    </button>
+                <div class="mt-3">
+                    <input type="file" id="advertImages" name="images[]" multiple />
                 </div>
             </div>
             <div class="row mb-4">
@@ -339,8 +336,8 @@
                     @endforeach
                 </div>
             </div>
-            <input type="hidden" name="advert[sold]" value="{{ !empty($advert->sold) || empty($advert) ? '1' : '0' }}" />
-            <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ (!empty($advert->directory) && ($advert->directory !== 'fake')) ? $advert->directory : uniqid() }}" />
+            <input type="hidden" name="advert[sold]" value="{{ empty($advert) || !empty($advert->sold) ? '1' : '0' }}" />
+            <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ $advert->directory ?? uniqid() }}" />
             <div class="text-center">
                 @include('elements.buttonLoading', [
                     'type'  => 'submit',
@@ -350,7 +347,14 @@
                 ])
            </div>
         </form>
-    <div id="uppyModal"></div>
+        <div class="modal fade" id="advertImagesModal" tabindex="-1" aria-labelledby="advertImagesModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+
 </section>
 @endsection
 
