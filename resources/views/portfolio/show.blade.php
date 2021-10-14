@@ -138,7 +138,7 @@
                             {{ __('adverts.rhd') }}
                         </span>
                         <span class="col-6">
-                            <i class="fas {{ $advert->rhd ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
+                            {{ $advert->rhd ? __('labels.yes') : __('labels.no') }}
                         </span>
                     </li>
                     <li class="row">

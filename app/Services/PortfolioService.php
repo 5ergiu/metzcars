@@ -102,6 +102,7 @@ class PortfolioService
         $advert['original_owner']  = $request->has('advert.original_owner');
         $advert['no_accident']     = $request->has('advert.no_accident');
         $advert['service_record']  = $request->has('advert.service_record');
+        $advert['rhd']             = $request->has('advert.rhd');
 
         foreach ($advert['features'] as $feature => $key) {
             if ($key === '0') unset($advert['features'][$feature]);
