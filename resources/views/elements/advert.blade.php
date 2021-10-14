@@ -4,8 +4,8 @@
             <div
                 class="advert__img"
                 title="{{ $advert->title }}"
-                onclick="window.open('{{ $advert->sold ? route('portfolio.show', $advert) : $advert->url }}')"
-                style="background: no-repeat center url({{ $advert->autovit_id ? "$advert->autovit_photo" : asset("storage/images/$advert->directory/1.jpeg") }}); background-size: cover"
+                onclick="window.open('{{ route('portfolio.show', $advert) }}', '_self')"
+                style="background: no-repeat center url({{ asset("storage/images/$advert->directory/1.jpeg") }}); background-size: cover"
             ></div>
         @auth
             <a class="advert__edit btn btn-warning position-absolute" href="{{ route('portfolio.edit', $advert) }}">
@@ -36,7 +36,7 @@
         </div>
         <div class="flex-grow-1 d-flex flex-column p-3">
             <h5 class="mb-0">
-                <a href="{{ $advert->sold ? route('portfolio.show', $advert) : $advert->url }}" target="{{ $advert->sold ? '_self' : '_blank' }}" class="advert__title">
+                <a href="{{ route('portfolio.show', $advert) }}" class="advert__title">
                     {{ $advert->title }}
                 </a>
             </h5>

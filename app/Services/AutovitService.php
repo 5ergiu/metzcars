@@ -8,8 +8,6 @@ class AutovitService
 {
     const METHOD_GET  = 'get';
 
-    const STATUS_ACTIVE = 'active';
-
     const CATEGORY_CARS = 29;
 
     const ACCOUNT_ADVERTS_ENDPOINT = '/account/adverts/';
@@ -26,6 +24,15 @@ class AutovitService
     {
         $this->autovitToken = (new AutovitProvider)->getAutovitToken();
         $this->restService  = new RestService;
+    }
+
+    /**
+     * Get a list of all countries.
+     * @return string
+     */
+    public function getCountries(): string
+    {
+        return $this->getResponse('/countries');
     }
 
     /**
