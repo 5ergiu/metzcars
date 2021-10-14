@@ -24,10 +24,11 @@ class AdvertsService
      */
     public function updatePortfolio()
     {
-        $directory      = uniqid();
         $autovitAdverts = json_decode($this->autovitService->getAdverts(), true)['results'];
 
         foreach ($autovitAdverts as $autovitAdvert) {
+            $directory = uniqid();
+
             if (!Advert::firstWhere('autovit_id', $autovitAdvert['id'])) {
                 $this->uploadsService->saveAutovitAdvertImages($directory, $autovitAdvert['photos']);
                 Advert::create($this->buildAdvert($autovitAdvert, $directory));
