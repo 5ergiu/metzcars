@@ -47,7 +47,7 @@ class PortfolioController extends Controller
      * Show the form for creating a new resource.
      * @return View
      */
-    public function create(Request $request): View
+    public function create(): View
     {
         $brands            = json_decode($this->autovitService->getBrands(), true)['options'];
         $translatedOptions = $this->autovitTranslationsService->getTranslatedOptions();

@@ -12,7 +12,6 @@ class Advert extends Model
     /** @var string[]  */
     protected $fillable = [
         'autovit_id',
-        'autovit_photo',
         'title',
         'status',
         'special_offer',
@@ -37,6 +36,7 @@ class Advert extends Model
         'transmission',
         'gearbox',
         'pollution_standard',
+        'rhd',
         'particle_filter',
         'urban_consumption',
         'body_type',
@@ -44,8 +44,8 @@ class Advert extends Model
         'door_count',
         'color',
         'color_type',
+        'country_origin',
         'features',
-        'vat',
         'registration_date',
         'registered',
         'original_owner',
@@ -60,14 +60,16 @@ class Advert extends Model
      * @var array
      */
     protected $attributes = [
-        'special_offer'  => false,
-        'sold'           => false,
-        'deductible_vat' => false,
-        'invoice_issued' => false,
-        'registered'     => false,
-        'original_owner' => false,
-        'no_accident'    => false,
-        'service_record' => false,
+        'special_offer'   => false,
+        'sold'            => false,
+        'deductible_vat'  => false,
+        'invoice_issued'  => false,
+        'rhd'             => false,
+        'particle_filter' => false,
+        'registered'      => false,
+        'original_owner'  => false,
+        'no_accident'     => false,
+        'service_record'  => false,
     ];
 
     /**
@@ -76,15 +78,18 @@ class Advert extends Model
      * @var array
      */
     protected $casts = [
-        'features'           => 'array',
-        'special_offer'      => 'boolean',
-        'sold'               => 'boolean',
-        'deductible_vat'     => 'boolean',
-        'invoice_issued'     => 'boolean',
-        'registered'         => 'boolean',
-        'original_owner'     => 'boolean',
-        'no_accident'        => 'boolean',
-        'service_record'     => 'boolean',
+        'features'        => 'array',
+        'special_offer'   => 'boolean',
+        'sold'            => 'boolean',
+        'deductible_vat'  => 'boolean',
+        'invoice_issued'  => 'boolean',
+        'rhd'             => 'boolean',
+        'particle_filter' => 'boolean',
+        'country_origin'  => 'integer',
+        'registered'      => 'boolean',
+        'original_owner'  => 'boolean',
+        'no_accident'     => 'boolean',
+        'service_record'  => 'boolean',
     ];
 
     /**

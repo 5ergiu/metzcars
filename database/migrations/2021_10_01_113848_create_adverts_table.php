@@ -16,7 +16,6 @@ class CreateAdvertsTable extends Migration
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('autovit_id')->nullable();
-            $table->string('autovit_photo')->nullable();
             $table->string('title');
             $table->string('status')->nullable();
             $table->boolean('special_offer')->default(0);
@@ -41,15 +40,16 @@ class CreateAdvertsTable extends Migration
             $table->string('transmission')->nullable()->default('-');
             $table->string('gearbox');
             $table->string('pollution_standard')->nullable()->default('-');
+            $table->boolean('rhd')->nullable();
             $table->boolean('particle_filter')->nullable();
             $table->decimal('urban_consumption')->nullable();
             $table->string('body_type');
             $table->unsignedSmallInteger('co2_emissions')->nullable();
             $table->unsignedSmallInteger('door_count');
             $table->string('color');
-            $table->string('color_type')->nullable()->default('-');
+            $table->string('color_type')->nullable();
+            $table->unsignedSmallInteger('country_origin')->nullable();
             $table->json('features');
-            $table->boolean('vat')->nullable();
             $table->date('registration_date')->nullable();
             $table->boolean('registered')->default(0);
             $table->boolean('original_owner')->default(0);

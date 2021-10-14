@@ -88,11 +88,11 @@
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="form-floating">
-                        <input type="text" id="advertVersion" class="form-control @error('advert.version') is-invalid @enderror" name="advert[version]" required
+                        <input type="text" id="advertVersion" class="form-control @error('advert.version') is-invalid @enderror" name="advert[version]"
                                value="{{ $advert->version ?? old('advert.version') }}"
                                placeholder="{{ __('adverts.mileage') }}"
                         />
-                        <label for="advertVersion" class="form-label required-field">{{ __('adverts.version') }}</label>
+                        <label for="advertVersion" class="form-label">{{ __('adverts.version') }}</label>
                         @error('advert.version') @include('elements.errorMessage') @enderror
                     </div>
                 </div>
@@ -237,6 +237,17 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="col-12 col-md-4">
+                    <label for="advertCountryOrigin" class="form-label">{{ __('adverts.countryOrigin') }}</label>
+                    <select name="advert[country_origin]" id="advertCountryOrigin" class="form-select">
+                        <option value="" selected></option>
+                        @for($i = 0; $i < 27; $i++)
+                            <option value="{{ $i }}" {{ ($advert->country_origin ?? null) === $i ? 'selected' : '' }}>
+                                {{ __('adverts.countryOriginOptions')[$i] }}
+                            </option>
+                        @endfor
+                    </select>
+                </div>
             </div>
             <div class="row mb-4">
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
@@ -315,6 +326,12 @@
                                 {{ __('adverts.serviceRecord') }}
                             </label>
                         </li>
+                        <li class="form-check">
+                            <input class="form-check-input" type="checkbox" name="advert[rhd]" id="advertRhd" {{ ($advert->rhd ?? null) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="advertRhd">
+                                {{ __('adverts.rhd') }}
+                            </label>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -338,6 +355,9 @@
             </div>
             <input type="hidden" name="advert[sold]" value="{{ empty($advert) || !empty($advert->sold) ? '1' : '0' }}" />
             <input type="hidden" name="advert[directory]" id="advertDirectory" value="{{ $advert->directory ?? uniqid() }}" />
+            @if(!empty($advert))
+                <input type="hidden" id="advertImagesNumber" value="{{ count(Storage::files("images/$advert->directory")) }}" />
+            @endif
             <div class="text-center">
                 @include('elements.buttonLoading', [
                     'type'  => 'submit',

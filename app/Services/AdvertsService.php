@@ -55,7 +55,6 @@ class AdvertsService
     {
         return [
             'autovit_id'         => $advert['id'],
-            'autovit_photo'      => $advert['photos'][1]['1280x800'],
             'title'              => $advert['title'],
             'status'             => $advert['status'],
             'url'                => $advert['url'],
@@ -76,7 +75,8 @@ class AdvertsService
             'transmission'       => $advert['params']['transmission'],
             'gearbox'            => $advert['params']['gearbox'],
             'pollution_standard' => $this->formatStrings($advert['params']['pollution_standard']),
-            'particle_filter'    => $advert['params']['particle_filter'],
+            'rhd'                => $advert['params']['rhd'] === '1',
+            'particle_filter'    => $advert['params']['particle_filter'] === '1',
             'urban_consumption'  => $advert['params']['urban_consumption'],
             'body_type'          => $advert['params']['body_type'],
             'co2_emissions'      => $advert['params']['co2_emissions'],
@@ -84,7 +84,6 @@ class AdvertsService
             'color'              => $advert['params']['color'],
             'color_type'         => $advert['params']['colour_type'],
             'features'           => $advert['params']['features'],
-            'vat'                => $advert['params']['vat'] === '1',
             'registration_date'  => $advert['params']['date_registration'],
             'registered'         => $advert['params']['registered'] === '1',
             'original_owner'     => $advert['params']['original_owner'] === '1',

@@ -37,14 +37,16 @@
                             {{ str_replace('-', ' ', Str::of($advert['model'])->ucfirst()) }}
                         </span>
                     </li>
-                    <li class="row">
-                        <span class="col-6">
-                            {{ __('adverts.version') }}
-                        </span>
-                        <span class="col-6">
-                            {{ $advert->version }}
-                        </span>
-                    </li>
+                    @if(!empty($advert->version))
+                        <li class="row">
+                            <span class="col-6">
+                                {{ __('adverts.version') }}
+                            </span>
+                            <span class="col-6">
+                                {{ $advert->version }}
+                            </span>
+                        </li>
+                    @endif
                     @if(!empty($advert->generation))
                         <li class="row">
                         <span class="col-6">
@@ -133,20 +135,30 @@
                     </li>
                     <li class="row">
                         <span class="col-6">
+                            {{ __('adverts.rhd') }}
+                        </span>
+                        <span class="col-6">
+                            <i class="fas {{ $advert->rhd ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
+                        </span>
+                    </li>
+                    <li class="row">
+                        <span class="col-6">
                             {{ __('adverts.particleFilter') }}
                         </span>
                         <span class="col-6">
                             <i class="fas {{ $advert->particle_filter ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
                         </span>
                     </li>
-                    <li class="row">
-                        <span class="col-6">
-                            {{ __('adverts.urbanConsumption') }}
-                        </span>
-                        <span class="col-6">
-                            {{ $advert->urban_consumption . ' l/100 km' }}
-                        </span>
-                    </li>
+                    @if(!empty($advert->urban_consumption))
+                        <li class="row">
+                            <span class="col-6">
+                                {{ __('adverts.urbanConsumption') }}
+                            </span>
+                            <span class="col-6">
+                                {{ $advert->urban_consumption . ' l/100 km' }}
+                            </span>
+                        </li>
+                    @endif
                     <li class="row">
                         <span class="col-6">
                             {{ __('adverts.bodyType') }}
@@ -189,13 +201,23 @@
                             {{ $translatedOptions['colorOptions'][$advert->color] }}
                         </span>
                     </li>
+                    @if(!empty($advert->country_origin))
+                        <li class="row">
+                        <span class="col-6">
+                            {{ __('adverts.countryOrigin') }}
+                        </span>
+                            <span class="col-6">
+                            {{ __('adverts.countryOriginOptions')[$advert->country_origin] }}
+                        </span>
+                        </li>
+                    @endif
                     @if(!empty($advert->color_type))
                         <li class="row">
                         <span class="col-6">
                             {{ __('adverts.colorType') }}
                         </span>
                             <span class="col-6">
-                            {{ $translatedOptions['colorTypeOptions'][$advert->color_type] ?? '' }}
+                            {{ $translatedOptions['colorTypeOptions'][$advert->color_type] }}
                         </span>
                         </li>
                     @endif
