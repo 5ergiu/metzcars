@@ -22,20 +22,23 @@ class UploadsService
      */
     public function saveAutovitAdvertImages(string $directory, array $images): void
     {
-        foreach ($images as $key => $image) {
+        $idx  = 1;
+        $path = 'images/' . $directory;
+
+        foreach ($images as $image) {
             foreach ($image as $size => $url) {
                 if ($size === self::SIZE_AUTOVIT_S || $size === self::SIZE_AUTOVIT_L) {
-                    $buffer = file_get_contents($url);
-                    $mime   = (new finfo(FILEINFO_MIME_TYPE))->buffer($buffer);
-                    $ext    = substr($mime, strrpos($mime, '/') + 1);
+                    $imageName = "$idx.jpeg";
+                    $image     = Image::make($url)->encode('jpeg', 100)->save("/tmp/$imageName");
 
                     if ($size === self::SIZE_AUTOVIT_S) {
-                        Storage::put("images/$directory/thumbs/$key.$ext", $buffer);
+                        Storage::putFileAs("$path/thumbs", $image->basePath(), $imageName);
                     } elseif ($size === self::SIZE_AUTOVIT_L) {
-                        Storage::put("images/$directory/$key.$ext", $buffer);
+                        Storage::putFileAs($path, $image->basePath(), $imageName);
                     }
                 }
             }
+            $idx++;
         }
     }
 
@@ -47,13 +50,14 @@ class UploadsService
      */
     public function handleImagesUpload(array $images, string $directory): void
     {
-        $currentFilesNumber = count(Storage::files("images/$directory"));
+        if(count(Storage::files("images/$directory")) > 0) {
+            Storage::deleteDirectory("images/$directory");
+        }
 
-        $idx = $currentFilesNumber > 0 ? $currentFilesNumber + 1 : 1;
+        $idx  = 1;
+        $path = 'images/' . $directory;
 
         foreach ($images as $image) {
-
-            $path       = 'images/' . $directory;
             $encodedImg = Image::make($image->path())->encode('jpeg', 100)->save();
             $imageName  = "$idx.jpeg";
 

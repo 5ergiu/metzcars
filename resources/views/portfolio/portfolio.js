@@ -19,10 +19,12 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const advertImagesInput  = document.getElementById('advertImages')
+    const advertDirectory    = document.getElementById('advertDirectory').value
+    const advertImagesNUmber = document.getElementById('advertImagesNumber')?.value
 
     FilePond.registerPlugin(FilePondPluginImagePreview)
 
-    FilePond.create(advertImagesInput, {
+    const pond = FilePond.create(advertImagesInput, {
         credits: false,
         allowMultiple: true,
         instantUpload: false,
@@ -30,4 +32,14 @@ window.addEventListener('DOMContentLoaded', () => {
         storeAsFile: true,
         imagePreviewHeight: 200,
     })
+
+    if(advertImagesNUmber) {
+        const files = []
+
+        for (let i = 1; i <= advertImagesNUmber; i++) {
+            files.push(`/storage/images/${advertDirectory}/${i}.jpeg`)
+        }
+
+        pond.addFiles(files)
+    }
 })
