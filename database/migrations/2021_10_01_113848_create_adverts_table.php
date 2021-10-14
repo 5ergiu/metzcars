@@ -29,7 +29,7 @@ class CreateAdvertsTable extends Migration
             $table->unsignedMediumInteger('price');
             $table->string('brand');
             $table->string('model');
-            $table->string('version');
+            $table->string('version')->nullable();
             $table->string('generation')->nullable()->default('-');
             $table->unsignedSmallInteger('year');
             $table->unsignedMediumInteger('mileage');
