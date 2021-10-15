@@ -4,7 +4,7 @@
         <i class="fas fa-chevron-up ms-1 d-sm-none"></i>
         <i class="fas fa-chevron-down align-middle ms-1 d-none d-sm-inline"></i>
     </button>
-    <ul class="dropdown-menu p-3">
+    <ul class="dropdown-menu p-3" id="adminDropdownMenu">
         <li class="dropdown-item p-0">
             <a class="d-block p-2" href="{{ route('contacts.index') }}">
                 {{ __('labels.contacts') }}
@@ -16,11 +16,13 @@
             </a>
         </li>
         <li class="text-center mt-2">
-            <form action="{{ route('autovit.updateStock') }}" method="POST">
+            <form action="{{ route('autovit.updateStock') }}" id="adminUpdateStock" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-light btn-light--success py-2 px-3">
-                    {{ __('actions.updateStock') }}
-                </button>
+                @include('elements.buttonLoading', [
+                    'type'  => 'button',
+                    'class' => 'btn btn-light btn-light--success py-2 px-3',
+                    'text'  => 'actions.updateStock',
+                ])
             </form>
         </li>
         <li class="text-center mt-3">

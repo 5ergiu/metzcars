@@ -53,7 +53,7 @@
                     </a>
                     <p class="color-green fs-4 fw-bold text-nowrap">
                         <i class="fas fa-euro-sign"></i>
-                        {{ number_format($advert->price * 1.19) }}
+                        {{ $advert->price }}
                     </p>
                 @endif
             </div>

@@ -21,8 +21,9 @@ class AdvertsService
 
     /**
      * Used to update portfolio(cron)
+     * @return void
      */
-    public function updatePortfolio()
+    public function updatePortfolio(): void
     {
         $autovitAdverts = json_decode($this->autovitService->getAdverts(), true)['results'];
 
@@ -62,7 +63,8 @@ class AdvertsService
             'added_on'           => $advert['created_at'],
             'city'               => $advert['city']['ro'],
             'description'        => $advert['description'],
-            'price'              => $advert['params']['price']['1'],
+            'price'              => $advert['params']['price']['gross_net'] === 'net' ? ($advert['params']['price']['1'] * 1.19) : $advert['params']['price']['1'],
+            'deductible_vat'     => $advert['params']['price']['gross_net'] === 'net',
             'brand'              => $this->formatStrings($advert['params']['make']),
             'model'              => $this->formatStrings($advert['params']['model']),
             'version'            => $this->formatStrings($advert['params']['version']),

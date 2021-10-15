@@ -5,7 +5,7 @@
         </div>
         <div>
             <p class="fw-bold">
-                {{ __('labels.officeHours') }}: 09 - 18
+                {{ __('labels.officeHours') }}: 09:00 - 18:00
             </p>
             <a class="d-block" href="tel:+40 726 205 206">
                 <i class="fas fa-phone"></i>

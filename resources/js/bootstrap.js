@@ -20,6 +20,7 @@ window.autosize = require('autosize').default
 // extra js
 require('./components/loadMoreData')
 require('./components/buttonLoading')
+require('../views/admin/admin')
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
