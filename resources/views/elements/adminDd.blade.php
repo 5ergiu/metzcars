@@ -1,5 +1,5 @@
 <div class="dropdown-admin position-relative">
-    <button type="button" class="btn btn-light me-sm-2" data-bs-toggle="dropdown" aria-expanded="false">
+    <button type="button" class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
         Admin
         <i class="fas fa-chevron-up ms-1 d-sm-none"></i>
         <i class="fas fa-chevron-down align-middle ms-1 d-none d-sm-inline"></i>
@@ -14,6 +14,14 @@
             <a class="d-block p-2" href="{{ route('portfolio.create') }}">
                 {{ __('labels.addToPortfolio') }}
             </a>
+        </li>
+        <li class="text-center mt-2">
+            <form action="{{ route('autovit.updateStock') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-light btn-light--success py-2 px-3">
+                    {{ __('actions.updateStock') }}
+                </button>
+            </form>
         </li>
         <li class="text-center mt-3">
             <form action="{{ route('logout') }}" method="POST">

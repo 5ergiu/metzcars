@@ -73,6 +73,22 @@
     }
 }
 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .dropdown {
+        &-admin {
+            .dropdown-menu {
+                &[data-bs-popper] {
+                    top: 100%;
+                    bottom: unset;
+                    margin-top: 0.125rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
     .advert {
@@ -87,19 +103,6 @@
                 li {
                     margin-right: 1rem;
                     margin-bottom: 1rem;
-                }
-            }
-        }
-    }
-
-    .dropdown {
-        &-admin {
-            .dropdown-menu {
-                &[data-bs-popper] {
-                    top: 100%;
-                    bottom: unset;
-                    margin-top: 0.125rem;
-                    margin-bottom: 0;
                 }
             }
         }

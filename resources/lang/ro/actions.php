@@ -4,11 +4,12 @@ return [
 
     "edit"                 => "Edit",
     "loadMore"             => "Încarcă mai multe date",
-    "save"                 => "Salvează",
     "markAsSold"           => "Marchează ca vândută",
-    "unMarkAsSold"         => "Marchează ca valabilă",
-    "send"                 => "Trimite",
     "markAsSpecialOffer"   => "Marchează ca specială",
+    "save"                 => "Salvează",
+    "send"                 => "Trimite",
+    "unMarkAsSold"         => "Marchează ca valabilă",
     "unMarkAsSpecialOffer" => "Marchează ca normală",
+    "updateStock"          => "Updatează stocul",
 
 ];

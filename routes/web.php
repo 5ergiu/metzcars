@@ -39,3 +39,4 @@ Route::middleware(['locale'])->group(function() {
 
 # Autovit routes
 Route::get('/autovit/{brand}/models',              [Controllers\AutovitController::class, 'getBrandModels']);
+Route::post('/autovit/update-stock',               [Controllers\AutovitController::class, 'updateStock'])->name('autovit.updateStock');

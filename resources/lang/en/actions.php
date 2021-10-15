@@ -4,11 +4,12 @@ return [
 
     "edit"                 => "Edit",
     "loadMore"             => "Load more",
-    "save"                 => "Save",
     "markAsSold"           => "Mark as sold",
-    "unMarkAsSold"         => "Unmark as sold",
     "markAsSpecialOffer"   => "Mark as special",
-    "unMarkAsSpecialOffer" => "Unmark as special",
+    "save"                 => "Save",
     "send"                 => "Send",
+    "unMarkAsSold"         => "Unmark as sold",
+    "unMarkAsSpecialOffer" => "Unmark as special",
+    "updateStock"          => "Update stock",
 
 ];

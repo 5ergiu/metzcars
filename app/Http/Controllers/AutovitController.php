@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AdvertsService;
 use App\Services\AutovitService;
-use App\Services\LocaleService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\App;
+use Illuminate\Http\RedirectResponse;
 
 class AutovitController extends Controller
 {
     public function __construct(
-        private AutovitService $autovitService
-    ) { }
+        private AutovitService $autovitService,
+        private AdvertsService $advertsService
+    ) {
+        $this->middleware('auth')->except('getBrandModels');
+    }
 
     /**
      * Get all models for a specific brand.
@@ -32,5 +35,16 @@ class AutovitController extends Controller
         }
 
         return response()->json($models);
+    }
+
+    /**
+     * Manually updating stock.
+     * @return RedirectResponse
+     */
+    public function updateStock(): RedirectResponse
+    {
+        $this->advertsService->updatePortfolio();
+
+        return back()->with('success', __('adverts.messages.success'));
     }
 }

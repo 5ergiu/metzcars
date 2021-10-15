@@ -42,7 +42,7 @@
         @endauth
         </li>
     </ul>
-    <div class="d-none d-sm-block">
+    <div class="d-none d-sm-block ms-sm-2">
         @include('elements.localeDd')
     </div>
 </nav>
